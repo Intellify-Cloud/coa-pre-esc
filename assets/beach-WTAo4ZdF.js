@@ -1,0 +1,1 @@
+var e=`/videos/beach.mp4`;export{e as t};
