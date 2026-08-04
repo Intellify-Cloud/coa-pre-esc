@@ -146,7 +146,7 @@
     text-transform: uppercase;
   }
 
-  .site-footer__column a,
+  .site-footer__column a:not(.site-footer__contact-pill),
   .site-footer__bottom {
     color: white;
     font-size: 13px;
@@ -159,7 +159,7 @@
     line-height: 18px;
   }
 
-  .site-footer__column a:hover,
+  .site-footer__column a:not(.site-footer__contact-pill):hover,
   .site-footer__bottom a:hover {
     color: white;
   }
@@ -175,7 +175,7 @@
     border-radius: 999px;
     background: white;
     padding: 0.8rem 1.25rem;
-    color: rgb(0 0 0);
+    color: rgb(0 0 0) !important;
     font-size: 0.875rem;
     font-weight: 800;
     line-height: 1;
@@ -183,8 +183,14 @@
   }
 
   .site-footer__column .site-footer__contact-pill {
-    color: rgb(0 0 0);
+    color: rgb(0 0 0) !important;
     font-weight: 800;
+  }
+
+  .site-footer__contact-pill:hover,
+  .site-footer__contact-pill:visited,
+  .site-footer__contact-pill:active {
+    color: rgb(0 0 0) !important;
   }
 
   .site-footer__bottom {

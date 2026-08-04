@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
   import { withCacheBust } from '@/composables/cacheBustedAsset'
-  import type { SectionData } from '@/content/siteText'
+  import cabanaMioAssets from 'virtual:cabana-mio-assets'
+  import type { ResortImage, SectionData } from '@/content/siteText'
 
   const props = defineProps<{
     data: SectionData<'map'>
@@ -9,51 +10,64 @@
 
   const activeHeroIndex = ref(0)
   const activeFeatureIndex = ref(0)
-  const activeBeachOneIndex = ref(0)
-  const activeBeachTwoIndex = ref(1)
+  const activeBeachIndex = ref(0)
+  const activeLivingIndex = ref(0)
   const activeGallerySlot = ref(0)
 
-  const droneImages = computed(() => {
-    const images = [props.data.primaryImage, ...props.data.images].filter((image) =>
-      image.src.toLowerCase().includes('drone'),
+  const imageMetadata = computed(() => {
+    return new Map(
+      [props.data.primaryImage, ...props.data.images].map((image) => [image.src, image]),
     )
-
-    return Array.from(new Map(images.map((image) => [image.src, image])).values())
   })
-  const activeHeroImage = computed(
-    () => droneImages.value[activeHeroIndex.value] ?? props.data.primaryImage,
-  )
-  const featureImages = computed(() => {
-    const featureLabels = ['Main Bedroom', 'Twin Bedrooms', 'Equipped Kitchen', 'Private Patio']
+  const toTitleCase = (value: string) =>
+    value
+      .replace(/\.[^.]+$/, '')
+      .replace(/^(copy-of-)?cabana-mio-logo-?/i, 'Cabana Mio Logo ')
+      .replace(/-/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\b\w/g, (letter) => letter.toUpperCase())
+  const toResortImage = (src: string): ResortImage => {
+    const existingImage = imageMetadata.value.get(src)
+    const label = existingImage?.label ?? toTitleCase(src.split('/').pop() ?? 'Cabana Mio')
+    const featured =
+      existingImage && 'featured' in existingImage && typeof existingImage.featured === 'boolean'
+        ? existingImage.featured
+        : undefined
 
-    return featureLabels
-      .map((label) => props.data.images.find((image) => image.label === label))
-      .filter((image): image is (typeof props.data.images)[number] => Boolean(image))
-  })
+    return {
+      src,
+      alt: existingImage?.alt ?? `${label} at Cabana Mio`,
+      label,
+      featured,
+    }
+  }
+  const imagesByPrefix = (prefixes: string[]) => {
+    const normalizedPrefixes = prefixes.map((prefix) => prefix.toLowerCase())
+
+    return cabanaMioAssets
+      .filter((src) => {
+        const filename = src.split('/').pop()?.toLowerCase() ?? ''
+        return normalizedPrefixes.some((prefix) => filename.startsWith(prefix))
+      })
+      .map(toResortImage)
+  }
+
+  const droneImages = computed(() => imagesByPrefix(['dron']))
+  const featureImages = computed(() => imagesByPrefix(['rooms']))
   const activeFeatureImage = computed(
     () => featureImages.value[activeFeatureIndex.value] ?? featureImages.value[0],
   )
-  const beachImages = computed(() => {
-    return props.data.images.filter((image) =>
-      image.src.toLowerCase().split('/').pop()?.startsWith('beach-'),
-    )
-  })
-  const activeBeachOneImage = computed(
-    () => beachImages.value[activeBeachOneIndex.value] ?? beachImages.value[0],
+  const beachImages = computed(() => imagesByPrefix(['beach']))
+  const activeBeachImage = computed(
+    () => beachImages.value[activeBeachIndex.value] ?? beachImages.value[0],
   )
-  const activeBeachTwoImage = computed(
-    () =>
-      beachImages.value[activeBeachTwoIndex.value] ?? beachImages.value[1] ?? beachImages.value[0],
+  const livingImages = computed(() =>
+    imagesByPrefix(['dining', 'kirchen', 'living', 'room-living']),
   )
-  const getNextDistinctIndex = (currentIndex: number, blockedIndex: number, total: number) => {
-    if (total < 2) {
-      return 0
-    }
-
-    const nextIndex = (currentIndex + 1) % total
-
-    return nextIndex === blockedIndex ? (nextIndex + 1) % total : nextIndex
-  }
+  const activeLivingImage = computed(
+    () => livingImages.value[activeLivingIndex.value] ?? livingImages.value[0],
+  )
 
   let cycleTimer: number | undefined
 
@@ -64,17 +78,9 @@
       } else if (activeGallerySlot.value === 1 && featureImages.value.length) {
         activeFeatureIndex.value = (activeFeatureIndex.value + 1) % featureImages.value.length
       } else if (activeGallerySlot.value === 2 && beachImages.value.length) {
-        activeBeachOneIndex.value = getNextDistinctIndex(
-          activeBeachOneIndex.value,
-          activeBeachTwoIndex.value,
-          beachImages.value.length,
-        )
-      } else if (beachImages.value.length) {
-        activeBeachTwoIndex.value = getNextDistinctIndex(
-          activeBeachTwoIndex.value,
-          activeBeachOneIndex.value,
-          beachImages.value.length,
-        )
+        activeBeachIndex.value = (activeBeachIndex.value + 1) % beachImages.value.length
+      } else if (livingImages.value.length) {
+        activeLivingIndex.value = (activeLivingIndex.value + 1) % livingImages.value.length
       }
 
       activeGallerySlot.value = (activeGallerySlot.value + 1) % 4
@@ -145,10 +151,10 @@
             v-for="(image, index) in beachImages"
             :key="image.src"
             :src="withCacheBust(image.src)"
-            :alt="index === activeBeachOneIndex ? image.alt : ''"
-            :aria-hidden="index === activeBeachOneIndex ? undefined : 'true'"
+            :alt="index === activeBeachIndex ? image.alt : ''"
+            :aria-hidden="index === activeBeachIndex ? undefined : 'true'"
             :class="{
-              'cabana-section__cycle-image--active': image.src === activeBeachOneImage?.src,
+              'cabana-section__cycle-image--active': image.src === activeBeachImage?.src,
             }"
             class="cabana-section__cycle-image"
             loading="lazy"
@@ -158,13 +164,13 @@
 
         <figure class="cabana-section__tile cabana-section__tile--bottom-2">
           <img
-            v-for="(image, index) in beachImages"
+            v-for="(image, index) in livingImages"
             :key="image.src"
             :src="withCacheBust(image.src)"
-            :alt="index === activeBeachTwoIndex ? image.alt : ''"
-            :aria-hidden="index === activeBeachTwoIndex ? undefined : 'true'"
+            :alt="index === activeLivingIndex ? image.alt : ''"
+            :aria-hidden="index === activeLivingIndex ? undefined : 'true'"
             :class="{
-              'cabana-section__cycle-image--active': image.src === activeBeachTwoImage?.src,
+              'cabana-section__cycle-image--active': image.src === activeLivingImage?.src,
             }"
             class="cabana-section__cycle-image"
             loading="lazy"
