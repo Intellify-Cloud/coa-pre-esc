@@ -204,8 +204,14 @@
 
   @media (min-width: 1200px) {
     .shell-heading {
-      font-size: clamp(3.25rem, 4vw, 4.5rem);
-      line-height: 1.02;
+      margin: var(--shell-space-3) 0 0;
+      color: #333;
+      max-width: 22ch;
+      font-family: var(--shell-font-heading);
+      letter-spacing: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 600;
+      line-height: 1.1;
     }
   }
 

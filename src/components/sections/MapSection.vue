@@ -218,7 +218,7 @@
     grid-area: intro;
     align-items: center;
     min-height: 336px;
-    padding: clamp(2rem, 4vw, 3.5rem);
+    padding: var(--cabana-intro-inset, clamp(2rem, 4vw, 3.5rem));
   }
 
   .cabana-section__intro h2 {
@@ -264,6 +264,9 @@
   }
 
   .cabana-section__panel {
+    --cabana-card-gap: clamp(1.1rem, 2vw, 1.6rem);
+    --cabana-intro-inset: clamp(2rem, 4vw, 3.5rem);
+
     display: grid;
     grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: minmax(336px, auto) 336px;
@@ -271,7 +274,7 @@
       'intro feature feature'
       'hero bottom1 bottom2'
       'columns columns columns';
-    gap: var(--shell-space-4);
+    gap: var(--cabana-card-gap);
     border: 1px solid color-mix(in srgb, var(--shell-color-ink) 8%, white);
     border-radius: 0.5rem;
     background: rgb(255 255 255 / 0.94);
@@ -300,6 +303,8 @@
     max-width: 100%;
     height: 100%;
     min-height: 336px;
+    margin-left: var(--cabana-intro-inset);
+    width: calc(100% - var(--cabana-intro-inset));
     box-shadow: none;
   }
 
@@ -434,8 +439,10 @@
     }
 
     .cabana-section__hero {
+      margin-left: 0;
       height: auto;
       min-height: 0;
+      width: 100%;
     }
 
     .cabana-section__tile {

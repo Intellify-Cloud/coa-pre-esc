@@ -35,26 +35,23 @@
 
 <style scoped>
   .steps-section__rows {
+    --steps-card-gap: clamp(1.5rem, 2.2vw, 2.25rem);
+    --steps-row-max: 72rem;
+
     display: grid;
-    gap: var(--shell-space-8);
+    gap: var(--steps-card-gap);
     margin-top: var(--shell-space-12);
   }
 
   .steps-section__row {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--shell-space-6);
-    max-width: 72rem;
-    margin-inline: auto;
+    gap: var(--steps-card-gap);
+    max-width: var(--steps-row-max);
   }
 
   .steps-section__row--center {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 56rem;
-  }
-
-  .steps-section__row--center .steps-section__card {
-    height: 233px;
   }
 
   .steps-section__card {
@@ -108,27 +105,32 @@
     .steps-section__row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       max-width: 36rem;
+      margin-inline: auto;
     }
 
     .steps-section__row--center {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       max-width: 28rem;
+      margin-inline: auto;
     }
   }
 
   @media (min-width: 1200px) {
-    .steps-section__row--center .steps-section__card {
-      height: auto;
-    }
-
     .steps-section__row {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 72rem;
+      width: min(100%, var(--steps-row-max));
+      max-width: none;
+      margin-inline: 0;
     }
 
     .steps-section__row--center {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 56rem;
+      width: min(
+        calc(((var(--steps-row-max) - (var(--steps-card-gap) * 2)) / 3) * 2 + var(--steps-card-gap)),
+        calc(100% - (var(--steps-card-gap) * 2))
+      );
+      max-width: none;
+      margin-inline: auto;
     }
   }
 </style>
