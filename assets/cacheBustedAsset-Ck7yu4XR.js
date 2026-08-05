@@ -1,0 +1,1 @@
+var e=e=>!e||/^(data:|blob:|https?:)/i.test(e)?e:`${e}${e.includes(`?`)?`&`:`?`}v=1785958095439`;export{e as t};
