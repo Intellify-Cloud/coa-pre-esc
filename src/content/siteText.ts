@@ -137,7 +137,7 @@ export const siteText = {
       {
         icon: 'wallet',
         title: 'Affordable',
-        body: 'Build your holiday from just R650 pm',
+        body: 'Build your holiday from just R 750 pm',
       },
       {
         icon: 'pause',
@@ -293,6 +293,7 @@ export const siteText = {
           '+ 7 self-catering chalets',
           '+ 50 meters from the beach',
           '+ Secure parking',
+          '+ Free Wi-Fi',
         ],
       },
       {

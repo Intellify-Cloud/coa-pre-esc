@@ -151,7 +151,7 @@
 <div class="py-4 md:py-0 px-4">
 <div class="text-cpe-navy text-4xl mb-4"><i class="fa-solid fa-wallet"></i></div>
 <h3 class="font-serif font-bold text-xl text-cpe-navy mb-2">Affordable</h3>
-<p class="text-sm text-gray-600">Build your holiday from just R650 pm</p>
+<p class="text-sm text-gray-600">Build your holiday from just R 750 pm</p>
 </div>
 <!-- Feature 4 -->
 <div class="py-4 md:py-0 px-4">
@@ -191,7 +191,7 @@
 <li class="flex items-center"><i class="fa-solid fa-circle-check text-cpe-silver mr-3"></i> Member pricing on extras</li>
 </ul>
 <div class="flex items-center justify-between mt-auto border-t pt-6 border-gray-100">
-<div class="text-sm text-gray-500 uppercase tracking-wide">From <span class="text-lg font-bold text-gray-900">R650 pm</span></div>
+<div class="text-sm text-gray-500 uppercase tracking-wide">From <span class="text-lg font-bold text-gray-900">R 750 pm</span></div>
 <button class="border-2 border-cpe-navy text-cpe-navy px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-cpe-navy hover:text-white transition duration-200">View Details</button>
 </div>
 </div>
