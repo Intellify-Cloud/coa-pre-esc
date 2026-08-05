@@ -25,6 +25,21 @@ export type TestimonialItem = {
   detail: string
 }
 
+const membershipPricing = {
+  starter: {
+    joiningFee: 'R 2 500',
+    monthlyContribution: 'R 750',
+  },
+  preferred: {
+    joiningFee: 'R 3 500',
+    monthlyContribution: 'R 1 050',
+  },
+  future: {
+    joiningFee: 'Future Phase',
+    monthlyContribution: 'Future Phase',
+  },
+} as const
+
 export type FooterColumn = {
   title: string
   links: NavLink[]
@@ -137,7 +152,7 @@ export const siteText = {
       {
         icon: 'wallet',
         title: 'Affordable',
-        body: 'Build your holiday from just R 750 pm',
+        body: `Build your holiday from just ${membershipPricing.starter.monthlyContribution} pm`,
       },
       {
         icon: 'pause',
@@ -249,24 +264,24 @@ export const siteText = {
     members: [
       {
         name: 'Coastal Escape',
-        joiningFee: 'R 2 500',
-        monthlyContribution: 'R 750',
+        joiningFee: membershipPricing.starter.joiningFee,
+        monthlyContribution: membershipPricing.starter.monthlyContribution,
         bio: 'Entry membership wallet package for families planning reliable annual beach holiday value.',
         tier: 'starter',
         benefits: [],
       },
       {
         name: 'Coastal Preferred Escape',
-        joiningFee: 'R 3 500',
-        monthlyContribution: 'R 1 050',
+        joiningFee: membershipPricing.preferred.joiningFee,
+        monthlyContribution: membershipPricing.preferred.monthlyContribution,
         bio: 'Preferred membership wallet package with stronger monthly holiday value.',
         tier: 'preferred',
         benefits: [],
       },
       {
         name: 'Coastal Premier Escape',
-        joiningFee: 'Future Phase',
-        monthlyContribution: 'Future Phase',
+        joiningFee: membershipPricing.future.joiningFee,
+        monthlyContribution: membershipPricing.future.monthlyContribution,
         bio: 'Future premium membership wallet package for later release.',
         tier: 'future',
         benefits: [],
@@ -446,6 +461,21 @@ export const siteText = {
     eyebrow: '- Contact Us -',
     title: 'Request Information',
     body: 'Have a question, want to find out more, or ready to start planning your next family beach holiday? Reach out to us and we will gladly walk you through Coastal Preferred Escapes, the available membership options, and what the journey could look like for your family.\n\nWhether you are exploring the idea for the first time or ready to take the next step, we are here to help you start the conversation in a friendly, personal way.',
+    banking: {
+      title: 'Banking Details',
+      note: 'Please use your full name as the payment reference.',
+      details: [
+        {
+          label: 'Account name',
+          value: 'Cabana Mio Accommodation Management Company (Pty) Ltd',
+        },
+        { label: 'Bank', value: 'Absa' },
+        { label: 'Account number', value: '4106 192 496' },
+        { label: 'Account type', value: 'Current' },
+        { label: 'Branch code', value: '632005' },
+        { label: 'Reference', value: 'Your full name' },
+      ],
+    },
     fields: {
       name: 'Full name',
       email: 'Email address',

@@ -122,6 +122,20 @@
         <p class="shell-eyebrow">{{ data.eyebrow }}</p>
         <h2 id="contact-title" class="shell-heading">{{ data.title }}</h2>
         <p class="shell-lead">{{ data.body }}</p>
+
+        <aside class="banking-card shell-card" aria-labelledby="home-banking-title">
+          <span class="banking-card__icon" aria-hidden="true">account_balance</span>
+          <div class="banking-card__content">
+            <h3 id="home-banking-title">{{ data.banking.title }}</h3>
+            <dl>
+              <div v-for="item in data.banking.details" :key="item.label">
+                <dt>{{ item.label }}</dt>
+                <dd>{{ item.value }}</dd>
+              </div>
+            </dl>
+            <p>{{ data.banking.note }}</p>
+          </div>
+        </aside>
       </div>
 
       <form class="contact-section__form shell-card" novalidate @submit.prevent="handleSubmit">
@@ -228,6 +242,87 @@
     padding: var(--shell-space-6);
   }
 
+  .banking-card {
+    display: grid;
+    gap: var(--shell-space-4);
+    justify-items: center;
+    margin-top: var(--shell-space-6);
+    padding: var(--shell-space-5);
+    background: white;
+  }
+
+  .banking-card__icon {
+    display: grid;
+    width: 3.6rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--shell-color-accent-soft) 60%, white);
+    color: var(--shell-color-lagoon);
+    font-family: "Material Symbols Rounded";
+    font-size: 1.95rem;
+    font-feature-settings: "liga";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .banking-card__content {
+    display: grid;
+    gap: var(--shell-space-3);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .banking-card h3 {
+    margin: 0;
+    color: rgb(10 42 94);
+    font-size: 1.1rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .banking-card dl {
+    display: grid;
+    gap: var(--shell-space-2);
+    margin: 0;
+  }
+
+  .banking-card dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--shell-space-3);
+    border-bottom: 1px solid color-mix(in srgb, var(--shell-color-hairline) 70%, transparent);
+    padding-bottom: var(--shell-space-2);
+  }
+
+  .banking-card dt,
+  .banking-card dd,
+  .banking-card p {
+    margin: 0;
+  }
+
+  .banking-card dt {
+    color: var(--shell-color-muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .banking-card dd {
+    color: var(--shell-color-ink);
+    font-weight: 850;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .banking-card p {
+    color: var(--shell-color-subtle);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
   .contact-section__form label {
     display: grid;
     gap: var(--shell-space-2);
@@ -319,6 +414,12 @@
   @media (min-width: 768px) {
     .contact-section__inner {
       grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banking-card__icon {
+      width: 3.2rem;
     }
   }
 </style>
