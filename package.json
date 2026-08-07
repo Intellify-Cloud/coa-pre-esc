@@ -30,6 +30,7 @@
     "npm-run-all2": "^9.0.2",
     "oxfmt": "^0.54.0",
     "typescript": "~6.0.0",
+    "vite-plugin-prerender": "^1.0.8",
     "vue-tsc": "^3.3.5"
   },
   "engines": {

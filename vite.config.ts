@@ -1,9 +1,11 @@
 import { existsSync, readdirSync } from "node:fs";
 import { fileURLToPath, URL } from "node:url";
+import path from "node:path";
 import { defineConfig, normalizePath, type Plugin } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import vueDevTools from "vite-plugin-vue-devtools";
+import vitePrerender from "vite-plugin-prerender";
 
 const buildId = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? Date.now().toString();
 const cabanaMioDir = fileURLToPath(new URL("./public/cabana-mio", import.meta.url));
@@ -58,7 +60,24 @@ export default defineConfig({
   define: {
     __APP_BUILD_ID__: JSON.stringify(buildId),
   },
-  plugins: [cabanaMioAssetsPlugin(), tailwindcss(), vue(), vueDevTools()],
+  plugins: [
+    cabanaMioAssetsPlugin(),
+    tailwindcss(),
+    vue(),
+    vueDevTools(),
+    vitePrerender({
+      staticDir: path.join(__dirname, "dist"),
+      routes: [
+        "/",
+        "/coming-soon/",
+        "/portfolio/",
+        "/contact",
+        "/about/",
+        "/faq/",
+        "/privacy-policy/",
+      ],
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
