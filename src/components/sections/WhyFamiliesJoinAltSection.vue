@@ -71,7 +71,6 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
@@ -151,9 +150,9 @@
     display: none;
   }
 
-  @media (max-width: 1199px) {
+  @media (min-width: 1200px) {
     .why-alt-section__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
     }
   }
 </style>

@@ -8,9 +8,14 @@
   }>()
 
   const isScrolled = ref(false)
+  const isMenuOpen = ref(false)
 
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 24
+  }
+
+  const closeMenu = () => {
+    isMenuOpen.value = false
   }
 
   onMounted(() => {
@@ -24,9 +29,12 @@
 </script>
 
 <template>
-  <header class="nav-bar" :class="{ 'nav-bar--scrolled': isScrolled }">
+  <header
+    class="nav-bar"
+    :class="{ 'nav-bar--scrolled': isScrolled, 'nav-bar--open': isMenuOpen }"
+  >
     <nav class="nav-bar__inner shell-container" aria-label="Primary">
-      <a class="nav-bar__brand" href="/#hero" :aria-label="data.logoText">
+      <a class="nav-bar__brand" href="/#hero" :aria-label="data.logoText" @click="closeMenu">
         <img :src="withCacheBust(isScrolled ? data.scrolledLogoImage : data.logoImage)" alt="" />
       </a>
 
@@ -39,7 +47,29 @@
       <a class="shell-button shell-button--primary nav-bar__cta" :href="data.cta.href">
         {{ data.cta.label }}
       </a>
+
+      <button
+        class="nav-bar__menu-button"
+        type="button"
+        :aria-expanded="isMenuOpen"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+        @click="isMenuOpen = !isMenuOpen"
+      >
+        <span aria-hidden="true">{{ isMenuOpen ? 'close' : 'menu' }}</span>
+      </button>
     </nav>
+
+    <div id="mobile-menu" class="nav-bar__mobile" :hidden="!isMenuOpen">
+      <div class="nav-bar__mobile-inner shell-container">
+        <a v-for="link in data.links" :key="link.href" :href="link.href" @click="closeMenu">
+          {{ link.label }}
+        </a>
+        <a class="shell-button shell-button--primary nav-bar__mobile-cta" :href="data.cta.href" @click="closeMenu">
+          {{ data.cta.label }}
+        </a>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -50,7 +80,7 @@
     left: 0;
     right: 0;
     z-index: 50;
-    min-height: 104px;
+    min-height: 84px;
     background: transparent;
     transition:
       min-height 700ms ease,
@@ -65,12 +95,18 @@
     backdrop-filter: blur(12px);
   }
 
+  .nav-bar--open {
+    background: rgb(10 42 94 / 0.96);
+    box-shadow: 0 0.75rem 2rem rgb(10 42 94 / 0.16);
+    backdrop-filter: blur(12px);
+  }
+
   .nav-bar__inner {
     display: grid;
-    min-height: 104px;
-    grid-template-columns: 1fr auto 1fr;
+    min-height: 84px;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: var(--shell-space-8);
+    gap: var(--shell-space-4);
     transition: min-height 700ms ease;
   }
 
@@ -80,13 +116,13 @@
 
   .nav-bar__brand {
     display: inline-flex;
-    width: min(15rem, 42vw);
+    width: min(12rem, 54vw);
     align-items: center;
     transition: width 700ms ease;
   }
 
   .nav-bar--scrolled .nav-bar__brand {
-    width: min(10.5rem, 30vw);
+    width: min(9rem, 48vw);
   }
 
   .nav-bar__brand img {
@@ -96,7 +132,7 @@
   }
 
   .nav-bar__links {
-    display: flex;
+    display: none;
     align-items: center;
     gap: clamp(1rem, 2vw, var(--shell-space-8));
     color: var(--shell-color-ink);
@@ -115,9 +151,10 @@
   }
 
   .nav-bar__cta {
+    display: none;
     justify-self: end;
     border-radius: 999px;
-    padding-inline: 1.35rem;
+    padding-inline: 1rem;
     text-transform: uppercase;
     font-size: 0.8125rem;
     transition:
@@ -134,6 +171,54 @@
     color: white;
   }
 
+  .nav-bar__menu-button {
+    display: grid;
+    width: 2.75rem;
+    aspect-ratio: 1;
+    place-items: center;
+    justify-self: end;
+    border: 1px solid rgb(255 255 255 / 0.55);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.92);
+    color: var(--shell-color-ink);
+    cursor: pointer;
+  }
+
+  .nav-bar__menu-button span {
+    font-family: "Material Symbols Rounded";
+    font-size: 1.65rem;
+    font-feature-settings: "liga";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .nav-bar__mobile {
+    border-top: 1px solid rgb(255 255 255 / 0.16);
+  }
+
+  .nav-bar__mobile-inner {
+    display: grid;
+    gap: var(--shell-space-2);
+    padding-block: var(--shell-space-4) var(--shell-space-5);
+  }
+
+  .nav-bar__mobile a:not(.shell-button) {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border-bottom: 1px solid rgb(255 255 255 / 0.14);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 850;
+    text-transform: uppercase;
+  }
+
+  .nav-bar__mobile-cta {
+    justify-self: stretch;
+    margin-top: var(--shell-space-2);
+  }
+
   @media (min-width: 768px) {
     .nav-bar,
     .nav-bar__inner {
@@ -142,10 +227,20 @@
 
     .nav-bar__inner {
       grid-template-columns: 1fr auto 1fr;
+      gap: var(--shell-space-8);
     }
 
     .nav-bar__links {
       display: flex;
+    }
+
+    .nav-bar__cta {
+      display: inline-flex;
+    }
+
+    .nav-bar__menu-button,
+    .nav-bar__mobile {
+      display: none;
     }
 
     .nav-bar__brand {

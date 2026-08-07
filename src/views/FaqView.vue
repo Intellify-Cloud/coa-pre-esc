@@ -156,7 +156,6 @@
 
   .faq-section__inner {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--shell-space-4);
   }
 
@@ -178,9 +177,9 @@
     line-height: 1.65;
   }
 
-  @media (max-width: 759px) {
+  @media (min-width: 768px) {
     .faq-section__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

@@ -373,7 +373,6 @@
 
   .contact-page__content {
     display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(22rem, 1fr);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
@@ -397,7 +396,7 @@
 
   .banking-card__icon {
     display: grid;
-    width: 3.6rem;
+    width: 3.2rem;
     aspect-ratio: 1;
     place-items: center;
     border-radius: 999px;
@@ -477,7 +476,7 @@
 
   .contact-page__cards {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--shell-space-4);
     align-items: stretch;
   }
@@ -664,7 +663,6 @@
 
   .contact-form__row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--shell-space-4);
   }
 
@@ -772,19 +770,27 @@
 
   @media (min-width: 768px) {
     .contact-page__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .contact-page__content {
+      grid-template-columns: minmax(0, 0.82fr) minmax(22rem, 1fr);
+    }
+
+    .contact-page__cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 1199px) {
-    .contact-page__cards,
-    .contact-page__content,
-    .contact-form__row {
-      grid-template-columns: 1fr;
-    }
-
+  @media (min-width: 560px) {
     .banking-card__icon {
-      width: 3.2rem;
+      width: 3.6rem;
     }
   }
 </style>

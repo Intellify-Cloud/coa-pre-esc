@@ -268,12 +268,13 @@
     --cabana-intro-inset: clamp(2rem, 4vw, 3.5rem);
 
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: minmax(336px, auto) 336px;
     grid-template-areas:
-      'intro feature feature'
-      'hero bottom1 bottom2'
-      'columns columns columns';
+      'intro'
+      'hero'
+      'feature'
+      'bottom1'
+      'bottom2'
+      'columns';
     gap: var(--cabana-card-gap);
     border: 1px solid color-mix(in srgb, var(--shell-color-ink) 8%, white);
     border-radius: 0.5rem;
@@ -301,10 +302,7 @@
     grid-area: hero;
     width: 100%;
     max-width: 100%;
-    height: 100%;
-    min-height: 336px;
-    margin-left: var(--cabana-intro-inset);
-    width: calc(100% - var(--cabana-intro-inset));
+    aspect-ratio: 16 / 9;
     box-shadow: none;
   }
 
@@ -346,7 +344,7 @@
     top: var(--shell-space-4);
     left: var(--shell-space-4);
     display: grid;
-    width: min(13rem, 32vw);
+    width: min(11rem, 58vw);
     min-height: 5rem;
     place-items: center;
     border: 1px solid rgb(255 255 255 / 0.75);
@@ -363,6 +361,7 @@
   }
 
   .cabana-section__tile {
+    aspect-ratio: 16 / 9;
     box-shadow: 0 0.85rem 1.75rem rgb(10 42 94 / 0.08);
   }
 
@@ -391,7 +390,6 @@
 
   .cabana-section__columns {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--shell-space-8);
     margin-top: 0;
   }
@@ -419,48 +417,43 @@
     line-height: 1.55;
   }
 
-  @media (max-width: 1199px) {
-    .cabana-section__panel {
-      grid-template-columns: 1fr;
-      grid-template-rows: none;
-      grid-template-areas:
-        'intro'
-        'hero'
-        'feature'
-        'bottom1'
-        'bottom2'
-        'columns';
-      min-height: 0;
-    }
-
-    .cabana-section__hero,
-    .cabana-section__tile {
-      aspect-ratio: 16 / 9;
-    }
-
-    .cabana-section__hero {
-      margin-left: 0;
-      height: auto;
-      min-height: 0;
-      width: 100%;
-    }
-
-    .cabana-section__tile {
-      height: auto;
-    }
-
+  @media (min-width: 560px) {
     .cabana-section__columns {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 559px) {
-    .cabana-section__hero-logo {
-      width: min(11rem, 58vw);
+  @media (min-width: 1200px) {
+    .cabana-section__panel {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: minmax(336px, auto) 336px;
+      grid-template-areas:
+        'intro feature feature'
+        'hero bottom1 bottom2'
+        'columns columns columns';
+      min-height: 0;
+    }
+
+    .cabana-section__hero {
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 336px;
+      margin-left: var(--cabana-intro-inset);
+      width: calc(100% - var(--cabana-intro-inset));
+    }
+
+    .cabana-section__tile {
+      aspect-ratio: auto;
     }
 
     .cabana-section__columns {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 560px) {
+    .cabana-section__hero-logo {
+      width: min(13rem, 32vw);
     }
   }
 </style>

@@ -283,6 +283,7 @@
   .membership-card__footer {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     gap: var(--shell-space-3);
     padding: var(--shell-space-4) 0 0;
@@ -336,10 +337,10 @@
     }
   }
 
-  @media (max-width: 559px) {
+  @media (min-width: 560px) {
     .membership-card__footer {
-      align-items: stretch;
-      flex-direction: column;
+      align-items: center;
+      flex-direction: row;
     }
   }
 </style>

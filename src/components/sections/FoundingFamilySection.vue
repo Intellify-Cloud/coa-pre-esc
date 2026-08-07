@@ -36,7 +36,6 @@
 
   .founding-family-section__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.8fr);
     align-items: center;
     gap: var(--shell-space-8);
   }
@@ -80,9 +79,9 @@
     color: var(--shell-color-ink);
   }
 
-  @media (max-width: 759px) {
+  @media (min-width: 768px) {
     .founding-family-section__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.8fr);
     }
   }
 </style>

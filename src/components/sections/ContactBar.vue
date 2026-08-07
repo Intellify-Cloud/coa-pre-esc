@@ -33,11 +33,12 @@
     display: flex;
     min-height: 20px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--shell-space-4);
   }
 
   .contact-bar__message {
+    display: none;
     margin: 0;
   }
 
@@ -47,13 +48,13 @@
     gap: var(--shell-space-3);
   }
 
-  @media (max-width: 759px) {
+  @media (min-width: 768px) {
     .contact-bar__inner {
-      justify-content: center;
+      justify-content: space-between;
     }
 
     .contact-bar__message {
-      display: none;
+      display: block;
     }
   }
 </style>

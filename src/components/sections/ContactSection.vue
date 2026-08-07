@@ -232,7 +232,6 @@
 
   .contact-section__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
     gap: clamp(2rem, 6vw, 5rem);
   }
 
@@ -253,7 +252,7 @@
 
   .banking-card__icon {
     display: grid;
-    width: 3.6rem;
+    width: 3.2rem;
     aspect-ratio: 1;
     place-items: center;
     border-radius: 999px;
@@ -417,9 +416,9 @@
     }
   }
 
-  @media (max-width: 767px) {
+  @media (min-width: 560px) {
     .banking-card__icon {
-      width: 3.2rem;
+      width: 3.6rem;
     }
   }
 </style>

@@ -45,13 +45,13 @@
 
   .steps-section__row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--steps-card-gap);
     max-width: var(--steps-row-max);
   }
 
   .steps-section__row--center {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .steps-section__card {

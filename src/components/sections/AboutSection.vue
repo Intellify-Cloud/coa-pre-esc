@@ -35,7 +35,6 @@
 
   .about-section__intro {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
     color: var(--shell-color-muted);
@@ -51,7 +50,7 @@
 
   .about-section__highlights {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
     gap: var(--shell-space-3);
     margin: 0;
     padding: 0;
@@ -88,10 +87,6 @@
   @media (min-width: 768px) {
     .about-section__intro {
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    }
-
-    .about-section__highlights {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

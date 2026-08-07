@@ -36,7 +36,6 @@
 <style scoped>
   .testimonials-section__grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--shell-space-4);
     margin-top: var(--shell-space-10);
   }
@@ -72,9 +71,9 @@
     color: var(--shell-color-muted);
   }
 
-  @media (max-width: 759px) {
+  @media (min-width: 768px) {
     .testimonials-section__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

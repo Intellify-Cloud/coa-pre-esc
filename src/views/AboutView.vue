@@ -140,7 +140,6 @@
 
   .about-page__grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--shell-space-4);
   }
 
@@ -190,9 +189,9 @@
     max-width: 58rem;
   }
 
-  @media (max-width: 759px) {
+  @media (min-width: 768px) {
     .about-page__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
