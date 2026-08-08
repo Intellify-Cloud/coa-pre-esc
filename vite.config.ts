@@ -1,6 +1,5 @@
 import { existsSync, readdirSync } from "node:fs";
 import { fileURLToPath, URL } from "node:url";
-import path from "node:path";
 import { defineConfig, normalizePath, type Plugin, type UserConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
@@ -58,9 +57,10 @@ const getPrerenderPlugin = async (): Promise<Plugin | null> => {
     const { default: vitePrerender } = await import("vite-plugin-prerender");
 
     return vitePrerender({
-      staticDir: path.join(__dirname, "dist"),
+      staticDir: fileURLToPath(new URL("./dist", import.meta.url)),
       routes: [
         "/",
+        "/cabana-mio/",
         "/coming-soon/",
         "/portfolio/",
         "/contact",

@@ -4,12 +4,14 @@
   <main id="main-content">
     <section class="faq-hero shell-section" aria-labelledby="faq-title">
       <div class="faq-hero__inner shell-container">
-        <p class="shell-eyebrow">Questions & Answers</p>
-        <h1 id="faq-title" class="shell-heading">Clear answers before you join.</h1>
-        <p class="shell-lead">
-          Practical details about Coastal Preferred Escapes, Cabana Mio, membership flexibility,
-          the Holiday Wallet, and Founding Family benefits.
-        </p>
+        <header class="faq-hero__header">
+          <p class="shell-eyebrow">Questions & Answers</p>
+          <h1 id="faq-title" class="shell-heading">Clear answers before you join.</h1>
+          <p class="shell-lead">
+            Practical details about Coastal Preferred Escapes, Cabana Mio, membership flexibility,
+            the Holiday Wallet, and Founding Family benefits.
+          </p>
+        </header>
       </div>
     </section>
 
@@ -147,7 +149,15 @@
   }
 
   .faq-hero__inner {
-    max-width: 54rem;
+    display: grid;
+  }
+
+  .faq-hero__header {
+    max-width: 60rem;
+  }
+
+  .faq-hero__header .shell-heading {
+    max-width: 18ch;
   }
 
   .faq-section {
