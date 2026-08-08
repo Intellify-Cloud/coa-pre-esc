@@ -432,9 +432,8 @@
   }
 
   .banking-card dl div {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--shell-space-3);
+    display: grid;
+    gap: 0.35rem;
     border-bottom: 1px solid color-mix(in srgb, var(--shell-color-hairline) 70%, transparent);
     padding-bottom: var(--shell-space-2);
   }
@@ -456,7 +455,7 @@
   .banking-card dd {
     color: var(--shell-color-ink);
     font-weight: 850;
-    text-align: right;
+    text-align: left;
     overflow-wrap: anywhere;
   }
 
@@ -789,6 +788,16 @@
   }
 
   @media (min-width: 560px) {
+    .banking-card dl div {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: start;
+      gap: var(--shell-space-3);
+    }
+
+    .banking-card dd {
+      text-align: right;
+    }
+
     .banking-card__icon {
       width: 3.6rem;
     }
