@@ -57,7 +57,7 @@
 
         <section class="cabana-page__gallery" aria-label="Cabana Mio gallery">
           <figure v-for="image in galleryImages" :key="image.src">
-            <img :src="withCacheBust(image.src)" :alt="image.alt" />
+            <img :src="withCacheBust(image.src)" :alt="image.alt" loading="lazy" decoding="async" />
             <figcaption>{{ image.label }}</figcaption>
           </figure>
         </section>

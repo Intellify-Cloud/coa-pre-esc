@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
   import { withCacheBust } from '@/composables/cacheBustedAsset'
-  import cabanaMioAssets from 'virtual:cabana-mio-assets'
   import type { ResortImage, SectionData } from '@/content/siteText'
 
   const props = defineProps<{
@@ -45,15 +44,18 @@
   const imagesByPrefix = (prefixes: string[]) => {
     const normalizedPrefixes = prefixes.map((prefix) => prefix.toLowerCase())
 
-    return cabanaMioAssets
+    return [props.data.primaryImage, ...props.data.images]
       .filter((src) => {
-        const filename = src.split('/').pop()?.toLowerCase() ?? ''
+        const filename = src.src.split('/').pop()?.toLowerCase() ?? ''
         return normalizedPrefixes.some((prefix) => filename.startsWith(prefix))
       })
-      .map(toResortImage)
+      .map((image) => toResortImage(image.src))
   }
 
   const droneImages = computed(() => imagesByPrefix(['dron']))
+  const activeHeroImage = computed(
+    () => droneImages.value[activeHeroIndex.value] ?? droneImages.value[0],
+  )
   const featureImages = computed(() => imagesByPrefix(['rooms']))
   const activeFeatureImage = computed(
     () => featureImages.value[activeFeatureIndex.value] ?? featureImages.value[0],
@@ -113,13 +115,11 @@
 
         <figure class="cabana-section__hero">
           <img
-            v-for="(image, index) in droneImages"
-            :key="image.src"
-            :src="withCacheBust(image.src)"
-            :alt="index === activeHeroIndex ? image.alt : ''"
-            :aria-hidden="index === activeHeroIndex ? undefined : 'true'"
-            :class="{ 'cabana-section__hero-image--active': index === activeHeroIndex }"
-            class="cabana-section__hero-image"
+            v-if="activeHeroImage"
+            :key="activeHeroImage.src"
+            :src="withCacheBust(activeHeroImage.src)"
+            :alt="activeHeroImage.alt"
+            class="cabana-section__hero-image cabana-section__hero-image--active"
             loading="eager"
             decoding="async"
           />
@@ -130,31 +130,23 @@
 
         <figure class="cabana-section__tile cabana-section__tile--feature">
           <img
-            v-for="(image, index) in featureImages"
-            :key="image.src"
-            :src="withCacheBust(image.src)"
-            :alt="index === activeFeatureIndex ? image.alt : ''"
-            :aria-hidden="index === activeFeatureIndex ? undefined : 'true'"
-            :class="{
-              'cabana-section__cycle-image--active': image.src === activeFeatureImage?.src,
-            }"
-            class="cabana-section__cycle-image"
-            loading="eager"
+            v-if="activeFeatureImage"
+            :key="activeFeatureImage.src"
+            :src="withCacheBust(activeFeatureImage.src)"
+            :alt="activeFeatureImage.alt"
+            class="cabana-section__cycle-image cabana-section__cycle-image--active"
+            loading="lazy"
             decoding="async"
           />
         </figure>
 
         <figure class="cabana-section__tile cabana-section__tile--bottom-1">
           <img
-            v-for="(image, index) in beachImages"
-            :key="image.src"
-            :src="withCacheBust(image.src)"
-            :alt="index === activeBeachIndex ? image.alt : ''"
-            :aria-hidden="index === activeBeachIndex ? undefined : 'true'"
-            :class="{
-              'cabana-section__cycle-image--active': image.src === activeBeachImage?.src,
-            }"
-            class="cabana-section__cycle-image"
+            v-if="activeBeachImage"
+            :key="activeBeachImage.src"
+            :src="withCacheBust(activeBeachImage.src)"
+            :alt="activeBeachImage.alt"
+            class="cabana-section__cycle-image cabana-section__cycle-image--active"
             loading="lazy"
             decoding="async"
           />
@@ -162,15 +154,11 @@
 
         <figure class="cabana-section__tile cabana-section__tile--bottom-2">
           <img
-            v-for="(image, index) in livingImages"
-            :key="image.src"
-            :src="withCacheBust(image.src)"
-            :alt="index === activeLivingIndex ? image.alt : ''"
-            :aria-hidden="index === activeLivingIndex ? undefined : 'true'"
-            :class="{
-              'cabana-section__cycle-image--active': image.src === activeLivingImage?.src,
-            }"
-            class="cabana-section__cycle-image"
+            v-if="activeLivingImage"
+            :key="activeLivingImage.src"
+            :src="withCacheBust(activeLivingImage.src)"
+            :alt="activeLivingImage.alt"
+            class="cabana-section__cycle-image cabana-section__cycle-image--active"
             loading="lazy"
             decoding="async"
           />

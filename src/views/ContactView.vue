@@ -211,7 +211,7 @@
       phoneHref: '0824553180',
       whatsappHref: 'https://wa.me/27824553180',
       email: 'neil@sca-za.com',
-      image: '/profile/neil.png',
+      image: '/optimized/profile/neil.webp',
     },
     {
       name: 'Jolene',
@@ -219,7 +219,7 @@
       phoneHref: '0832370021',
       whatsappHref: 'https://wa.me/27832370021',
       email: 'jolene@sca-za.com',
-      image: '/profile/jolene.png',
+      image: '/optimized/profile/jolene.webp',
     },
   ] as const
   const isSubmitting = ref(false)
