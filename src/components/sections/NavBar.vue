@@ -246,7 +246,7 @@
     margin-top: var(--shell-space-2);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .nav-bar,
     .nav-bar__inner {
       min-height: 104px;
