@@ -104,11 +104,9 @@
             <p v-if="data.address" class="cabana-section__address">{{ data.address }}</p>
             <a
               class="cabana-section__link"
-              href="https://www.cabanamio.co.za"
-              target="_blank"
-              rel="noreferrer"
+              :href="data.pageCta.href"
             >
-              Visit Cabana Mio
+              {{ data.pageCta.label }}
             </a>
           </div>
         </div>

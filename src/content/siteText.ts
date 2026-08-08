@@ -115,7 +115,7 @@ export const siteText = {
     links: [
       { label: 'Home', href: '/#hero' },
       { label: 'Membership', href: '/#membership' },
-      { label: 'Resorts', href: '/#cabana-mio' },
+      { label: 'Cabana Mio', href: '/cabana-mio/' },
       { label: 'About CPE', href: '/about/' },
       { label: 'FAQ', href: '/faq/' },
       { label: 'Contact', href: '/contact' },
@@ -127,10 +127,10 @@ export const siteText = {
     vision: 'Because every family deserves a beach holiday.',
     title: 'Your beach holiday.',
     titleAccent: 'Every year.',
-    body: 'Experience affordable, flexible holidays at Cabana Mio. Enjoy interest-free monthly payments, flexible booking, the ability to pause when needed, and exclusive loyalty rewards.',
+    body: 'Plan flexible family beach holidays at Cabana Mio in Athlone Park, Amanzimtoti. Build holiday value through manageable monthly contributions, request available dates within your season, and keep annual beach time within reach.',
     image: '/hero/hero.png',
     primaryCta: { label: 'Explore Memberships', href: '#membership' },
-    secondaryCta: { label: 'Discover Cabana Mio', href: '#cabana-mio' },
+    secondaryCta: { label: 'Discover Cabana Mio', href: '/cabana-mio/' },
     facts: [
       'Interest-free monthly payments',
       'Flexible booking within your season',
@@ -148,7 +148,7 @@ export const siteText = {
       {
         icon: 'calendar',
         title: 'Flexible',
-        body: 'You choose when you go',
+        body: 'Request available dates within your season',
       },
       {
         icon: 'wallet',
@@ -163,7 +163,7 @@ export const siteText = {
       {
         icon: 'loyalty',
         title: 'Loyalty Matters',
-        body: 'Longer membership, greater benefits',
+        body: 'Longer membership is recognised over time',
       },
       {
         icon: 'shield',
@@ -181,7 +181,7 @@ export const siteText = {
       {
         title: 'Choose a membership',
         body:
-          'Start with the Coastal Escape or Coastal Preferred Escape option that matches your family budget and holiday rhythm.',
+          'Start with the Coastal Escape or Coastal Preferred Escape option that matches your family budget and usual travel season.',
       },
       {
         title: 'Select available dates',
@@ -198,7 +198,7 @@ export const siteText = {
   about: {
     eyebrow: 'Why Families Join',
     title: 'Beach holidays that are easier to plan and easier to keep.',
-    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
+    body: 'Coastal Preferred Escapes helps South African families make annual beach time more predictable through a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
     highlights: [
       'For families - holidays that bring you closer',
       'Flexible - choose when you go within your season',
@@ -224,7 +224,7 @@ export const siteText = {
   'why-families-join-alt': {
     eyebrow: '- Why Families Join -',
     title: 'Beach holidays that are easier to plan and easier to keep.',
-    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
+    body: 'Coastal Preferred Escapes helps South African families make annual beach time more predictable through a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
     items: [
       {
         title: 'Family',
@@ -294,7 +294,7 @@ export const siteText = {
         name: 'Coastal Escape',
         joiningFee: membershipPricing.starter.joiningFee,
         monthlyContribution: membershipPricing.starter.monthlyContribution,
-        bio: 'Entry membership wallet package for families planning reliable annual beach holiday value.',
+        bio: 'Entry membership package for families who want reliable annual beach holiday value.',
         tier: 'starter',
         benefits: [],
       },
@@ -302,7 +302,7 @@ export const siteText = {
         name: 'Coastal Preferred Escape',
         joiningFee: membershipPricing.preferred.joiningFee,
         monthlyContribution: membershipPricing.preferred.monthlyContribution,
-        bio: 'Preferred membership wallet package with stronger monthly holiday value.',
+        bio: 'Preferred membership package with stronger monthly holiday value and added flexibility.',
         tier: 'preferred',
         benefits: [],
       },
@@ -319,9 +319,23 @@ export const siteText = {
   map: {
     eyebrow: '- Our Flagship Resort -',
     title: 'Cabana Mio, Athlone Park, Amanzimtoti.',
-    body: 'Self-catering chalets in Athlone Park, Amanzimtoti, designed for easy family holidays on the KwaZulu-Natal South Coast. Expect the sound of the waves, warm-water beach days, and practical chalet comforts.',
+    body: 'Self-catering duplex chalets in Athlone Park, Amanzimtoti, designed for easy family holidays on the KwaZulu-Natal South Coast. Expect warm-water beach days, practical chalet comforts, and space for the family to settle in.',
     address: '159 Beach Road, Athlone Park, Amanzimtoti, KwaZulu-Natal',
     embedUrl: '',
+    pageCta: { label: 'View Cabana Mio Rates', href: '/cabana-mio/' },
+    externalCta: { label: 'Visit Cabana Mio Website', href: 'https://www.cabanamio.co.za' },
+    rates: {
+      eyebrow: '- Cabana Mio Rates -',
+      title: 'Seasonal 6-sleeper accommodation rates.',
+      note:
+        'Rates are shown per 6-sleeper unit per day. Availability, seasonal rules, and booking terms apply.',
+      rows: [
+        { season: 'Value', rate: 'R 1 250/day' },
+        { season: 'Preferred', rate: 'R 1 500/day' },
+        { season: 'Peak 2', rate: 'R 1 800/day' },
+        { season: 'Peak 1', rate: 'R 2 500/day' },
+      ],
+    },
     logo: '/cabana-mio/Copy-of-Cabana-Mio-Logo-nbg.png',
     primaryImage: {
       src: '/cabana-mio/drone-to-ocean-hero.png',
@@ -386,49 +400,14 @@ export const siteText = {
         label: 'Beach Path',
       },
       {
-        src: '/cabana-mio/drone-to-ocean-hero - Copy.png',
-        alt: 'Alternate aerial view from Cabana Mio toward the ocean',
-        label: 'Rooftop Ocean Route',
-      },
-      {
-        src: '/cabana-mio/ocean.png',
-        alt: 'Ocean view near Cabana Mio',
-        label: 'Ocean View',
-      },
-      {
-        src: '/cabana-mio/beach-fig-tree.png',
-        alt: 'Fig tree near the beach access at Cabana Mio',
-        label: 'Beach Fig Tree',
-      },
-      {
-        src: '/cabana-mio/beach-forest-path.png',
-        alt: 'Shaded path toward the beach near Cabana Mio',
-        label: 'Beach Forest Path',
-      },
-      {
-        src: '/cabana-mio/beach-forest-rd.png',
-        alt: 'Tree-lined beach road near Cabana Mio',
-        label: 'Beach Forest Road',
-      },
-      {
-        src: '/cabana-mio/beach-ocean.png',
-        alt: 'Athlone Park, Amanzimtoti beach and ocean near Cabana Mio',
-        label: 'Beach Ocean',
-      },
-      {
-        src: '/cabana-mio/beach-shell.jpg',
-        alt: 'Shell detail on the beach near Cabana Mio',
-        label: 'Beach Shell',
-      },
-      {
-        src: '/cabana-mio/dining-out.jpg',
-        alt: 'Cabana Mio outdoor dining and patio area',
-        label: 'Private Patio',
-      },
-      {
-        src: '/cabana-mio/dining-in.jpg',
+        src: '/cabana-mio/kirchen.jpeg',
         alt: 'Cabana Mio indoor dining area and equipped kitchen',
         label: 'Equipped Kitchen',
+      },
+      {
+        src: '/cabana-mio/room-living.jpeg',
+        alt: 'Cabana Mio living room seating area',
+        label: 'Living Room',
       },
       {
         src: '/cabana-mio/rooms-double.jpg',
@@ -436,9 +415,29 @@ export const siteText = {
         label: 'Main Bedroom',
       },
       {
+        src: '/cabana-mio/rooms-double-2.jpg',
+        alt: 'Cabana Mio double bedroom with natural light',
+        label: 'Double Bedroom',
+      },
+      {
+        src: '/cabana-mio/rooms-double-3.jpeg',
+        alt: 'Cabana Mio double bedroom detail',
+        label: 'Bedroom Detail',
+      },
+      {
         src: '/cabana-mio/rooms-twin.jpg',
         alt: 'Cabana Mio extra bedroom with twin beds',
         label: 'Twin Bedrooms',
+      },
+      {
+        src: '/cabana-mio/rooms-twin-2.jpg',
+        alt: 'Cabana Mio twin bedroom with two beds',
+        label: 'Twin Room',
+      },
+      {
+        src: '/cabana-mio/rooms-twin-3.jpeg',
+        alt: 'Cabana Mio twin bedroom detail',
+        label: 'Twin Room Detail',
       },
     ] satisfies ResortImage[],
   },
@@ -544,7 +543,7 @@ export const siteText = {
         title: 'Quick Links',
         links: [
           { label: 'Membership', href: '/#membership' },
-          { label: 'Cabana Mio', href: '/#cabana-mio' },
+          { label: 'Cabana Mio', href: '/cabana-mio/' },
           { label: 'About CPE', href: '/about/' },
           { label: 'FAQ', href: '/faq/' },
         ],

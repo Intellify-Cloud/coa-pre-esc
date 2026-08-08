@@ -43,6 +43,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/cabana-mio/',
+      component: () => import('@/views/CabanaMioView.vue'),
+      meta: {
+        title: 'Cabana Mio',
+        description:
+          'View Cabana Mio accommodation details and seasonal 6-sleeper rates for Coastal Preferred Escapes holidays in Athlone Park, Amanzimtoti.',
+      },
+    },
+    {
       path: '/about/',
       component: () => import('@/views/AboutView.vue'),
       meta: {
