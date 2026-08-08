@@ -222,11 +222,11 @@
   }
 
   .cabana-section__intro h2 {
-    max-width: 15ch;
+    max-width: 20ch;
     margin: var(--shell-space-3) 0 0;
     color: var(--shell-color-ink);
     font-family: var(--shell-font-serif);
-    font-size: clamp(2.25rem, 4.4vw, 3.8rem);
+    font-size: clamp(2.25rem, 4.4vw, 50px);
     font-weight: 800;
     letter-spacing: 0;
     line-height: 0.92;

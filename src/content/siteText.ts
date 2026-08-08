@@ -82,7 +82,7 @@ export const siteText = {
   site: {
     name: 'Coastal Preferred Escapes',
     description:
-      'Coastal Preferred Escapes is a flexible beach holiday membership club for South African families, featuring Cabana Mio in Amanzimtoti.',
+      'Coastal Preferred Escapes is a flexible beach holiday membership club for South African families, featuring Cabana Mio in Athlone Park, Amanzimtoti.',
     url: 'https://coastalpreferredescapes.co.za',
     locale: 'en_ZA',
     ogImage: '/og-image.jpg',
@@ -95,6 +95,7 @@ export const siteText = {
     'nav-bar',
     'hero',
     'usp',
+    'how-it-works',
     'team',
     'founding-family',
     'why-families-join-alt',
@@ -119,7 +120,7 @@ export const siteText = {
       { label: 'FAQ', href: '/faq/' },
       { label: 'Contact', href: '/contact' },
     ],
-    cta: { label: 'Contact', href: '/contact' },
+    cta: { label: 'Contact Us', href: '/contact' },
   },
   hero: {
     eyebrow: '',
@@ -171,10 +172,33 @@ export const siteText = {
       },
     ] satisfies UspItem[],
   },
+  'how-it-works': {
+    eyebrow: '- How It Works -',
+    title: 'A clearer way to plan your Cabana Mio holidays.',
+    body:
+      'Coastal Preferred Escapes is designed as a flexible holiday membership, not a traditional lifetime timeshare week. Your membership helps your family build holiday value and request available Cabana Mio dates that fit your season and plans.',
+    items: [
+      {
+        title: 'Choose a membership',
+        body:
+          'Start with the Coastal Escape or Coastal Preferred Escape option that matches your family budget and holiday rhythm.',
+      },
+      {
+        title: 'Select available dates',
+        body:
+          'Request Cabana Mio weeks within your membership season, subject to availability and the booking rules for that period.',
+      },
+      {
+        title: 'Build holiday value',
+        body:
+          'Your contributions build usable holiday value over time, helping you plan beach breaks without annual interest charges.',
+      },
+    ],
+  },
   about: {
     eyebrow: 'Why Families Join',
     title: 'Beach holidays that are easier to plan and easier to keep.',
-    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Amanzimtoti and future partner resorts.',
+    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
     highlights: [
       'For families - holidays that bring you closer',
       'Flexible - choose when you go within your season',
@@ -200,7 +224,7 @@ export const siteText = {
   'why-families-join-alt': {
     eyebrow: '- Why Families Join -',
     title: 'Beach holidays that are easier to plan and easier to keep.',
-    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Amanzimtoti and future partner resorts.',
+    body: 'Coastal Preferred Escapes helps South African families protect annual beach time with a flexible membership model built around Cabana Mio in Athlone Park, Amanzimtoti and future partner resorts.',
     items: [
       {
         title: 'Family',
@@ -225,8 +249,8 @@ export const siteText = {
     ],
   },
   steps: {
-    eyebrow: '- How It Works -',
-    title: 'Your monthly contribution builds reliable holiday value.',
+    eyebrow: '- Holiday Wallet -',
+    title: 'How your holiday value builds over time.',
     items: [
       {
         title: 'Choose Your Season',
@@ -261,6 +285,10 @@ export const siteText = {
       'Financial flexibility',
       'Well-maintained accommodation',
     ],
+    footer: {
+      body: 'Built around family rhythm, not rigid holiday pressure.',
+      cta: { label: 'Contact Us', href: '/contact' },
+    },
     members: [
       {
         name: 'Coastal Escape',
@@ -290,8 +318,8 @@ export const siteText = {
   },
   map: {
     eyebrow: '- Our Flagship Resort -',
-    title: 'Cabana Mio, Amanzimtoti.',
-    body: 'Self-catering chalets a few metres from Amanzimtoti Beach, designed for easy family holidays on the KwaZulu-Natal South Coast. Expect the sound of the waves, warm-water beach days, and practical chalet comforts.',
+    title: 'Cabana Mio, Athlone Park, Amanzimtoti.',
+    body: 'Self-catering chalets in Athlone Park, Amanzimtoti, designed for easy family holidays on the KwaZulu-Natal South Coast. Expect the sound of the waves, warm-water beach days, and practical chalet comforts.',
     address: '159 Beach Road, Athlone Park, Amanzimtoti, KwaZulu-Natal',
     embedUrl: '',
     logo: '/cabana-mio/Copy-of-Cabana-Mio-Logo-nbg.png',
@@ -384,7 +412,7 @@ export const siteText = {
       },
       {
         src: '/cabana-mio/beach-ocean.png',
-        alt: 'Amanzimtoti beach and ocean near Cabana Mio',
+        alt: 'Athlone Park, Amanzimtoti beach and ocean near Cabana Mio',
         label: 'Beach Ocean',
       },
       {
@@ -426,7 +454,7 @@ export const siteText = {
       },
       {
         quote:
-          'Many years of happy holidays at Cabana Mio, supported by practical family accommodation near Amanzimtoti Beach.',
+          'Many years of happy holidays at Cabana Mio, supported by practical family accommodation in Athlone Park, Amanzimtoti.',
         name: '30+ Years',
         detail: 'Happy holidays',
       },
@@ -439,23 +467,32 @@ export const siteText = {
     ],
   },
   'founding-family': {
-    eyebrow: '- Founding Family -',
-    title: 'Become a Founding Family',
-    body: "Limited Founding Family memberships are available. Join today and secure your family's annual beach holiday.",
+    eyebrow: '- Founding Member Offer -',
+    title: 'Founding Member Offer - Limited to 50 Members',
+    body:
+      'Join before 28 February 2027 and receive one complimentary 3-night Cabana Mio stay while your family starts building long-term holiday value.',
     deadline: '28 February 2027',
     bonusStay: {
       nights: 3,
-      weeks2026: 'Selected 2026 weeks',
-      weeks2027: 'Selected 2027 weeks',
-      excludedWeeks: 'Peak holiday weeks excluded',
+      weeks2026: 'Valid during Value and Preferred periods',
+      weeks2027: 'Subject to availability',
+      excludedWeeks: 'Excludes Weeks 50-53 and Weeks 1-2',
     },
+    offerTerms: [
+      'Limited to 50 Founding Members',
+      'Join before 28 February 2027',
+      'One complimentary 3-night stay',
+      'Valid during Value and Preferred periods',
+      'Subject to availability',
+      'Excludes Weeks 50-53 and Weeks 1-2',
+    ],
     inclusions: [
+      'Spacious 3-bedroom Cabana Mio duplex accommodation',
+      'Athlone Park, Amanzimtoti location',
       'Free unlimited Wi-Fi',
-      'Priority access to future CPE promotions and upgrades',
-      'Spacious 3-bedroom duplex chalet',
       'Sleeps up to 6 guests',
     ],
-    cta: { label: 'Join the Waiting List', href: '/contact' },
+    cta: { label: 'Contact Us', href: '/contact' },
   },
   contact: {
     eyebrow: '- Contact Us -',
@@ -463,7 +500,8 @@ export const siteText = {
     body: 'Have a question, want to find out more, or ready to start planning your next family beach holiday? Reach out to us and we will gladly walk you through Coastal Preferred Escapes, the available membership options, and what the journey could look like for your family.\n\nWhether you are exploring the idea for the first time or ready to take the next step, we are here to help you start the conversation in a friendly, personal way.',
     banking: {
       title: 'Banking Details',
-      note: 'Please use your full name as the payment reference.',
+      note:
+        'Payments are made to the Cabana Mio accommodation management account used for CPE holiday bookings. Please use your full name as the payment reference.',
       details: [
         {
           label: 'Account name',
@@ -483,7 +521,7 @@ export const siteText = {
       whatsapp: 'Please contact me via WhatsApp',
       message: 'Travel dates, family holiday needs, or questions',
     },
-    submit: 'Join the Waiting List',
+    submit: 'Contact Us',
     sending: 'Sending your enquiry...',
     success: 'Thank you. Your enquiry has been received and the team will be in touch.',
     error: 'Sorry, something went wrong. Please call or email us directly and we will assist you.',
@@ -494,6 +532,13 @@ export const siteText = {
       'Coastal Preferred Escapes helps South African families plan affordable annual beach holidays across a growing collection of coastal resorts through a flexible membership model.',
     commitment:
       'Coastal Preferred Escapes is committed to building long-term relationships rather than making one-off sales. We would rather have members who return year after year than customers who purchase once and never come back. Every decision we make will be guided by one simple question: "Is this in the best interests of our members and the long-term success of our resorts?"',
+    trust: {
+      company: 'CPE Properties (Pty) Ltd',
+      registration: 'Reg. No. 2022/673992/07',
+      area: 'Athlone Park, Amanzimtoti, KwaZulu-Natal',
+      note:
+        'Cabana Mio consists of a mixed owner and holiday-use complex, with accommodation managed through Coastal Preferred Escapes.',
+    },
     columns: [
       {
         title: 'Quick Links',

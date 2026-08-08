@@ -9,6 +9,9 @@
     'nav-bar': defineAsyncComponent(() => import('@/components/sections/NavBar.vue')),
     hero: defineAsyncComponent(() => import('@/components/sections/HeroSection.vue')),
     usp: defineAsyncComponent(() => import('@/components/sections/UspSection.vue')),
+    'how-it-works': defineAsyncComponent(
+      () => import('@/components/sections/HowItWorksSection.vue'),
+    ),
     'founding-family': defineAsyncComponent(
       () => import('@/components/sections/FoundingFamilySection.vue'),
     ),

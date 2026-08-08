@@ -34,13 +34,27 @@
 </template>
 
 <style scoped>
+  .steps-section {
+    background:
+      linear-gradient(180deg, rgb(255 248 241 / 0.94), rgb(255 255 255 / 0.96)),
+      var(--shell-color-canvas);
+  }
+
+  .steps-section__inner {
+    display: grid;
+    gap: var(--shell-space-8);
+  }
+
+  .steps-section__inner > .shell-heading {
+    max-width: 18ch;
+  }
+
   .steps-section__rows {
-    --steps-card-gap: clamp(1.5rem, 2.2vw, 2.25rem);
+    --steps-card-gap: var(--shell-space-4);
     --steps-row-max: 72rem;
 
     display: grid;
     gap: var(--steps-card-gap);
-    margin-top: var(--shell-space-12);
   }
 
   .steps-section__row {
@@ -55,15 +69,13 @@
   }
 
   .steps-section__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: var(--shell-space-8) var(--shell-space-5) var(--shell-space-6);
-    background: var(--shell-color-surface);
-    border: 1px solid var(--shell-color-hairline);
-    border-radius: var(--shell-radius-lg);
-    box-shadow: 0 0.75rem 2rem rgb(10 42 94 / 0.06);
+    display: grid;
+    gap: var(--shell-space-3);
+    padding: var(--shell-space-5);
+    border: 1px solid color-mix(in srgb, var(--shell-color-accent) 26%, white);
+    border-radius: var(--shell-radius-md);
+    background: white;
+    box-shadow: 0 0.65rem 1.5rem rgb(119 63 18 / 0.07);
     transition: transform 200ms ease, box-shadow 200ms ease;
   }
 
@@ -74,30 +86,29 @@
 
   .steps-section__step {
     display: grid;
-    width: 3rem;
-    height: 3rem;
+    width: 2.75rem;
+    aspect-ratio: 1;
     place-items: center;
     border-radius: 999px;
     background: var(--shell-color-accent);
     color: white;
     font-size: 1rem;
-    font-weight: 800;
-    margin-bottom: var(--shell-space-5);
+    font-weight: 900;
     box-shadow: 0 0 0 6px color-mix(in srgb, var(--shell-color-accent-soft) 55%, transparent);
   }
 
   .steps-section__card h3 {
-    margin: 0 0 var(--shell-space-3);
-    font-size: 1.2rem;
-    font-weight: 800;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 900;
     color: var(--shell-color-ink);
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .steps-section__card p {
     margin: 0;
     color: var(--shell-color-muted);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     line-height: 1.6;
   }
 

@@ -38,6 +38,14 @@
         <p v-if="props.data.commitment" class="site-footer__commitment">
           {{ props.data.commitment }}
         </p>
+        <div class="site-footer__trust" aria-label="Business details">
+          <p>
+            <strong>{{ props.data.trust.company }}</strong>
+            <span>{{ props.data.trust.registration }}</span>
+            <span>{{ props.data.trust.area }}</span>
+          </p>
+          <p>{{ props.data.trust.note }}</p>
+        </div>
       </div>
 
       <div class="site-footer__columns">
@@ -113,6 +121,30 @@
     font-style: normal !important;
     color: white !important;
     font-weight: 400;
+  }
+
+  .site-footer__trust {
+    display: grid;
+    gap: var(--shell-space-2);
+    margin-top: var(--shell-space-5);
+    border-top: 1px solid rgb(255 255 255 / 0.18);
+    padding-top: var(--shell-space-4);
+  }
+
+  .site-footer__trust p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    margin: 0 !important;
+  }
+
+  .site-footer__trust strong {
+    color: white;
+    font-weight: 800;
+  }
+
+  .site-footer__trust span {
+    color: rgb(255 255 255 / 0.88);
   }
 
   .site-footer__columns {

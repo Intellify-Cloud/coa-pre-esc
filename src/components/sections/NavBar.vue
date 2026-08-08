@@ -56,7 +56,11 @@
         aria-label="Toggle navigation menu"
         @click="isMenuOpen = !isMenuOpen"
       >
-        <span aria-hidden="true">{{ isMenuOpen ? 'close' : 'menu' }}</span>
+        <span class="nav-bar__menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
     </nav>
 
@@ -185,12 +189,35 @@
   }
 
   .nav-bar__menu-button span {
-    font-family: "Material Symbols Rounded";
-    font-size: 1.65rem;
-    font-feature-settings: "liga";
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1;
+    display: block;
+  }
+
+  .nav-bar__menu-icon {
+    display: grid !important;
+    width: 1.1rem;
+    gap: 0.24rem;
+  }
+
+  .nav-bar__menu-icon span {
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .nav-bar--open .nav-bar__menu-icon span:nth-child(1) {
+    transform: translateY(0.36rem) rotate(45deg);
+  }
+
+  .nav-bar--open .nav-bar__menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-bar--open .nav-bar__menu-icon span:nth-child(3) {
+    transform: translateY(-0.36rem) rotate(-45deg);
   }
 
   .nav-bar__mobile {

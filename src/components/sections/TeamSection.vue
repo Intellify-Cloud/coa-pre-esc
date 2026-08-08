@@ -21,6 +21,10 @@
               Start with the package that fits your plans today, then grow into richer holiday
               flexibility over time.
             </p>
+            <p class="membership-card__clarifier">
+              You are not buying a fixed week; your membership builds holiday value that can be used
+              toward available Cabana Mio stays within your selected season.
+            </p>
           </div>
           <div class="membership-card__hero-badge">Flexible by design</div>
         </div>
@@ -53,8 +57,8 @@
         </div>
 
         <footer class="membership-card__footer">
-          <p>Built around family rhythm, not rigid holiday pressure.</p>
-          <a href="/contact">Request Details</a>
+          <p>{{ data.footer.body }}</p>
+          <a :href="data.footer.cta.href">{{ data.footer.cta.label }}</a>
         </footer>
       </article>
 
@@ -141,6 +145,15 @@
     font-size: 0.96rem;
     line-height: 1.55;
     max-width: 40rem;
+  }
+
+  .membership-card__hero-copy .membership-card__clarifier {
+    margin-top: var(--shell-space-3);
+    border-left: 3px solid #0e6b6e;
+    padding-left: var(--shell-space-3);
+    color: var(--shell-color-ink);
+    font-size: 0.92rem;
+    font-weight: 800;
   }
 
   .membership-card__eyebrow {
@@ -284,29 +297,29 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--shell-space-3);
-    padding: var(--shell-space-4) 0 0;
     border-top: 1px solid color-mix(in srgb, var(--shell-color-hairline) 50%, transparent);
   }
 
   .membership-card__footer p {
-    max-width: 30rem;
-  }
-
-  .membership-card__footer p {
+    flex: 1 1 auto;
     margin: 0;
     color: var(--shell-color-ink);
     font-size: 0.9rem;
     font-weight: 900;
     line-height: 1.35;
+    text-align: center;
+    align-self: center;
   }
 
   .membership-card__footer a {
     display: inline-flex;
+    flex: 0 0 auto;
     min-height: 2.75rem;
     align-items: center;
     justify-content: center;
+    align-self: center;
     border: 2px solid #0e6b6e;
     border-radius: var(--shell-radius-sm);
     padding: 0.65rem 1rem;
@@ -341,6 +354,11 @@
     .membership-card__footer {
       align-items: center;
       flex-direction: row;
+      min-height: 3.25rem;
+    }
+
+    .membership-card__footer p {
+      white-space: nowrap;
     }
   }
 </style>

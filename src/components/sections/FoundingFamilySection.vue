@@ -15,10 +15,21 @@
         <p>{{ data.body }}</p>
       </div>
 
-      <div class="founding-family-section__details" aria-label="Founding Family details">
-        <span>Limited memberships</span>
-        <span>Bonus stay before {{ data.deadline }}</span>
-        <span>{{ data.bonusStay.nights }} complimentary nights</span>
+      <div class="founding-family-section__details" aria-label="Founding Member offer details">
+        <div>
+          <h3>Offer Includes</h3>
+          <ul>
+            <li v-for="term in data.offerTerms" :key="term">{{ term }}</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Cabana Mio Stay</h3>
+          <ul>
+            <li v-for="item in data.inclusions" :key="item">{{ item }}</li>
+          </ul>
+        </div>
+
         <a class="shell-button shell-button--primary" :href="data.cta.href">
           {{ data.cta.label }}
         </a>
@@ -64,17 +75,53 @@
 
   .founding-family-section__details {
     display: grid;
-    gap: var(--shell-space-2);
-    justify-items: start;
+    gap: var(--shell-space-5);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: var(--shell-radius-md);
+    background: rgb(255 255 255 / 0.08);
+    padding: var(--shell-space-5);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.12),
+      0 1rem 2.25rem rgb(0 0 0 / 0.14);
   }
 
-  .founding-family-section__details span {
+  .founding-family-section__details h3 {
+    margin: 0 0 var(--shell-space-3);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .founding-family-section__details ul {
+    display: grid;
+    gap: var(--shell-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .founding-family-section__details li {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    gap: var(--shell-space-2);
     color: rgb(255 255 255 / 0.82);
     font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .founding-family-section__details li::before {
+    content: '';
+    width: 0.45rem;
+    aspect-ratio: 1;
+    margin-top: 0.55rem;
+    border-radius: 999px;
+    background: var(--shell-color-accent);
   }
 
   .founding-family-section__details a {
-    margin-top: var(--shell-space-4);
+    justify-self: start;
     background: var(--shell-color-accent);
     color: var(--shell-color-ink);
   }

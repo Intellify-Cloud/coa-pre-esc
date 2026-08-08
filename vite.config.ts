@@ -1,11 +1,10 @@
 import { existsSync, readdirSync } from "node:fs";
 import { fileURLToPath, URL } from "node:url";
 import path from "node:path";
-import { defineConfig, normalizePath, type Plugin } from "vite";
+import { defineConfig, normalizePath, type Plugin, type UserConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import vueDevTools from "vite-plugin-vue-devtools";
-import vitePrerender from "vite-plugin-prerender";
 
 const buildId = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? Date.now().toString();
 const cabanaMioDir = fileURLToPath(new URL("./public/cabana-mio", import.meta.url));
@@ -54,18 +53,11 @@ const cabanaMioAssetsPlugin = (): Plugin => ({
   },
 });
 
-// https://vite.dev/config/
-export default defineConfig({
-  base: "/",
-  define: {
-    __APP_BUILD_ID__: JSON.stringify(buildId),
-  },
-  plugins: [
-    cabanaMioAssetsPlugin(),
-    tailwindcss(),
-    vue(),
-    vueDevTools(),
-    vitePrerender({
+const getPrerenderPlugin = async (): Promise<Plugin | null> => {
+  try {
+    const { default: vitePrerender } = await import("vite-plugin-prerender");
+
+    return vitePrerender({
       staticDir: path.join(__dirname, "dist"),
       routes: [
         "/",
@@ -76,11 +68,33 @@ export default defineConfig({
         "/faq/",
         "/privacy-policy/",
       ],
-    }),
-  ],
+    });
+  } catch (error) {
+    console.warn("Skipping prerender plugin:", error instanceof Error ? error.message : error);
+    return null;
+  }
+};
+
+// https://vite.dev/config/
+export default defineConfig(async (): Promise<UserConfig> => {
+  const prerenderPlugin = await getPrerenderPlugin();
+
+  return {
+  base: "/",
+  define: {
+    __APP_BUILD_ID__: JSON.stringify(buildId),
+  },
+  plugins: [
+    cabanaMioAssetsPlugin(),
+    tailwindcss(),
+    vue(),
+    vueDevTools(),
+    prerenderPlugin,
+  ].filter((plugin): plugin is Plugin => Boolean(plugin)),
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  };
 });
