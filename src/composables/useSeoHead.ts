@@ -10,7 +10,8 @@ export function useSeoHead({ title, description, path }: SeoHeadOptions = {}) {
   const siteTitle = siteText.site.name
   const siteOrigin = siteText.site.url
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle
-  const canonicalUrl = `${siteOrigin}${path || '/'}`
+  const normalizedPath = path === '/' ? '/' : path ? `${path.replace(/\/?$/, '/')}` : '/'
+  const canonicalUrl = `${siteOrigin}${normalizedPath}`
 
   document.title = fullTitle
 

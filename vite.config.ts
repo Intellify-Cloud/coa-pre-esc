@@ -17,7 +17,7 @@ const getPrerenderPlugin = async (): Promise<Plugin | null> => {
         "/cabana-mio/",
         "/coming-soon/",
         "/portfolio/",
-        "/contact",
+        "/contact/",
         "/about/",
         "/faq/",
         "/privacy-policy/",

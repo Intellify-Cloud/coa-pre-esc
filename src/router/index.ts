@@ -34,7 +34,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/contact',
+      path: '/contact/',
+      alias: '/contact',
       component: () => import('@/views/ContactView.vue'),
       meta: {
         title: 'Contact',
@@ -75,6 +76,15 @@ const router = createRouter({
       meta: {
         title: 'Privacy Policy',
         description: `Privacy policy for ${siteText.site.name}. Learn how we handle your personal information.`,
+      },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('@/views/NotFoundView.vue'),
+      meta: {
+        title: 'Page Not Found',
+        description: 'The page you were looking for could not be found. Return to the homepage or explore our site.',
+        noindex: true,
       },
     },
   ],

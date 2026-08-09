@@ -334,7 +334,7 @@
     title: 'Contact',
     description:
       'Request the Founding Family Information Pack for Coastal Preferred Escapes. Contact the launch team about flexible family beach holiday memberships.',
-    path: '/contact',
+    path: '/contact/',
   })
 
   useHead({

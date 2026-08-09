@@ -118,9 +118,9 @@ export const siteText = {
       { label: 'Cabana Mio', href: '/cabana-mio/' },
       { label: 'About CPE', href: '/about/' },
       { label: 'FAQ', href: '/faq/' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: '/contact/' },
     ],
-    cta: { label: 'Contact Us', href: '/contact' },
+    cta: { label: 'Contact Us', href: '/contact/' },
   },
   hero: {
     eyebrow: '',
@@ -287,7 +287,7 @@ export const siteText = {
     ],
     footer: {
       body: 'Built around family rhythm, not rigid holiday pressure.',
-      cta: { label: 'Contact Us', href: '/contact' },
+      cta: { label: 'Contact Us', href: '/contact/' },
     },
     members: [
       {
@@ -491,7 +491,7 @@ export const siteText = {
       'Free unlimited Wi-Fi',
       'Sleeps up to 6 guests',
     ],
-    cta: { label: 'Contact Us', href: '/contact' },
+    cta: { label: 'Contact Us', href: '/contact/' },
   },
   contact: {
     eyebrow: '- Contact Us -',

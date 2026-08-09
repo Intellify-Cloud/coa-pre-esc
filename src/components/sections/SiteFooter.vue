@@ -54,7 +54,7 @@
           <a v-for="link in column.links" :key="link.href" :href="link.href">
             {{ link.label }}
           </a>
-          <a class="site-footer__contact-pill" href="/contact">Contact Us</a>
+          <a class="site-footer__contact-pill" href="/contact/">Contact Us</a>
         </div>
       </div>
     </div>
