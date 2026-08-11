@@ -36,7 +36,15 @@
             :key="person.email"
             class="contact-person shell-card"
           >
-            <img class="contact-person__avatar" :src="person.image" :alt="person.name" />
+            <img
+              v-if="person.image"
+              class="contact-person__avatar"
+              :src="person.image"
+              :alt="person.name"
+            />
+            <span v-else class="contact-person__avatar contact-person__avatar--initials">
+              {{ person.initials }}
+            </span>
 
             <div class="contact-person__content">
               <h2>{{ person.name }}</h2>
@@ -210,16 +218,27 @@
       phone: '082 455 3180',
       phoneHref: '0824553180',
       whatsappHref: 'https://wa.me/27824553180',
-      email: 'neil@sca-za.com',
+      email: 'neil@cpe-za.co.za',
       image: '/optimized/profile/neil.webp',
+      initials: 'N',
     },
     {
       name: 'Jolene',
       phone: '083 237 0021',
       phoneHref: '0832370021',
       whatsappHref: 'https://wa.me/27832370021',
-      email: 'jolene@sca-za.com',
+      email: 'jolene@cpe-za.co.za',
       image: '/optimized/profile/jolene.webp',
+      initials: 'J',
+    },
+    {
+      name: 'Cally',
+      phone: '082 496 2879',
+      phoneHref: '0824962879',
+      whatsappHref: 'https://wa.me/27824962879',
+      email: 'cally@cpe-za.co.za',
+      image: '',
+      initials: 'C',
     },
   ] as const
   const isSubmitting = ref(false)
@@ -491,13 +510,21 @@
   }
 
   .contact-person__avatar {
+    display: grid;
     width: 4.8rem;
     aspect-ratio: 1;
+    place-items: center;
     object-fit: cover;
     object-position: center;
     border-radius: 999px;
     background: color-mix(in srgb, var(--shell-color-lagoon) 12%, white);
     box-shadow: 0 0.55rem 1.4rem rgb(10 42 94 / 0.12);
+  }
+
+  .contact-person__avatar--initials {
+    color: var(--shell-color-lagoon);
+    font-size: 1.6rem;
+    font-weight: 900;
   }
 
   .contact-person__content {

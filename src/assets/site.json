@@ -1,8 +1,8 @@
 {
   "name": "Intellify",
   "whatsapp": "27832370021",
-  "email": "jolene@sca-za.com",
-  "support_email": "jolene@sca-za.com",
+  "email": "jolene@cpe-za.co.za",
+  "support_email": "jolene@cpe-za.co.za",
   "contact_url": "/contact/",
   "nav": {
     "logo": "intellify",
@@ -43,7 +43,7 @@
       {
         "title": "Contact",
         "links": [
-          { "label": "Email", "href": "mailto:jolene@sca-za.com" },
+          { "label": "Email", "href": "mailto:jolene@cpe-za.co.za" },
           { "label": "WhatsApp", "href": "https://wa.me/27832370021" },
           { "label": "Contact Form", "href": "/contact/" }
         ]

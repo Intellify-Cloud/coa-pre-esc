@@ -430,25 +430,27 @@
 
   .long-stay-contrast__city {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
-    align-items: center;
-    min-height: 4.25rem;
+    gap: 0.45rem;
+    align-content: center;
+    min-height: 6.25rem;
     border: 1px solid var(--shell-color-hairline);
     border-radius: var(--shell-radius-sm);
     background: var(--shell-color-surface);
-    padding: 1rem;
+    padding: 1.1rem;
   }
 
   .long-stay-contrast__city span {
     color: var(--shell-color-muted);
+    font-size: 0.9rem;
     font-weight: 850;
+    line-height: 1.25;
   }
 
   .long-stay-contrast__city strong {
     color: var(--shell-color-ink);
-    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-size: clamp(1.45rem, 3.4vw, 2.25rem);
     font-weight: 900;
+    line-height: 1.05;
   }
 
   .long-stay-contrast__city--warm {

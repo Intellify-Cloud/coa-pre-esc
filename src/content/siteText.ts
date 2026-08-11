@@ -176,7 +176,7 @@ export const siteText = {
   'contact-bar': {
     message: 'Your beach. Your family. Your escape.',
     phone: '+27 83 237 0021',
-    email: 'jolene@sca-za.com',
+    email: 'jolene@cpe-za.co.za',
   },
   'nav-bar': {
     logoText: 'CPE',
