@@ -15,6 +15,7 @@ const getPrerenderPlugin = async (): Promise<Plugin | null> => {
       routes: [
         "/",
         "/cabana-mio/",
+        "/long-stay/",
         "/coming-soon/",
         "/portfolio/",
         "/contact/",

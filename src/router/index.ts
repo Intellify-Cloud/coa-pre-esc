@@ -53,6 +53,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/long-stay/',
+      component: () => import('@/views/LongStayView.vue'),
+      meta: {
+        title: '90-Day Winter Sun Escape in South Africa',
+        description:
+          'Escape the European winter with a 60-90 day stay in a spacious 3-bedroom beachside duplex in Amanzimtoti, South Africa. Beach, golf and summer sunshine await.',
+      },
+    },
+    {
       path: '/about/',
       component: () => import('@/views/AboutView.vue'),
       meta: {

@@ -4,7 +4,7 @@
   import type { SectionData } from '@/content/siteText'
 
   defineProps<{
-    data: SectionData<'nav-bar'>
+    data: SectionData<'nav-bar'> | SectionData<'long-stay-nav'>
   }>()
 
   const isScrolled = ref(false)

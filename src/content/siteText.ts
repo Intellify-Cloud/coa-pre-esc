@@ -72,6 +72,76 @@ export type ResortImage = {
   featured?: boolean
 }
 
+export type TemperatureCity = {
+  name: string
+  temperature: string
+  featured?: boolean
+}
+
+export type LongStayFaqItem = {
+  question: string
+  answer: string
+}
+
+export type LongStayData = {
+  eyebrow: string
+  title: string
+  lead: string
+  highlight: string
+  image: string
+  imageAlt: string
+  primaryCta: Cta
+  secondaryCta: Cta
+  facts: readonly string[]
+  temperatureComparison: readonly TemperatureCity[]
+  winterContrast: {
+    title: string
+    body: string
+  }
+  accommodation: {
+    title: string
+    body: string
+    images: readonly ResortImage[]
+    features: readonly string[]
+  }
+  experience: {
+    title: string
+    body: string
+    image: ResortImage
+    items: readonly string[]
+  }
+  golf: {
+    title: string
+    body: string
+    images: readonly ResortImage[]
+  }
+  location: {
+    title: string
+    body: string
+    image: string
+  }
+  pricing: {
+    eyebrow: string
+    title: string
+    note: string
+    rows: readonly {
+      duration: string
+      price: string
+      featured?: boolean
+    }[]
+  }
+  faq: {
+    eyebrow: string
+    title: string
+    items: readonly LongStayFaqItem[]
+  }
+  enquire: {
+    eyebrow: string
+    title: string
+    body: string
+  }
+}
+
 export type UspItem = {
   icon: 'families' | 'calendar' | 'wallet' | 'pause' | 'loyalty' | 'shield'
   title: string
@@ -441,6 +511,147 @@ export const siteText = {
       },
     ] satisfies ResortImage[],
   },
+  'long-stay': {
+    eyebrow: '',
+    title: 'Trade Winter for the Indian Ocean',
+    lead:
+      'Escape the European winter and make the South African coast your home for 60-90 days.',
+    highlight: '3-bedroom beachside duplexes in Amanzimtoti, South Africa',
+    image: '/cabana-mio/optimized/drone-to-ocean-hero.webp',
+    imageAlt: 'Aerial view from Cabana Mio toward the ocean',
+    primaryCta: { label: 'Explore the Winter Escape', href: '#accommodation' },
+    secondaryCta: { label: 'View 90-Day Pricing', href: '#pricing' },
+    facts: ['50m from the beach', '3 bedrooms', 'Unlimited Wi-Fi', 'Golf nearby'],
+    winterContrast: {
+      title: 'While Europe is in winter, South Africa is in summer.',
+      body:
+        'Plan your longer stay around warm coastal days, Indian Ocean air, and a gentler winter rhythm. Temperatures shown are approximate seasonal averages.',
+    },
+    temperatureComparison: [
+      { name: 'London', temperature: 'Approx. 7°C' },
+      { name: 'Amsterdam', temperature: 'Approx. 6°C' },
+      { name: 'Stockholm', temperature: 'Approx. 0°C' },
+      { name: 'Amanzimtoti', temperature: 'Approx. 25°C', featured: true },
+    ],
+    accommodation: {
+      title: 'More than a holiday apartment. A home for the season.',
+      body:
+        'Cabana Mio offers spacious 3-bedroom duplex accommodation for guests who want to settle in for longer than a short break. Cook at home, relax in your own living space, and enjoy room for visiting family within the unit\'s normal occupancy limits.',
+      images: [
+        {
+          src: '/cabana-mio/optimized/room-living.webp',
+          alt: 'Cabana Mio living room with seating and television',
+          label: 'Living Area',
+        },
+        {
+          src: '/cabana-mio/optimized/kirchen.webp',
+          alt: 'Cabana Mio self-catering kitchen with stove and sink',
+          label: 'Kitchen',
+        },
+        {
+          src: '/cabana-mio/optimized/rooms-double.webp',
+          alt: 'Cabana Mio main bedroom with double bed and patio doors',
+          label: 'Main Bedroom',
+        },
+        {
+          src: '/cabana-mio/optimized/rooms-twin-3.webp',
+          alt: 'Cabana Mio twin bedroom with two single beds',
+          label: 'Twin Bedroom',
+        },
+      ],
+      features: [
+        '3 bedrooms',
+        'Full kitchen',
+        'Living area',
+        'Unlimited Wi-Fi',
+        'Walking distance to the beach',
+        'Space for visiting family',
+      ],
+    },
+    experience: {
+      title: 'Stay long enough to actually live here.',
+      body:
+        'A longer stay gives you time to find a rhythm: morning walks toward the beach, relaxed breakfasts at home, shopping locally, quiet afternoons, and enough space to welcome family for part of the trip.',
+      image: {
+        src: '/cabana-mio/beach-walk.jpeg',
+        alt: 'Shaded beach path near Cabana Mio in Amanzimtoti',
+        label: 'Beach Walk',
+      },
+      items: [
+        'Morning beach walks',
+        'Relaxed breakfasts at home',
+        'Weekday golf or coastal exploring',
+        'Local shopping and restaurants',
+        'Room for family to visit',
+        'A slower South African summer rhythm',
+      ],
+    },
+    golf: {
+      title: 'Golf on the South Coast',
+      body:
+        'Amanzimtoti and the wider Durban South Coast are home to several well-regarded golf courses. After a morning on the beach, you can enjoy a round of golf in warm weather that Northern Europe simply cannot match in winter.',
+      images: [
+        {
+          src: '/cabana-mio/optimized/drone-from-ocean.webp',
+          alt: 'Aerial view from the ocean toward Cabana Mio and the coastline',
+          label: 'Coastal Setting',
+        },
+      ],
+    },
+    location: {
+      title: 'Amanzimtoti, South Africa',
+      body:
+        'Amanzimtoti sits on KwaZulu-Natal\'s South Coast, roughly 30-40 minutes south of Durban. Expect warm-water beaches, relaxed coastal village vibes, and easy access to shops and restaurants. The Indian Ocean climate means sunny winter days and summer warmth while Europe freezes.',
+      image: '/cabana-mio/optimized/drone-casa-ocean.webp',
+    },
+    pricing: {
+      eyebrow: '- Pricing -',
+      title: '90-Day Winter Sun Packages',
+      note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply.',
+      rows: [
+        { duration: '60 days', price: 'Around €5,300 / £4,550', featured: false },
+        { duration: '75 days', price: 'Around €6,650 / £5,700', featured: false },
+        { duration: '90 days', price: 'Around €7,950 / £6,850', featured: true },
+      ],
+    },
+    faq: {
+      eyebrow: '- FAQ -',
+      title: 'Common questions about the long-stay escape',
+      items: [
+        {
+          question: 'What is the minimum stay?',
+          answer:
+            'The long-stay winter escape is designed for 60–90 days. Shorter stays may be possible depending on availability, but the best value and experience come from the longer durations.',
+        },
+        {
+          question: 'Is the price per person or per unit?',
+          answer:
+            'The quoted pricing is per 3-bedroom duplex for the full duration. The unit sleeps up to 6 guests, making it cost-effective for couples or small families.',
+        },
+        {
+          question: 'Are flights and transfers included?',
+          answer:
+            'No. Flights are not included. We can provide airport transfer assistance and guidance to help make your journey smooth, but you will need to book international travel separately.',
+        },
+        {
+          question: 'What is the Wi-Fi situation?',
+          answer:
+            'Unlimited Wi-Fi is included at no extra cost, so you can stay in touch with family back home, stream, or work remotely if needed.',
+        },
+        {
+          question: 'Can I visit golf courses nearby?',
+          answer:
+            'Yes. Amanzimtoti and the surrounding South Coast have several golf courses. Exact distances vary, but golf is very much part of the local lifestyle.',
+        },
+      ],
+    },
+    enquire: {
+      eyebrow: '- Enquire -',
+      title: 'Check availability for your winter escape',
+      body:
+        'Ready to trade winter for the Indian Ocean? Reach out and we will walk you through availability, dates, and how to secure your 60–90 day stay.',
+    },
+  },
   testimonials: {
     eyebrow: '- Families And Facts -',
     title: 'A holiday rhythm families can count on.',
@@ -550,6 +761,21 @@ export const siteText = {
       },
     ],
     legalLinks: [{ label: 'Privacy', href: '/privacy-policy/' }],
+  },
+  'long-stay-nav': {
+    logoText: 'Cabana Mio',
+    logoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
+    scrolledLogoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
+    links: [
+      { label: 'The Escape', href: '/long-stay/#escape' },
+      { label: 'Accommodation', href: '/long-stay/#accommodation' },
+      { label: 'Golf', href: '/long-stay/#golf' },
+      { label: 'Location', href: '/long-stay/#location' },
+      { label: 'Pricing', href: '/long-stay/#pricing' },
+      { label: 'FAQ', href: '/long-stay/#faq' },
+      { label: 'Enquire', href: '/long-stay/#enquire' },
+    ],
+    cta: { label: 'Check Availability', href: '/long-stay/#enquire' },
   },
 } as const
 
