@@ -23,9 +23,9 @@
           />
           <div class="long-stay-golf__card-shade" aria-hidden="true"></div>
           <div class="long-stay-golf__card-content">
-            <p>{{ course.category }}</p>
             <h3>{{ course.name }}</h3>
             <strong>Rating {{ course.rating }}</strong>
+            <small>Drive time from Amanzimtoti: {{ course.driveTime }}</small>
             <span>{{ course.description }}</span>
           </div>
         </article>

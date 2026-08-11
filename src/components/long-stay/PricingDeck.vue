@@ -6,16 +6,35 @@
         <h2 id="pricing-title">{{ data.title }}</h2>
         <p>{{ data.note }}</p>
       </div>
-      <div class="long-stay-pricing__cards" role="list">
-        <div
-          v-for="row in data.rows"
-          :key="row.duration"
-          class="long-stay-pricing__card"
-          :class="{ 'long-stay-pricing__card--featured': row.featured }"
-          role="listitem"
+
+      <div class="long-stay-pricing__layout">
+        <article
+          v-if="featuredRow"
+          class="long-stay-pricing__feature"
+          aria-label="Featured 90-day winter escape package"
         >
-          <p class="long-stay-pricing__duration">{{ row.duration }}</p>
-          <p class="long-stay-pricing__price">{{ row.price }}</p>
+          <p class="long-stay-pricing__badge">Best long-stay value</p>
+          <h3>{{ featuredRow.duration }} Winter Escape</h3>
+          <p class="long-stay-pricing__feature-price">{{ featuredRow.price }}</p>
+          <p class="long-stay-pricing__feature-note">
+            Spacious 3-bedroom duplex for the full stay, with Wi-Fi and unit facilities included.
+          </p>
+          <a class="shell-button shell-button--primary" href="#enquire">Check 90-Day Availability</a>
+        </article>
+
+        <div class="long-stay-pricing__options" role="list" aria-label="Other long-stay options">
+          <article
+            v-for="row in secondaryRows"
+            :key="row.duration"
+            class="long-stay-pricing__option"
+            role="listitem"
+          >
+            <span>{{ row.duration }}</span>
+            <strong>{{ row.price }}</strong>
+          </article>
+          <p class="long-stay-pricing__fineprint">
+            Final pricing may vary by arrival date, season and exchange rate.
+          </p>
         </div>
       </div>
     </div>
@@ -23,9 +42,13 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue'
   import type { LongStayData } from '@/content/siteText'
 
-  defineProps<{
+  const props = defineProps<{
     data: LongStayData['pricing']
   }>()
+
+  const featuredRow = computed(() => props.data.rows.find((row) => row.featured))
+  const secondaryRows = computed(() => props.data.rows.filter((row) => !row.featured))
 </script>

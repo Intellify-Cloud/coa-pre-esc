@@ -10,7 +10,6 @@
       </div>
       <ExperienceDeck :data="data.experience" />
       <GolfDeck :data="data.golf" />
-      <LocationDeck :data="data.location" />
       <PricingDeck :data="data.pricing" />
       <FaqDeck :data="data.faq" />
       <EnquiryDeck :data="data.enquire" />
@@ -26,7 +25,6 @@
   import ExperienceDeck from '@/components/long-stay/ExperienceDeck.vue'
   import FaqDeck from '@/components/long-stay/FaqDeck.vue'
   import GolfDeck from '@/components/long-stay/GolfDeck.vue'
-  import LocationDeck from '@/components/long-stay/LocationDeck.vue'
   import LongStayHeroBlock from '@/components/long-stay/LongStayHeroBlock.vue'
   import PricingDeck from '@/components/long-stay/PricingDeck.vue'
   import WinterContrastDeck from '@/components/long-stay/WinterContrastDeck.vue'
@@ -69,8 +67,8 @@
   .long-stay-hero__shade {
     z-index: -1;
     background:
-      linear-gradient(90deg, rgb(4 17 38 / 0.92), rgb(4 17 38 / 0.68) 48%, rgb(4 17 38 / 0.34)),
-      linear-gradient(180deg, rgb(4 17 38 / 0.38), rgb(4 17 38 / 0.78));
+      linear-gradient(90deg, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.64) 45%, rgb(255 255 255 / 0.18)),
+      linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.44));
   }
 
   .long-stay-hero__inner {
@@ -79,12 +77,15 @@
   }
 
   .long-stay-hero__content {
+    display: grid;
+    justify-items: center;
     max-width: 100%;
+    text-align: center;
   }
 
   .long-stay-hero__eyebrow {
     margin: 0;
-    color: var(--shell-color-sun) !important;
+    color: var(--shell-color-lagoon) !important;
     font-size: 0.9rem !important;
     font-weight: 850 !important;
     letter-spacing: 0.08em;
@@ -95,18 +96,20 @@
   .long-stay-hero__title {
     max-width: 12ch;
     margin: 1rem 0 0;
-    color: white;
+    color: var(--shell-color-ink);
     font-family: var(--shell-font-serif);
     font-size: clamp(3rem, 12vw, 6.9rem);
     font-weight: 750;
     letter-spacing: 0;
     line-height: 0.92;
+    text-shadow: 0 2px 22px rgb(255 255 255 / 0.75);
   }
 
   .long-stay-hero__lead,
   .long-stay-hero__highlight {
     max-width: 44rem;
-    color: rgb(255 255 255 / 0.94) !important;
+    color: var(--shell-color-ink) !important;
+    text-shadow: 0 1px 18px rgb(255 255 255 / 0.78);
   }
 
   .long-stay-hero__lead {
@@ -127,6 +130,7 @@
     flex-direction: column;
     gap: 0.75rem;
     width: min(100%, 24rem);
+    justify-content: center;
     margin-top: 1.5rem;
   }
 
@@ -148,7 +152,7 @@
     border-radius: var(--shell-radius-md);
     background: rgb(255 255 255 / 0.13);
     padding: 0.8rem;
-    color: white;
+    color: var(--shell-color-ink);
     font-size: 0.9rem;
     font-weight: 850;
     backdrop-filter: blur(12px);
@@ -546,6 +550,13 @@
     line-height: 1.2;
   }
 
+  .long-stay-golf__card-content small {
+    color: rgb(255 255 255 / 0.88);
+    font-size: 0.86rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
   .long-stay-golf__card-content span {
     color: rgb(255 255 255 / 0.9);
     font-size: 0.94rem;
@@ -585,36 +596,130 @@
     gap: 0.75rem;
   }
 
-  .long-stay-pricing__card {
-    border: 1px solid var(--shell-color-hairline);
-    border-radius: var(--shell-radius-md);
-    background: var(--shell-color-surface);
-    padding: clamp(1.5rem, 3vw, 2rem);
+  .long-stay-pricing__layout {
+    display: grid;
+    width: min(100%, 72rem);
+    justify-self: center;
+    gap: var(--shell-space-4);
+    align-items: stretch;
+  }
+
+  .long-stay-pricing__header {
+    display: grid;
+    max-width: 58rem;
+    justify-items: center;
+    justify-self: center;
     text-align: center;
   }
 
-  .long-stay-pricing__card--featured {
+  .long-stay-pricing__header h2 {
+    max-width: 16ch;
+  }
+
+  .long-stay-pricing__header p:not(.shell-eyebrow) {
+    max-width: 44rem;
+  }
+
+  .long-stay-pricing__feature,
+  .long-stay-pricing__option {
+    border: 1px solid var(--shell-color-hairline);
+    border-radius: var(--shell-radius-md);
+    background: var(--shell-color-surface);
+  }
+
+  .long-stay-pricing__feature {
+    display: grid;
+    align-content: center;
+    gap: var(--shell-space-5);
     border-color: var(--shell-color-accent);
-    box-shadow: 0 0.65rem 1.5rem rgb(10 42 94 / 0.08);
+    background:
+      linear-gradient(135deg, rgb(248 228 208 / 0.75), transparent 48%),
+      var(--shell-color-surface);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    box-shadow: 0 1rem 2.5rem rgb(10 42 94 / 0.1);
   }
 
-  .long-stay-pricing__duration {
+  .long-stay-pricing__badge {
+    justify-self: start;
     margin: 0;
-    color: var(--shell-color-muted);
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
-    font-weight: 800;
+    border-radius: 999px;
+    background: var(--shell-color-lagoon);
+    padding: 0.45rem 0.7rem;
+    color: white !important;
+    font-size: 0.78rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
     text-transform: uppercase;
-    letter-spacing: 0;
-    line-height: 1.25 !important;
   }
 
-  .long-stay-pricing__price {
-    margin: 0.8rem 0 0;
+  .long-stay-pricing__feature h3 {
+    margin: 0;
     color: var(--shell-color-ink);
-    font-family: var(--shell-font-serif);
-    font-size: clamp(1.8rem, 3.8vw, 2.75rem) !important;
-    font-weight: 850 !important;
+    font-family: var(--shell-font-sans);
+    font-size: clamp(1.65rem, 3.6vw, 2.55rem);
+    font-weight: 900 !important;
+    line-height: 1.05;
+  }
+
+  .long-stay-pricing__feature-price {
+    margin: 0;
+    color: var(--shell-color-ink) !important;
+    font-family: var(--shell-font-sans);
+    font-size: clamp(2rem, 4.2vw, 3.05rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 0;
     line-height: 1.08 !important;
+  }
+
+  .long-stay-pricing__feature-note {
+    max-width: 42rem;
+    margin: 0;
+    color: var(--shell-color-muted) !important;
+    font-size: clamp(1rem, 1.6vw, 1.12rem) !important;
+    line-height: 1.6 !important;
+  }
+
+  .long-stay-pricing__feature .shell-button {
+    justify-self: start;
+    margin-top: var(--shell-space-2);
+  }
+
+  .long-stay-pricing__options {
+    display: grid;
+    gap: var(--shell-space-3);
+    align-content: stretch;
+  }
+
+  .long-stay-pricing__option {
+    display: flex;
+    min-height: 6.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--shell-space-4);
+    padding: clamp(1.1rem, 2.5vw, 1.5rem);
+  }
+
+  .long-stay-pricing__option span {
+    color: var(--shell-color-muted);
+    font-size: 0.92rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .long-stay-pricing__option strong {
+    color: var(--shell-color-ink);
+    font-family: var(--shell-font-sans);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .long-stay-pricing__fineprint {
+    margin: var(--shell-space-2) 0 0;
+    color: var(--shell-color-subtle) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
   }
 
   .long-stay-faq__items {
@@ -738,7 +843,6 @@
     .long-stay-contrast__inner,
     .long-stay-accommodation__inner,
     .long-stay-location__inner,
-    .long-stay-pricing__inner,
     .long-stay-faq__inner,
     .long-stay-enquire__inner {
       grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
@@ -754,6 +858,10 @@
 
     .long-stay-pricing__cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .long-stay-pricing__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
     .long-stay-golf__cards {

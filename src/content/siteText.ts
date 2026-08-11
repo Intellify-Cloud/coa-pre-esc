@@ -119,6 +119,7 @@ export type LongStayData = {
       name: string
       rating: string
       category: string
+      driveTime: string
       description: string
       image: ResortImage
     }[]
@@ -622,11 +623,12 @@ export const siteText = {
           name: 'Selborne Golf Club',
           rating: '4.5',
           category: 'Elite Coastal & Resort Course',
+          driveTime: '33 min / 49.9 km south via the N2',
           description:
             'Often described as one of the South Coast classics, with estate-style surroundings, rolling hills and a polished resort feel.',
           image: {
-            src: '/hero/hero_2.png',
-            alt: 'Coastal resort setting used as a placeholder for Selborne Golf Club',
+            src: '/golf/selbourne.webp',
+            alt: 'Selborne Golf Club course with green fairways and trees',
             label: 'Selborne',
           },
         },
@@ -634,11 +636,12 @@ export const siteText = {
           name: 'San Lameer Estate',
           rating: '4.7',
           category: 'Elite Coastal & Resort Course',
+          driveTime: '1 hr 13 min / 120 km south via the N2 toll road',
           description:
             'A premier South Coast estate course known for manicured surfaces, coastal vegetation and a refined holiday setting.',
           image: {
-            src: '/hero/hero.png',
-            alt: 'Coastal estate setting used as a placeholder for San Lameer Estate',
+            src: '/golf/san-lameer.jpg',
+            alt: 'San Lameer Estate golf course with palms, fairways and water features',
             label: 'San Lameer',
           },
         },
@@ -646,11 +649,12 @@ export const siteText = {
           name: 'Umdoni Park Golf Club',
           rating: '4.5',
           category: 'Elite Coastal & Resort Course',
+          driveTime: '36 min / 46.7 km south via the N2',
           description:
             'A nature-rich coastal layout associated with sea views, mature trees and a memorable South Coast setting.',
           image: {
-            src: '/cabana-mio/beach-ocean.png',
-            alt: 'Indian Ocean coastline used as a placeholder for Umdoni Park Golf Club',
+            src: '/golf/umdoni.jpg',
+            alt: 'Umdoni Park Golf Club fairway overlooking the Indian Ocean',
             label: 'Umdoni Park',
           },
         },
@@ -658,11 +662,12 @@ export const siteText = {
           name: 'Wild Coast Sun Country Club',
           rating: '4.5',
           category: 'Elite Coastal & Resort Course',
+          driveTime: '1 hr 32 min / 141 km south via the N2 and R61 toll road',
           description:
             'A dramatic championship-style course known for rugged terrain, river ravines and an ocean-facing landscape.',
           image: {
-            src: '/cabana-mio/optimized/drone-ocean-2.webp',
-            alt: 'Coastal aerial view used as a placeholder for Wild Coast Sun Country Club',
+            src: '/golf/wild-coast.jpg',
+            alt: 'Wild Coast Sun Country Club green and bunkers at sunset',
             label: 'Wild Coast Sun',
           },
         },
@@ -670,24 +675,52 @@ export const siteText = {
           name: 'Umkomaas Golf Club',
           rating: '4.3',
           category: 'Highly-Rated Local & Regional Course',
+          driveTime: '19 min / 24.2 km south via the N2',
           description:
             'A friendly local coastal course with a relaxed atmosphere and wide South Coast appeal.',
           image: {
-            src: '/cabana-mio/optimized/drone-from-ocean.webp',
-            alt: 'South Coast aerial view used as a placeholder for Umkomaas Golf Club',
+            src: '/golf/umkomaas_golf_club.jpg',
+            alt: 'Umkomaas Golf Club fairway with coastal trees and sea views',
             label: 'Umkomaas',
           },
         },
         {
-          name: 'Bluff National Park Golf Club',
-          rating: '4.2',
-          category: 'Highly-Rated Local & Regional Course',
+          name: 'Cotswold Downs',
+          rating: '4.7',
+          category: 'Golf Estate',
+          driveTime: '49 min / 51.2 km inland northwest via the N2, M7 and M13',
           description:
-            'A regional parkland option north of Amanzimtoti, known for water features and a more technical local round.',
+            'An inland rolling-hills estate course known for immaculate conditions and fast greens.',
           image: {
-            src: '/cabana-mio/optimized/drone-casa-ocean.webp',
-            alt: 'KwaZulu-Natal coastal view used as a placeholder for Bluff National Park Golf Club',
-            label: 'Bluff National Park',
+            src: '/golf/cotswold-downs.jpg',
+            alt: 'Cotswold Downs golf course with rolling fairways and estate scenery',
+            label: 'Cotswold Downs',
+          },
+        },
+        {
+          name: "Prince's Grant",
+          rating: '4.5',
+          category: 'Golf Estate',
+          driveTime: '1 hr 17 min / 105 km north via the N2 toll road',
+          description:
+            'A coastal links-style estate with private beach access and striking ocean views.',
+          image: {
+            src: '/golf/princes-grant.jpg',
+            alt: 'Prince\'s Grant golf course with coastal links-style fairways',
+            label: "Prince's Grant",
+          },
+        },
+        {
+          name: 'Durban Country Club',
+          rating: '4.4',
+          category: 'Golf Estate',
+          driveTime: '27 min / 31.5 km north via the N2 and M4',
+          description:
+            'A historic championship layout shaped by coastal sand dunes and world-class pedigree.',
+          image: {
+            src: '/golf/durban-country-club.jpg',
+            alt: 'Durban Country Club golf course with coastal championship layout',
+            label: 'Durban Country Club',
           },
         },
       ],
@@ -857,14 +890,13 @@ export const siteText = {
     legalLinks: [{ label: 'Privacy', href: '/privacy-policy/' }],
   },
   'long-stay-nav': {
-    logoText: 'Cabana Mio',
+    logoText: 'Coastal Preferred Escapes',
     logoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
     scrolledLogoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
     links: [
       { label: 'The Escape', href: '/long-stay/#escape' },
       { label: 'Accommodation', href: '/long-stay/#accommodation' },
       { label: 'Golf', href: '/long-stay/#golf' },
-      { label: 'Location', href: '/long-stay/#location' },
       { label: 'Pricing', href: '/long-stay/#pricing' },
       { label: 'FAQ', href: '/long-stay/#faq' },
       { label: 'Enquire', href: '/long-stay/#enquire' },

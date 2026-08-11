@@ -23,9 +23,6 @@
             {{ data.secondaryCta.label }}
           </a>
         </div>
-        <ul class="long-stay-hero__facts" aria-label="Key Cabana Mio facts">
-          <li v-for="fact in data.facts" :key="fact">{{ fact }}</li>
-        </ul>
       </div>
     </div>
   </section>

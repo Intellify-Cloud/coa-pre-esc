@@ -12,6 +12,7 @@
   const isLongStayNav = computed(() =>
     props.data.links.some((link) => link.href.startsWith('/long-stay/')),
   )
+  const brandHref = computed(() => (isLongStayNav.value ? '/long-stay/#escape' : '/#hero'))
 
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 24
@@ -37,8 +38,13 @@
     :class="{ 'nav-bar--scrolled': isScrolled, 'nav-bar--open': isMenuOpen, 'nav-bar--long-stay': isLongStayNav }"
   >
     <nav class="nav-bar__inner shell-container" aria-label="Primary">
-      <a class="nav-bar__brand" href="/#hero" :aria-label="data.logoText" @click="closeMenu">
-        <img :src="withCacheBust(isScrolled ? data.scrolledLogoImage : data.logoImage)" alt="" />
+      <a class="nav-bar__brand" :href="brandHref" :aria-label="data.logoText" @click="closeMenu">
+        <img
+          v-if="!isLongStayNav"
+          :src="withCacheBust(isScrolled ? data.scrolledLogoImage : data.logoImage)"
+          alt=""
+        />
+        <span v-else>{{ data.logoText }}</span>
       </a>
 
       <div class="nav-bar__links" aria-label="Primary links">
@@ -138,6 +144,32 @@
     height: auto;
   }
 
+  .nav-bar__brand span {
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-bar--long-stay .nav-bar__brand {
+    width: auto;
+    max-width: min(42vw, 20rem);
+    color: var(--shell-color-ink);
+    white-space: nowrap;
+  }
+
+  .nav-bar--long-stay .nav-bar__brand span {
+    overflow: hidden;
+    font-size: clamp(0.72rem, 1vw, 0.95rem);
+    text-overflow: ellipsis;
+  }
+
+  .nav-bar--long-stay.nav-bar--scrolled .nav-bar__brand,
+  .nav-bar--long-stay.nav-bar--open .nav-bar__brand {
+    color: white;
+  }
+
   .nav-bar__links {
     display: none;
     align-items: center;
@@ -154,6 +186,10 @@
   }
 
   .nav-bar--long-stay .nav-bar__links {
+    color: var(--shell-color-ink);
+  }
+
+  .nav-bar--long-stay.nav-bar--scrolled .nav-bar__links {
     color: white;
   }
 
@@ -283,6 +319,12 @@
 
     .nav-bar--scrolled .nav-bar__brand {
       width: min(10.5rem, 30vw);
+    }
+
+    .nav-bar--long-stay .nav-bar__brand,
+    .nav-bar--long-stay.nav-bar--scrolled .nav-bar__brand {
+      width: auto;
+      max-width: 22rem;
     }
   }
 </style>
