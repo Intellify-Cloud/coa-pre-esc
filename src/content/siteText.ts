@@ -195,6 +195,7 @@ export const siteText = {
       { label: 'Home', href: '/#hero' },
       { label: 'Membership', href: '/#membership' },
       { label: 'Cabana Mio', href: '/cabana-mio/' },
+      { label: 'Long Stay', href: '/long-stay/' },
       { label: 'About CPE', href: '/about/' },
       { label: 'FAQ', href: '/faq/' },
       { label: 'Contact', href: '/contact/' },
@@ -733,7 +734,7 @@ export const siteText = {
     },
     pricing: {
       eyebrow: '- Pricing -',
-      title: '90-Day Winter Sun Packages',
+      title: '90-Day Winter Sun Packages packages',
       note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply.',
       rows: [
         { duration: '60 days', price: 'Around €5,300 / £4,550', featured: false },
@@ -882,6 +883,7 @@ export const siteText = {
         links: [
           { label: 'Membership', href: '/#membership' },
           { label: 'Cabana Mio', href: '/cabana-mio/' },
+          { label: 'Long Stay', href: '/long-stay/' },
           { label: 'About CPE', href: '/about/' },
           { label: 'FAQ', href: '/faq/' },
         ],

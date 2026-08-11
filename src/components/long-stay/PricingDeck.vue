@@ -13,7 +13,7 @@
           class="long-stay-pricing__feature"
           aria-label="Featured 90-day winter escape package"
         >
-          <p class="long-stay-pricing__badge">Best long-stay value</p>
+          <span class="long-stay-pricing__badge">Best long-stay value</span>
           <h3>{{ featuredRow.duration }} Winter Escape</h3>
           <p class="long-stay-pricing__feature-price">{{ featuredRow.price }}</p>
           <p class="long-stay-pricing__feature-note">
@@ -29,14 +29,16 @@
             class="long-stay-pricing__option"
             role="listitem"
           >
-            <span>{{ row.duration }}</span>
+            <span class="long-stay-pricing__option-duration">{{ row.duration }}</span>
             <strong>{{ row.price }}</strong>
+            <span class="long-stay-pricing__option-caption">Subject to availability</span>
           </article>
-          <p class="long-stay-pricing__fineprint">
-            Final pricing may vary by arrival date, season and exchange rate.
-          </p>
         </div>
       </div>
+
+      <p class="long-stay-pricing__fineprint">
+        Final pricing may vary by arrival date, season and exchange rate.
+      </p>
     </div>
   </section>
 </template>

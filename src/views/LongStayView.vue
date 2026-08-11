@@ -640,15 +640,16 @@
   }
 
   .long-stay-pricing__badge {
+    display: inline-flex;
     justify-self: start;
-    margin: 0;
     border-radius: 999px;
-    background: var(--shell-color-lagoon);
-    padding: 0.45rem 0.7rem;
-    color: white !important;
-    font-size: 0.78rem !important;
-    font-weight: 900 !important;
-    line-height: 1 !important;
+    background: white;
+    padding: 0.5rem 0.75rem;
+    color: var(--shell-color-ink);
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 0.35rem 1rem rgb(10 42 94 / 0.1);
     text-transform: uppercase;
   }
 
@@ -665,10 +666,10 @@
     margin: 0;
     color: var(--shell-color-ink) !important;
     font-family: var(--shell-font-sans);
-    font-size: clamp(2rem, 4.2vw, 3.05rem) !important;
+    font-size: clamp(1.45rem, 2.7vw, 2rem) !important;
     font-weight: 900 !important;
     letter-spacing: 0;
-    line-height: 1.08 !important;
+    line-height: 1.12 !important;
   }
 
   .long-stay-pricing__feature-note {
@@ -691,17 +692,30 @@
   }
 
   .long-stay-pricing__option {
-    display: flex;
-    min-height: 6.25rem;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--shell-space-4);
-    padding: clamp(1.1rem, 2.5vw, 1.5rem);
+    position: relative;
+    display: grid;
+    min-height: 8.25rem;
+    align-content: center;
+    gap: 0.45rem;
+    overflow: hidden;
+    padding: clamp(1.2rem, 2.8vw, 1.65rem);
+    background:
+      linear-gradient(135deg, rgb(14 107 110 / 0.08), transparent 56%),
+      var(--shell-color-surface);
+    box-shadow: 0 0.65rem 1.6rem rgb(10 42 94 / 0.06);
   }
 
-  .long-stay-pricing__option span {
+  .long-stay-pricing__option::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.35rem;
+    background: var(--shell-color-lagoon);
+  }
+
+  .long-stay-pricing__option-duration {
     color: var(--shell-color-muted);
-    font-size: 0.92rem;
+    font-size: 25px;
     font-weight: 900;
     text-transform: uppercase;
   }
@@ -709,17 +723,27 @@
   .long-stay-pricing__option strong {
     color: var(--shell-color-ink);
     font-family: var(--shell-font-sans);
-    font-size: clamp(1.15rem, 2vw, 1.45rem);
-    font-weight: 900;
-    line-height: 1.2;
-    text-align: right;
+    font-size: clamp(1.45rem, 2.7vw, 0.5rem);
+    font-weight: 400;
+    line-height: 1.12;
+    text-align: left;
+  }
+
+  .long-stay-pricing__option-caption {
+    color: var(--shell-color-subtle);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.3;
   }
 
   .long-stay-pricing__fineprint {
-    margin: var(--shell-space-2) 0 0;
+    justify-self: center;
+    max-width: 44rem;
+    margin: 0;
     color: var(--shell-color-subtle) !important;
     font-size: 0.95rem !important;
     line-height: 1.5 !important;
+    text-align: center;
   }
 
   .long-stay-faq__items {
