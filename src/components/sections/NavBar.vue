@@ -1,14 +1,17 @@
 <script setup lang="ts">
-  import { onBeforeUnmount, onMounted, ref } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
   import { withCacheBust } from '@/composables/cacheBustedAsset'
   import type { SectionData } from '@/content/siteText'
 
-  defineProps<{
+  const props = defineProps<{
     data: SectionData<'nav-bar'> | SectionData<'long-stay-nav'>
   }>()
 
   const isScrolled = ref(false)
   const isMenuOpen = ref(false)
+  const isLongStayNav = computed(() =>
+    props.data.links.some((link) => link.href.startsWith('/long-stay/')),
+  )
 
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 24
@@ -31,7 +34,7 @@
 <template>
   <header
     class="nav-bar"
-    :class="{ 'nav-bar--scrolled': isScrolled, 'nav-bar--open': isMenuOpen }"
+    :class="{ 'nav-bar--scrolled': isScrolled, 'nav-bar--open': isMenuOpen, 'nav-bar--long-stay': isLongStayNav }"
   >
     <nav class="nav-bar__inner shell-container" aria-label="Primary">
       <a class="nav-bar__brand" href="/#hero" :aria-label="data.logoText" @click="closeMenu">
@@ -147,6 +150,10 @@
   }
 
   .nav-bar--scrolled .nav-bar__links {
+    color: white;
+  }
+
+  .nav-bar--long-stay .nav-bar__links {
     color: white;
   }
 

@@ -3,273 +3,41 @@
     <NavBar :data="siteText['long-stay-nav']" />
 
     <main id="main-content">
-      <section id="escape" class="long-stay-hero shell-section" aria-labelledby="long-stay-title">
-        <img class="long-stay-hero__image" :src="withCacheBust(data.image)" :alt="data.imageAlt" aria-hidden="true" />
-        <div class="long-stay-hero__shade" aria-hidden="true"></div>
-        <div class="long-stay-hero__inner shell-container">
-          <div class="long-stay-hero__content">
-            <p v-if="data.eyebrow" class="shell-eyebrow long-stay-hero__eyebrow">{{ data.eyebrow }}</p>
-            <h1 id="long-stay-title" class="long-stay-hero__title">{{ data.title }}</h1>
-            <p class="long-stay-hero__lead">{{ data.lead }}</p>
-            <p class="long-stay-hero__highlight">{{ data.highlight }}</p>
-            <div class="long-stay-hero__actions" aria-label="Primary actions">
-              <a class="shell-button shell-button--primary" :href="data.primaryCta.href">
-                {{ data.primaryCta.label }}
-              </a>
-              <a class="shell-button shell-button--secondary" :href="data.secondaryCta.href">
-                {{ data.secondaryCta.label }}
-              </a>
-            </div>
-            <ul class="long-stay-hero__facts" aria-label="Key Cabana Mio facts">
-              <li v-for="fact in data.facts" :key="fact">{{ fact }}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="winter-contrast" class="long-stay-contrast shell-section" aria-labelledby="winter-contrast-title">
-        <div class="long-stay-contrast__inner shell-container">
-          <div class="long-stay-contrast__copy">
-            <p class="shell-eyebrow">The Escape</p>
-            <h2 id="winter-contrast-title">{{ data.winterContrast.title }}</h2>
-            <p>{{ data.winterContrast.body }}</p>
-          </div>
-          <div class="long-stay-contrast__panel" aria-label="Approximate winter temperature comparison">
-            <div v-for="city in data.temperatureComparison" :key="city.name" class="long-stay-contrast__city" :class="{ 'long-stay-contrast__city--warm': city.featured }">
-              <span>{{ city.name }}</span>
-              <strong>{{ city.temperature }}</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="accommodation" class="long-stay-accommodation shell-section" aria-labelledby="accommodation-title">
-        <div class="long-stay-accommodation__inner shell-container">
-          <div class="long-stay-accommodation__copy">
-            <p class="shell-eyebrow">Accommodation</p>
-            <h2 id="accommodation-title">{{ data.accommodation.title }}</h2>
-            <p>{{ data.accommodation.body }}</p>
-          </div>
-          <div class="long-stay-accommodation__gallery" aria-label="Cabana Mio accommodation images">
-            <figure v-for="image in data.accommodation.images" :key="image.src" class="long-stay-accommodation__image">
-              <img :src="withCacheBust(image.src)" :alt="image.alt" loading="lazy" decoding="async" />
-              <figcaption>{{ image.label }}</figcaption>
-            </figure>
-          </div>
-          <ul class="long-stay-accommodation__features" aria-label="Accommodation features">
-            <li v-for="feature in data.accommodation.features" :key="feature">{{ feature }}</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="experience" class="long-stay-experience shell-section" aria-labelledby="experience-title">
-        <div class="long-stay-experience__inner shell-container">
-          <figure class="long-stay-experience__image">
-            <img :src="withCacheBust(data.experience.image.src)" :alt="data.experience.image.alt" loading="lazy" decoding="async" />
-            <figcaption>{{ data.experience.image.label }}</figcaption>
-          </figure>
-          <div class="long-stay-experience__copy">
-            <p class="shell-eyebrow">Long-Stay Living</p>
-            <h2 id="experience-title">{{ data.experience.title }}</h2>
-            <p>{{ data.experience.body }}</p>
-            <ul class="long-stay-experience__list" aria-label="Long-stay lifestyle moments">
-              <li v-for="item in data.experience.items" :key="item">{{ item }}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="golf" class="long-stay-golf shell-section" aria-labelledby="golf-title">
-        <div class="long-stay-golf__inner shell-container">
-          <div class="long-stay-golf__copy">
-            <p class="shell-eyebrow">Golf</p>
-            <h2 id="golf-title">{{ data.golf.title }}</h2>
-            <p>{{ data.golf.body }}</p>
-          </div>
-          <div class="long-stay-golf__gallery" aria-label="Golf and coastal lifestyle">
-            <figure v-for="image in data.golf.images" :key="image.src" class="long-stay-golf__image">
-              <img :src="withCacheBust(image.src)" :alt="image.alt" loading="lazy" decoding="async" />
-              <figcaption>{{ image.label }}</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section id="location" class="long-stay-location shell-section" aria-labelledby="location-title">
-        <div class="long-stay-location__inner shell-container">
-          <div class="long-stay-location__copy">
-            <p class="shell-eyebrow">Location</p>
-            <h2 id="location-title">{{ data.location.title }}</h2>
-            <p>{{ data.location.body }}</p>
-          </div>
-          <figure class="long-stay-location__image">
-            <img :src="withCacheBust(data.location.image)" alt="Aerial view of Cabana Mio and the coastline" loading="lazy" decoding="async" />
-            <figcaption>Amanzimtoti Coastline</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="pricing" class="long-stay-pricing shell-section" aria-labelledby="pricing-title">
-        <div class="long-stay-pricing__inner shell-container">
-          <div class="long-stay-pricing__header">
-            <p class="shell-eyebrow">{{ data.pricing.eyebrow }}</p>
-            <h2 id="pricing-title">{{ data.pricing.title }}</h2>
-            <p>{{ data.pricing.note }}</p>
-          </div>
-          <div class="long-stay-pricing__cards" role="list">
-            <div v-for="row in data.pricing.rows" :key="row.duration" class="long-stay-pricing__card" :class="{ 'long-stay-pricing__card--featured': row.featured }" role="listitem">
-              <p class="long-stay-pricing__duration">{{ row.duration }}</p>
-              <p class="long-stay-pricing__price">{{ row.price }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="long-stay-faq shell-section" aria-labelledby="faq-title">
-        <div class="long-stay-faq__inner shell-container">
-          <div class="long-stay-faq__header">
-            <p class="shell-eyebrow">{{ data.faq.eyebrow }}</p>
-            <h2 id="faq-title">{{ data.faq.title }}</h2>
-          </div>
-          <div class="long-stay-faq__items" role="region" aria-label="Frequently asked questions">
-            <div v-for="(item, index) in data.faq.items" :key="item.question" class="long-stay-faq__item">
-              <button :id="`faq-question-${index}`" class="long-stay-faq__question" type="button" :aria-expanded="openFaqIndex === index" :aria-controls="`faq-answer-${index}`" @click="toggleFaq(index)">
-                 {{ item.question }}
-                 <span aria-hidden="true">{{ openFaqIndex === index ? '-' : '+' }}</span>
-               </button>
-               <div :id="`faq-answer-${index}`" class="long-stay-faq__answer" :hidden="openFaqIndex !== index" role="region" :aria-labelledby="`faq-question-${index}`">
-                <p>{{ item.answer }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="enquire" class="long-stay-enquire shell-section" aria-labelledby="enquire-title">
-        <div class="long-stay-enquire__inner shell-container">
-          <div class="long-stay-enquire__copy">
-            <p class="shell-eyebrow">{{ data.enquire.eyebrow }}</p>
-            <h2 id="enquire-title">{{ data.enquire.title }}</h2>
-            <p>{{ data.enquire.body }}</p>
-          </div>
-          <form class="long-stay-enquire__form" @submit.prevent="handleSubmit" novalidate>
-            <div class="long-stay-enquire__row">
-              <label class="long-stay-enquire__label" for="long-stay-name">Full name</label>
-              <input id="long-stay-name" v-model="form.name" type="text" name="name" autocomplete="name" :class="{ 'long-stay-enquire__input--error': errors.name }" />
-              <em v-if="errors.name" class="long-stay-enquire__error">{{ errors.name }}</em>
-            </div>
-            <div class="long-stay-enquire__row">
-              <label class="long-stay-enquire__label" for="long-stay-email">Email address</label>
-              <input id="long-stay-email" v-model="form.email" type="email" name="email" autocomplete="email" :class="{ 'long-stay-enquire__input--error': errors.email }" />
-              <em v-if="errors.email" class="long-stay-enquire__error">{{ errors.email }}</em>
-            </div>
-            <div class="long-stay-enquire__row">
-              <label class="long-stay-enquire__label" for="long-stay-message">Travel dates and notes</label>
-              <textarea id="long-stay-message" v-model="form.message" name="message" rows="4" :class="{ 'long-stay-enquire__input--error': errors.message }"></textarea>
-              <em v-if="errors.message" class="long-stay-enquire__error">{{ errors.message }}</em>
-            </div>
-            <button class="shell-button shell-button--primary" type="submit" :disabled="isSubmitting">
-              {{ isSubmitting ? 'Sending...' : 'Check Availability' }}
-            </button>
-            <p v-if="status === 'success'" class="long-stay-enquire__success" role="status">
-              Thank you. Your enquiry has been received and the team will be in touch.
-            </p>
-            <p v-if="status === 'error'" class="long-stay-enquire__error" role="alert">
-              Sorry, something went wrong. Please call or email us directly and we will assist you.
-            </p>
-          </form>
-        </div>
-      </section>
+      <LongStayHeroBlock :data="data" />
+      <WinterContrastDeck :data="data" />
+      <div id="accommodation">
+        <MapSection :data="siteText.map" />
+      </div>
+      <ExperienceDeck :data="data.experience" />
+      <GolfDeck :data="data.golf" />
+      <LocationDeck :data="data.location" />
+      <PricingDeck :data="data.pricing" />
+      <FaqDeck :data="data.faq" />
+      <EnquiryDeck :data="data.enquire" />
     </main>
 
     <SiteFooter :data="siteText.footer" />
   </div>
 </template>
 <script setup lang="ts">
-  import { reactive, ref } from 'vue'
-  import { siteText, type SectionData } from '@/content/siteText'
+  import { siteText } from '@/content/siteText'
   import type { LongStayData } from '@/content/siteText'
-  import { withCacheBust } from '@/composables/cacheBustedAsset'
+  import EnquiryDeck from '@/components/long-stay/EnquiryDeck.vue'
+  import ExperienceDeck from '@/components/long-stay/ExperienceDeck.vue'
+  import FaqDeck from '@/components/long-stay/FaqDeck.vue'
+  import GolfDeck from '@/components/long-stay/GolfDeck.vue'
+  import LocationDeck from '@/components/long-stay/LocationDeck.vue'
+  import LongStayHeroBlock from '@/components/long-stay/LongStayHeroBlock.vue'
+  import PricingDeck from '@/components/long-stay/PricingDeck.vue'
+  import WinterContrastDeck from '@/components/long-stay/WinterContrastDeck.vue'
+  import MapSection from '@/components/sections/MapSection.vue'
   import NavBar from '@/components/sections/NavBar.vue'
   import SiteFooter from '@/components/sections/SiteFooter.vue'
 
   const data = siteText['long-stay'] as LongStayData
-
-  const openFaqIndex = ref<number | null>(null)
-
-  const toggleFaq = (index: number) => {
-    openFaqIndex.value = openFaqIndex.value === index ? null : index
-  }
-
-  const isSubmitting = ref(false)
-  const status = ref<'idle' | 'success' | 'error'>('idle')
-
-  const form = reactive({
-    name: '',
-    email: '',
-    message: '',
-  })
-
-  const errors = reactive({
-    name: '',
-    email: '',
-    message: '',
-  })
-
-  const clearErrors = () => {
-    errors.name = ''
-    errors.email = ''
-    errors.message = ''
-    status.value = 'idle'
-  }
-
-  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
-  const validateForm = () => {
-    clearErrors()
-    let isValid = true
-
-    if (!form.name.trim()) {
-      errors.name = 'Full name is required'
-      isValid = false
-    }
-
-    if (!form.email.trim()) {
-      errors.email = 'Email address is required'
-      isValid = false
-    } else if (!isValidEmail(form.email)) {
-      errors.email = 'Please enter a valid email address'
-      isValid = false
-    }
-
-    if (!form.message.trim()) {
-      errors.message = 'Travel dates and notes are required'
-      isValid = false
-    }
-
-    return isValid
-  }
-
-  const handleSubmit = async () => {
-    if (!validateForm()) return
-
-    isSubmitting.value = true
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 800))
-      status.value = 'success'
-      form.name = ''
-      form.email = ''
-      form.message = ''
-    } catch {
-      status.value = 'error'
-    } finally {
-      isSubmitting.value = false
-    }
-  }
 </script>
 
-<style scoped>
+<style>
   .long-stay-page {
     min-height: 100vh;
     background: var(--shell-color-canvas);
@@ -301,8 +69,8 @@
   .long-stay-hero__shade {
     z-index: -1;
     background:
-      linear-gradient(90deg, rgb(10 42 94 / 0.82), rgb(10 42 94 / 0.48) 46%, rgb(10 42 94 / 0.18)),
-      linear-gradient(180deg, rgb(10 42 94 / 0.15), rgb(10 42 94 / 0.62));
+      linear-gradient(90deg, rgb(4 17 38 / 0.92), rgb(4 17 38 / 0.68) 48%, rgb(4 17 38 / 0.34)),
+      linear-gradient(180deg, rgb(4 17 38 / 0.38), rgb(4 17 38 / 0.78));
   }
 
   .long-stay-hero__inner {
@@ -316,11 +84,11 @@
 
   .long-stay-hero__eyebrow {
     margin: 0;
-    color: var(--shell-color-sun);
-    font-size: 0.9rem;
-    font-weight: 850;
+    color: var(--shell-color-sun) !important;
+    font-size: 0.9rem !important;
+    font-weight: 850 !important;
     letter-spacing: 0.08em;
-    line-height: 1.35;
+    line-height: 1.35 !important;
     text-transform: uppercase;
   }
 
@@ -338,20 +106,20 @@
   .long-stay-hero__lead,
   .long-stay-hero__highlight {
     max-width: 44rem;
-    color: rgb(255 255 255 / 0.94);
+    color: rgb(255 255 255 / 0.94) !important;
   }
 
   .long-stay-hero__lead {
     margin: 1.25rem 0 0;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    line-height: 1.55;
+    font-size: clamp(1.1rem, 2vw, 1.35rem) !important;
+    line-height: 1.55 !important;
   }
 
   .long-stay-hero__highlight {
     margin: 0.85rem 0 0;
-    font-size: clamp(1rem, 1.6vw, 1.16rem);
-    font-weight: 800;
-    line-height: 1.45;
+    font-size: clamp(1rem, 1.6vw, 1.16rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
   }
 
   .long-stay-hero__actions {
@@ -570,7 +338,7 @@
     margin: 0;
     overflow: hidden;
     border-radius: var(--shell-radius-md);
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1;
     background: var(--shell-color-surface-muted);
     box-shadow: 0 1rem 2.5rem rgb(10 42 94 / 0.1);
   }
@@ -594,7 +362,7 @@
   }
 
   .long-stay-experience h2 {
-    max-width: 14ch;
+    max-width: none;
     margin: 0.85rem 0 0;
     color: var(--shell-color-ink);
     font-family: var(--shell-font-serif);
@@ -604,7 +372,7 @@
   }
 
   .long-stay-experience__copy p:not(.shell-eyebrow) {
-    max-width: 43rem;
+    max-width: none;
     margin: 1.25rem 0 0;
     color: var(--shell-color-muted);
     font-size: clamp(1.05rem, 1.8vw, 1.18rem);
@@ -656,6 +424,10 @@
     gap: clamp(2rem, 5vw, 3.5rem);
   }
 
+  .long-stay-golf__inner {
+    gap: clamp(1.75rem, 4vw, 3rem);
+  }
+
   .long-stay-golf h2,
   .long-stay-location h2,
   .long-stay-pricing h2,
@@ -682,37 +454,102 @@
     line-height: 1.65;
   }
 
-  .long-stay-golf__gallery {
+  .long-stay-golf__copy {
     display: grid;
-    gap: 0.75rem;
+    justify-items: center;
+    text-align: center;
   }
 
-  .long-stay-golf__image {
+  .long-stay-golf__copy h2 {
+    max-width: 18ch;
+  }
+
+  .long-stay-golf__copy p:not(.shell-eyebrow) {
+    max-width: 52rem;
+  }
+
+  .long-stay-golf__note {
+    max-width: 58rem;
+    justify-self: center;
+    margin: 0;
+    color: var(--shell-color-muted);
+    font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .long-stay-golf__cards {
+    display: grid;
+    gap: var(--shell-space-4);
+  }
+
+  .long-stay-golf__card {
     position: relative;
     min-height: 0;
-    margin: 0;
     overflow: hidden;
     border-radius: var(--shell-radius-md);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     background: var(--shell-color-surface-muted);
+    box-shadow: 0 1rem 2.25rem rgb(10 42 94 / 0.12);
   }
 
-  .long-stay-golf__image img {
+  .long-stay-golf__card img,
+  .long-stay-golf__card-shade {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .long-stay-golf__card img {
     object-fit: cover;
   }
 
-  .long-stay-golf__image figcaption {
+  .long-stay-golf__card-shade {
+    background:
+      linear-gradient(180deg, rgb(4 17 38 / 0.08), rgb(4 17 38 / 0.72)),
+      linear-gradient(90deg, rgb(4 17 38 / 0.46), rgb(4 17 38 / 0.16));
+  }
+
+  .long-stay-golf__card-content {
     position: absolute;
-    bottom: 0.75rem;
-    left: 0.75rem;
-    border-radius: var(--shell-radius-sm);
-    background: rgb(10 42 94 / 0.86);
-    padding: 0.5rem 0.7rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    gap: 0.55rem;
+    padding: clamp(1rem, 2.4vw, 1.35rem);
     color: white;
-    font-size: 0.82rem;
+  }
+
+  .long-stay-golf__card-content p {
+    margin: 0;
+    color: rgb(255 255 255 / 0.82) !important;
+    font-size: 0.78rem !important;
     font-weight: 850;
+    letter-spacing: 0.04em;
+    line-height: 1.25 !important;
+    text-transform: uppercase;
+  }
+
+  .long-stay-golf__card-content h3 {
+    margin: 0;
+    color: white;
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+  }
+
+  .long-stay-golf__card-content strong {
+    color: var(--shell-color-sun);
+    font-size: 0.98rem;
+    line-height: 1.2;
+  }
+
+  .long-stay-golf__card-content span {
+    color: rgb(255 255 255 / 0.9);
+    font-size: 0.94rem;
+    line-height: 1.45;
   }
 
   .long-stay-location__image {
@@ -752,7 +589,7 @@
     border: 1px solid var(--shell-color-hairline);
     border-radius: var(--shell-radius-md);
     background: var(--shell-color-surface);
-    padding: var(--shell-space-6);
+    padding: clamp(1.5rem, 3vw, 2rem);
     text-align: center;
   }
 
@@ -764,18 +601,20 @@
   .long-stay-pricing__duration {
     margin: 0;
     color: var(--shell-color-muted);
-    font-size: 0.88rem;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0;
+    line-height: 1.25 !important;
   }
 
   .long-stay-pricing__price {
-    margin: 0.5rem 0 0;
+    margin: 0.8rem 0 0;
     color: var(--shell-color-ink);
     font-family: var(--shell-font-serif);
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 750;
+    font-size: clamp(1.8rem, 3.8vw, 2.75rem) !important;
+    font-weight: 850 !important;
+    line-height: 1.08 !important;
   }
 
   .long-stay-faq__items {
@@ -890,9 +729,7 @@
     }
 
     .long-stay-accommodation__gallery,
-    .long-stay-accommodation__features,
-    .long-stay-experience__list,
-    .long-stay-golf__gallery {
+    .long-stay-accommodation__features {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -900,8 +737,6 @@
   @media (min-width: 768px) {
     .long-stay-contrast__inner,
     .long-stay-accommodation__inner,
-    .long-stay-experience__inner,
-    .long-stay-golf__inner,
     .long-stay-location__inner,
     .long-stay-pricing__inner,
     .long-stay-faq__inner,
@@ -909,11 +744,19 @@
       grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
     }
 
+    .long-stay-experience__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
     .long-stay-location__inner {
       grid-template-columns: 1fr;
     }
 
     .long-stay-pricing__cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .long-stay-golf__cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 

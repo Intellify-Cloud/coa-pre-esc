@@ -113,7 +113,15 @@ export type LongStayData = {
   golf: {
     title: string
     body: string
+    note: string
     images: readonly ResortImage[]
+    courses: readonly {
+      name: string
+      rating: string
+      category: string
+      description: string
+      image: ResortImage
+    }[]
   }
   location: {
     title: string
@@ -470,6 +478,16 @@ export const siteText = {
         label: 'Beach Path',
       },
       {
+        src: '/cabana-mio/beach-ocean.png',
+        alt: 'Indian Ocean beach near Cabana Mio in Amanzimtoti',
+        label: 'Indian Ocean Beach',
+      },
+      {
+        src: '/cabana-mio/beach-walk.jpeg',
+        alt: 'Shaded beach path near Cabana Mio in Amanzimtoti',
+        label: 'Beach Walk',
+      },
+      {
         src: '/cabana-mio/optimized/kirchen.webp',
         alt: 'Cabana Mio indoor dining area and equipped kitchen',
         label: 'Equipped Kitchen',
@@ -517,8 +535,8 @@ export const siteText = {
     lead:
       'Escape the European winter and make the South African coast your home for 60-90 days.',
     highlight: '3-bedroom beachside duplexes in Amanzimtoti, South Africa',
-    image: '/cabana-mio/optimized/drone-to-ocean-hero.webp',
-    imageAlt: 'Aerial view from Cabana Mio toward the ocean',
+    image: '/hero/hero_3.png',
+    imageAlt: 'Sunny coastal beach scene for the Cabana Mio long-stay winter escape',
     primaryCta: { label: 'Explore the Winter Escape', href: '#accommodation' },
     secondaryCta: { label: 'View 90-Day Pricing', href: '#pricing' },
     facts: ['50m from the beach', '3 bedrooms', 'Unlimited Wi-Fi', 'Golf nearby'],
@@ -587,14 +605,90 @@ export const siteText = {
       ],
     },
     golf: {
-      title: 'Golf on the South Coast',
+      title: 'Bring your clubs.',
       body:
-        'Amanzimtoti and the wider Durban South Coast are home to several well-regarded golf courses. After a morning on the beach, you can enjoy a round of golf in warm weather that Northern Europe simply cannot match in winter.',
+        'Amanzimtoti and the KwaZulu-Natal South Coast make a relaxed base for golfers who want warm-weather rounds during a longer winter escape.',
+      note:
+        'Explore coastal, parkland, estate and resort courses during your stay. Exact travel times and green fees should be confirmed before booking.',
       images: [
         {
           src: '/cabana-mio/optimized/drone-from-ocean.webp',
           alt: 'Aerial view from the ocean toward Cabana Mio and the coastline',
           label: 'Coastal Setting',
+        },
+      ],
+      courses: [
+        {
+          name: 'Selborne Golf Club',
+          rating: '4.5',
+          category: 'Elite Coastal & Resort Course',
+          description:
+            'Often described as one of the South Coast classics, with estate-style surroundings, rolling hills and a polished resort feel.',
+          image: {
+            src: '/hero/hero_2.png',
+            alt: 'Coastal resort setting used as a placeholder for Selborne Golf Club',
+            label: 'Selborne',
+          },
+        },
+        {
+          name: 'San Lameer Estate',
+          rating: '4.7',
+          category: 'Elite Coastal & Resort Course',
+          description:
+            'A premier South Coast estate course known for manicured surfaces, coastal vegetation and a refined holiday setting.',
+          image: {
+            src: '/hero/hero.png',
+            alt: 'Coastal estate setting used as a placeholder for San Lameer Estate',
+            label: 'San Lameer',
+          },
+        },
+        {
+          name: 'Umdoni Park Golf Club',
+          rating: '4.5',
+          category: 'Elite Coastal & Resort Course',
+          description:
+            'A nature-rich coastal layout associated with sea views, mature trees and a memorable South Coast setting.',
+          image: {
+            src: '/cabana-mio/beach-ocean.png',
+            alt: 'Indian Ocean coastline used as a placeholder for Umdoni Park Golf Club',
+            label: 'Umdoni Park',
+          },
+        },
+        {
+          name: 'Wild Coast Sun Country Club',
+          rating: '4.5',
+          category: 'Elite Coastal & Resort Course',
+          description:
+            'A dramatic championship-style course known for rugged terrain, river ravines and an ocean-facing landscape.',
+          image: {
+            src: '/cabana-mio/optimized/drone-ocean-2.webp',
+            alt: 'Coastal aerial view used as a placeholder for Wild Coast Sun Country Club',
+            label: 'Wild Coast Sun',
+          },
+        },
+        {
+          name: 'Umkomaas Golf Club',
+          rating: '4.3',
+          category: 'Highly-Rated Local & Regional Course',
+          description:
+            'A friendly local coastal course with a relaxed atmosphere and wide South Coast appeal.',
+          image: {
+            src: '/cabana-mio/optimized/drone-from-ocean.webp',
+            alt: 'South Coast aerial view used as a placeholder for Umkomaas Golf Club',
+            label: 'Umkomaas',
+          },
+        },
+        {
+          name: 'Bluff National Park Golf Club',
+          rating: '4.2',
+          category: 'Highly-Rated Local & Regional Course',
+          description:
+            'A regional parkland option north of Amanzimtoti, known for water features and a more technical local round.',
+          image: {
+            src: '/cabana-mio/optimized/drone-casa-ocean.webp',
+            alt: 'KwaZulu-Natal coastal view used as a placeholder for Bluff National Park Golf Club',
+            label: 'Bluff National Park',
+          },
         },
       ],
     },
