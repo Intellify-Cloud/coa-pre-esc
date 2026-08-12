@@ -734,7 +734,7 @@ export const siteText = {
     },
     pricing: {
       eyebrow: '- Pricing -',
-      title: '90-Day Winter Sun Packages packages',
+      title: 'Winter Sun Packages packages',
       note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply.',
       rows: [
         { duration: '60 days', price: 'Around €5,300 / £4,550', featured: false },
@@ -893,9 +893,11 @@ export const siteText = {
   },
   'long-stay-nav': {
     logoText: 'Coastal Preferred Escapes',
-    logoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
-    scrolledLogoImage: '/cabana-mio/optimized/Copy-of-Cabana-Mio-Logo-nbg.webp',
+    logoImage: '/logo/cpe-logo-colour-tp.png',
+    scrolledLogoImage: '/logo/cpe-logo-bw-tp.png',
     links: [
+      { label: 'Home', href: '/#hero' },
+      { label: 'Long Stay', href: '/long-stay/' },
       { label: 'The Escape', href: '/long-stay/#escape' },
       { label: 'Accommodation', href: '/long-stay/#accommodation' },
       { label: 'Golf', href: '/long-stay/#golf' },

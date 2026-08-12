@@ -15,7 +15,7 @@
         >
           <span class="long-stay-pricing__badge">Best long-stay value</span>
           <h3>{{ featuredRow.duration }} Winter Escape</h3>
-          <p class="long-stay-pricing__feature-price">{{ featuredRow.price }}</p>
+          <strong class="long-stay-pricing__feature-price">{{ featuredRow.price }}</strong>
           <p class="long-stay-pricing__feature-note">
             Spacious 3-bedroom duplex for the full stay, with Wi-Fi and unit facilities included.
           </p>

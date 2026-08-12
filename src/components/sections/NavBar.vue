@@ -9,10 +9,29 @@
 
   const isScrolled = ref(false)
   const isMenuOpen = ref(false)
+  const currentPath = ref('/')
+  const currentHash = ref('')
   const isLongStayNav = computed(() =>
     props.data.links.some((link) => link.href.startsWith('/long-stay/')),
   )
   const brandHref = computed(() => (isLongStayNav.value ? '/long-stay/#escape' : '/#hero'))
+
+  const syncLocation = () => {
+    currentPath.value = window.location.pathname || '/'
+    currentHash.value = window.location.hash
+  }
+
+  const isLinkActive = (href: string) => {
+    if (typeof window === 'undefined') return false
+
+    const url = new URL(href, window.location.origin)
+    const pathMatches = url.pathname === currentPath.value
+
+    if (!pathMatches) return false
+    if (url.hash) return url.hash === currentHash.value || (!currentHash.value && url.hash === '#hero')
+
+    return !currentHash.value
+  }
 
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 24
@@ -22,13 +41,23 @@
     isMenuOpen.value = false
   }
 
+  const handleLinkClick = (closeMobileMenu = false) => {
+    if (closeMobileMenu) closeMenu()
+    window.setTimeout(syncLocation, 0)
+  }
+
   onMounted(() => {
+    syncLocation()
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('hashchange', syncLocation)
+    window.addEventListener('popstate', syncLocation)
   })
 
   onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('hashchange', syncLocation)
+    window.removeEventListener('popstate', syncLocation)
   })
 </script>
 
@@ -40,15 +69,20 @@
     <nav class="nav-bar__inner shell-container" aria-label="Primary">
       <a class="nav-bar__brand" :href="brandHref" :aria-label="data.logoText" @click="closeMenu">
         <img
-          v-if="!isLongStayNav"
           :src="withCacheBust(isScrolled ? data.scrolledLogoImage : data.logoImage)"
           alt=""
         />
-        <span v-else>{{ data.logoText }}</span>
       </a>
 
       <div class="nav-bar__links" aria-label="Primary links">
-        <a v-for="link in data.links" :key="link.href" :href="link.href">
+        <a
+          v-for="link in data.links"
+          :key="link.href"
+          :href="link.href"
+          :class="{ 'nav-bar__link--active': isLinkActive(link.href) }"
+          :aria-current="isLinkActive(link.href) ? 'page' : undefined"
+          @click="handleLinkClick()"
+        >
           {{ link.label }}
         </a>
       </div>
@@ -75,7 +109,14 @@
 
     <div id="mobile-menu" class="nav-bar__mobile" :hidden="!isMenuOpen">
       <div class="nav-bar__mobile-inner shell-container">
-        <a v-for="link in data.links" :key="link.href" :href="link.href" @click="closeMenu">
+        <a
+          v-for="link in data.links"
+          :key="link.href"
+          :href="link.href"
+          :class="{ 'nav-bar__link--active': isLinkActive(link.href) }"
+          :aria-current="isLinkActive(link.href) ? 'page' : undefined"
+          @click="handleLinkClick(true)"
+        >
           {{ link.label }}
         </a>
         <a class="shell-button shell-button--primary nav-bar__mobile-cta" :href="data.cta.href" @click="closeMenu">
@@ -102,7 +143,7 @@
   }
 
   .nav-bar--scrolled {
-    min-height: 73px;
+    min-height: 62px;
     background: rgb(10 42 94 / 0.92);
     box-shadow: 0 0.75rem 2rem rgb(10 42 94 / 0.16);
     backdrop-filter: blur(12px);
@@ -124,7 +165,7 @@
   }
 
   .nav-bar--scrolled .nav-bar__inner {
-    min-height: 73px;
+    min-height: 62px;
   }
 
   .nav-bar__brand {
@@ -135,7 +176,7 @@
   }
 
   .nav-bar--scrolled .nav-bar__brand {
-    width: min(9rem, 48vw);
+    width: min(7.75rem, 42vw);
   }
 
   .nav-bar__brand img {
@@ -153,27 +194,14 @@
   }
 
   .nav-bar--long-stay .nav-bar__brand {
-    width: auto;
-    max-width: min(42vw, 20rem);
-    color: var(--shell-color-ink);
-    white-space: nowrap;
-  }
-
-  .nav-bar--long-stay .nav-bar__brand span {
-    overflow: hidden;
-    font-size: clamp(0.72rem, 1vw, 0.95rem);
-    text-overflow: ellipsis;
-  }
-
-  .nav-bar--long-stay.nav-bar--scrolled .nav-bar__brand,
-  .nav-bar--long-stay.nav-bar--open .nav-bar__brand {
-    color: white;
+    width: min(12rem, 44vw);
+    max-width: none;
   }
 
   .nav-bar__links {
     display: none;
     align-items: center;
-    gap: clamp(1rem, 2vw, var(--shell-space-8));
+    gap: clamp(0.65rem, 1.35vw, var(--shell-space-6));
     color: var(--shell-color-ink);
     font-size: 0.8125rem;
     font-weight: 800;
@@ -197,6 +225,31 @@
     color: var(--shell-color-accent);
   }
 
+  .nav-bar__links a,
+  .nav-bar__mobile a:not(.shell-button) {
+    position: relative;
+  }
+
+  .nav-bar__links a.nav-bar__link--active {
+    color: var(--shell-color-accent);
+  }
+
+  .nav-bar__links a.nav-bar__link--active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.45rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .nav-bar--scrolled .nav-bar__links a.nav-bar__link--active,
+  .nav-bar--open .nav-bar__links a.nav-bar__link--active {
+    color: var(--shell-color-sun);
+  }
+
   .nav-bar__cta {
     display: none;
     justify-self: end;
@@ -212,7 +265,7 @@
   }
 
   .nav-bar--scrolled .nav-bar__cta {
-    min-height: 2.25rem;
+    min-height: 2rem;
     border: 1px solid rgb(255 255 255 / 0.7);
     background: transparent;
     color: white;
@@ -284,6 +337,10 @@
     text-transform: uppercase;
   }
 
+  .nav-bar__mobile a.nav-bar__link--active {
+    color: var(--shell-color-sun);
+  }
+
   .nav-bar__mobile-cta {
     justify-self: stretch;
     margin-top: var(--shell-space-2);
@@ -293,6 +350,11 @@
     .nav-bar,
     .nav-bar__inner {
       min-height: 104px;
+    }
+
+    .nav-bar--scrolled,
+    .nav-bar--scrolled .nav-bar__inner {
+      min-height: 68px;
     }
 
     .nav-bar__inner {
@@ -318,13 +380,17 @@
     }
 
     .nav-bar--scrolled .nav-bar__brand {
-      width: min(10.5rem, 30vw);
+      width: min(8.5rem, 22vw);
     }
 
-    .nav-bar--long-stay .nav-bar__brand,
+    .nav-bar--long-stay .nav-bar__brand {
+      width: min(10.5rem, 18vw);
+      max-width: none;
+    }
+
     .nav-bar--long-stay.nav-bar--scrolled .nav-bar__brand {
-      width: auto;
-      max-width: 22rem;
+      width: min(8.5rem, 16vw);
+      max-width: none;
     }
   }
 </style>

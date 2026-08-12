@@ -663,13 +663,15 @@
   }
 
   .long-stay-pricing__feature-price {
+    display: block;
     margin: 0;
     color: var(--shell-color-ink) !important;
     font-family: var(--shell-font-sans);
-    font-size: clamp(1.45rem, 2.7vw, 2rem) !important;
-    font-weight: 900 !important;
+    font-size: clamp(1.45rem, 2.7vw, 0.5rem) !important;
+    font-weight: 400 !important;
     letter-spacing: 0;
     line-height: 1.12 !important;
+    text-align: left;
   }
 
   .long-stay-pricing__feature-note {

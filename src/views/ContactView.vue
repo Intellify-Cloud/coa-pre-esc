@@ -12,6 +12,7 @@
         <section class="contact-page__cards" aria-label="Contact details">
           <p class="contact-page__assistive">Choose the best way to reach the team below.</p>
 
+          <!--
           <aside class="contact-page__hours shell-card" aria-labelledby="office-hours-title">
             <span class="contact-page__hours-icon" aria-hidden="true">schedule</span>
             <h2 id="office-hours-title">Office Hours</h2>
@@ -30,6 +31,7 @@
               </div>
             </dl>
           </aside>
+          -->
 
           <article
             v-for="person in contactPeople"
@@ -212,7 +214,17 @@
 
   const contactData = siteText.contact
   const apiUrl = import.meta.env.VITE_BROADSHEET_API_URL || ''
-  const contactPeople = [
+  type ContactPerson = {
+    name: string
+    phone: string
+    phoneHref: string
+    whatsappHref: string
+    email: string
+    image: string
+    initials: string
+  }
+
+  const contactPeople: ContactPerson[] = [
     {
       name: 'Neil',
       phone: '082 455 3180',
@@ -237,10 +249,10 @@
       phoneHref: '0824962879',
       whatsappHref: 'https://wa.me/27824962879',
       email: 'cally@cpe-za.co.za',
-      image: '',
+      image: '/optimized/profile/jolene.webp',
       initials: 'C',
     },
-  ] as const
+  ]
   const isSubmitting = ref(false)
   const status = ref<'idle' | 'success' | 'error'>('idle')
 

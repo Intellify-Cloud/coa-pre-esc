@@ -152,6 +152,7 @@
     grid-template-columns: minmax(0, 1fr);
     gap: var(--shell-space-6);
     align-items: start;
+    padding-top: 1.5rem;
   }
 
   .site-footer__column {
@@ -261,6 +262,10 @@
   @media (min-width: 768px) {
     .site-footer__inner {
       grid-template-columns: minmax(0, 7fr) minmax(18rem, 3fr);
+    }
+
+    .site-footer__columns {
+      padding-top: 40px;
     }
 
     .site-footer__bottom {
