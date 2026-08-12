@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { defineAsyncComponent, type Component } from 'vue'
   import { siteText, type SectionName } from '@/content/siteText'
+  import LongStayStripSection from '@/components/sections/LongStayStripSection.vue'
   import MapSection from '@/components/sections/MapSection.vue'
   import TeamSection from '@/components/sections/TeamSection.vue'
   import WhatsAppButton from '@/components/WhatsAppButton.vue'
@@ -19,6 +20,7 @@
       () => import('@/components/sections/WhyFamiliesJoinAltSection.vue'),
     ),
     steps: defineAsyncComponent(() => import('@/components/sections/StepsSection.vue')),
+    'long-stay-strip': LongStayStripSection,
     map: MapSection,
     team: TeamSection,
     footer: defineAsyncComponent(() => import('@/components/sections/SiteFooter.vue')),

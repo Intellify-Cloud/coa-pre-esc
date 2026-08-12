@@ -157,6 +157,11 @@ export type UspItem = {
   body: string
 }
 
+export type LongStayStripItem = {
+  title: string
+  body: string
+}
+
 export const siteText = {
   site: {
     name: 'Coastal Preferred Escapes',
@@ -179,6 +184,7 @@ export const siteText = {
     'founding-family',
     'why-families-join-alt',
     'steps',
+    'long-stay-strip',
     'map',
     'footer',
   ],
@@ -395,6 +401,26 @@ export const siteText = {
         benefits: [],
       },
     ],
+  },
+  'long-stay-strip': {
+    eyebrow: '- Long Stay -',
+    title: 'Winter Sun, Made Easy',
+    body: 'Settle into Amanzimtoti for a 60-90 day coastal escape.',
+    cta: { label: 'View Long Stay', href: '/long-stay/' },
+    items: [
+      {
+        title: '60-90 days',
+        body: 'Built for guests escaping the European winter.',
+      },
+      {
+        title: '3-bedroom duplexes',
+        body: 'Self-catering beachside space at Cabana Mio.',
+      },
+      {
+        title: 'Golf-rich coast',
+        body: 'Top KZN courses within easy driving distance.',
+      },
+    ] satisfies LongStayStripItem[],
   },
   map: {
     eyebrow: '- Our Flagship Resort -',
