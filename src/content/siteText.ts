@@ -107,8 +107,14 @@ export type LongStayData = {
   experience: {
     title: string
     body: string
-    image: ResortImage
-    items: readonly string[]
+    pillars: readonly {
+      title: string
+      eyebrow: string
+      body: string
+      image: ResortImage
+      items: readonly string[]
+      href?: string
+    }[]
   }
   golf: {
     title: string
@@ -615,21 +621,71 @@ export const siteText = {
       ],
     },
     experience: {
-      title: 'Stay long enough to actually live here.',
+      title: 'Long-Stay Living in Amanzimtoti',
       body:
-        'A longer stay gives you time to find a rhythm: morning walks toward the beach, relaxed breakfasts at home, shopping locally, quiet afternoons, and enough space to welcome family for part of the trip.',
-      image: {
-        src: '/cabana-mio/beach-walk.jpeg',
-        alt: 'Shaded beach path near Cabana Mio in Amanzimtoti',
-        label: 'Beach Walk',
-      },
-      items: [
-        'Morning beach walks',
-        'Relaxed breakfasts at home',
-        'Weekday golf or coastal exploring',
-        'Local shopping and restaurants',
-        'Room for family to visit',
-        'A slower South African summer rhythm',
+        'Beach mornings, warm winter days, local food, wildlife outings and easy South Coast experiences from one relaxed coastal base.',
+      pillars: [
+        {
+          eyebrow: 'Beach',
+          title: 'Warm Indian Ocean days.',
+          body:
+            'The beach is the reason to stay longer: swimming, coastal walks, sunrise light, family beach time and nearby restaurants along the South Coast.',
+          image: {
+            src: '/long-stay/umhlanga.png',
+            alt: 'Umhlanga beachfront and lighthouse on the KwaZulu-Natal coast',
+            label: 'Coastal Beach Days',
+          },
+          items: ['Warm-water swimming', 'Sunrise and sunset walks', 'Restaurants nearby'],
+        },
+        {
+          eyebrow: 'Wildlife',
+          title: 'Beach in the morning, wildlife later.',
+          body:
+            'Use Amanzimtoti as a coastal base for nature and wildlife outings around Durban and the surrounding KwaZulu-Natal region.',
+          image: {
+            src: '/long-stay/zimbali.png',
+            alt: 'Lush KwaZulu-Natal coastal estate and forest landscape',
+            label: 'Nature & Wildlife',
+          },
+          items: ['Nature-rich day trips', 'Coastal birdlife', 'Uniquely South African outings'],
+        },
+        {
+          eyebrow: 'Golf',
+          title: 'Add easy golf days.',
+          body:
+            'Several coastal, estate and championship courses sit within comfortable driving distance, from Amanzimtoti Country Club to Durban Country Club.',
+          image: {
+            src: '/golf/Amanzimtoti-Golf-Club-Drone.jpg',
+            alt: 'Amanzimtoti Country Club golf course from above',
+            label: 'Golf Nearby',
+          },
+          items: ['Closest course about 10 minutes away', 'Coastal and estate layouts', 'Full golf guide below'],
+          href: '#golf',
+        },
+        {
+          eyebrow: 'Experiences',
+          title: 'Fill the stay with South Coast moments.',
+          body:
+            'A longer trip gives you time for fishing, boat trips, diving, surfing, nature walks and relaxed exploring without rushing every day.',
+          image: {
+            src: '/long-stay/duban-cuisine.webp',
+            alt: 'Durban coastal dining and local cuisine',
+            label: 'Local Experiences',
+          },
+          items: ['Fishing and boat trips', 'Diving and snorkelling', 'Nature walks and day trips'],
+        },
+        {
+          eyebrow: 'Food & Culture',
+          title: 'Taste South Africa.',
+          body:
+            'Durban curry, bunny chow, seafood, braai, local markets and South African hospitality turn the stay into more than just accommodation.',
+          image: {
+            src: '/long-stay/duban-cuisine-bunny.webp',
+            alt: 'Durban bunny chow and local South African food',
+            label: 'Local Flavour',
+          },
+          items: ['Durban curry and bunny chow', 'Seafood and braai', 'Local markets and culture'],
+        },
       ],
     },
     golf: {

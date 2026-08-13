@@ -18,6 +18,7 @@
           </div>
         </div>
 
+        <!--
         <section class="cabana-page__rates shell-card" aria-labelledby="cabana-rates-title">
           <div>
             <p class="shell-eyebrow">{{ cabanaData.rates.eyebrow }}</p>
@@ -41,6 +42,7 @@
             </div>
           </div>
         </section>
+        -->
 
         <section class="cabana-page__features" aria-label="Cabana Mio accommodation details">
           <article

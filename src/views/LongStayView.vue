@@ -332,8 +332,68 @@
 
   .long-stay-experience__inner {
     display: grid;
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: center;
+    gap: clamp(1.4rem, 3vw, 2.5rem);
+  }
+
+  .long-stay-experience h2 {
+    max-width: 17ch;
+    margin: 0.85rem 0 0;
+    color: var(--shell-color-ink);
+    font-family: var(--shell-font-serif);
+    font-size: clamp(2.1rem, 4.8vw, 4.2rem);
+    font-weight: 750;
+    line-height: 1;
+  }
+
+  .long-stay-experience__intro p:not(.shell-eyebrow) {
+    max-width: 58rem;
+    margin: 1.25rem 0 0;
+    color: var(--shell-color-muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.18rem);
+    line-height: 1.65;
+  }
+
+  .long-stay-experience__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .long-stay-experience__tab {
+    min-height: 2.45rem;
+    border: 1px solid var(--shell-color-hairline);
+    border-radius: 999px;
+    background: white;
+    padding: 0.55rem 0.9rem;
+    color: var(--shell-color-ink);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .long-stay-experience__tab:hover,
+  .long-stay-experience__tab--active {
+    border-color: var(--shell-color-accent);
+    background: var(--shell-color-accent);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  .long-stay-experience__feature {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--shell-color-hairline);
+    border-radius: var(--shell-radius-md);
+    background: white;
+    box-shadow: 0 1rem 2.5rem rgb(10 42 94 / 0.1);
   }
 
   .long-stay-experience__image {
@@ -341,10 +401,8 @@
     min-height: 0;
     margin: 0;
     overflow: hidden;
-    border-radius: var(--shell-radius-md);
-    aspect-ratio: 1;
+    aspect-ratio: 16 / 11;
     background: var(--shell-color-surface-muted);
-    box-shadow: 0 1rem 2.5rem rgb(10 42 94 / 0.1);
   }
 
   .long-stay-experience__image img {
@@ -365,28 +423,42 @@
     font-weight: 850;
   }
 
-  .long-stay-experience h2 {
-    max-width: none;
-    margin: 0.85rem 0 0;
+  .long-stay-experience__copy {
+    display: grid;
+    align-content: center;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+  }
+
+  .long-stay-experience__pillar-label {
+    color: var(--shell-color-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .long-stay-experience h3 {
+    max-width: 18ch;
+    margin: 0.8rem 0 0;
     color: var(--shell-color-ink);
     font-family: var(--shell-font-serif);
-    font-size: clamp(2.1rem, 4.8vw, 4.2rem);
+    font-size: clamp(2rem, 4vw, 3.6rem);
     font-weight: 750;
     line-height: 1;
   }
 
-  .long-stay-experience__copy p:not(.shell-eyebrow) {
-    max-width: none;
-    margin: 1.25rem 0 0;
-    color: var(--shell-color-muted);
-    font-size: clamp(1.05rem, 1.8vw, 1.18rem);
-    line-height: 1.65;
+  .long-stay-experience__copy p {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: var(--shell-color-muted) !important;
+    font-size: clamp(1rem, 1.5vw, 1.1rem) !important;
+    line-height: 1.6 !important;
   }
 
   .long-stay-experience__list {
     display: grid;
     gap: 0.75rem;
-    margin: 1.5rem 0 0;
+    margin: 1.25rem 0 0;
     padding: 0;
     list-style: none;
   }
@@ -408,6 +480,15 @@
     aspect-ratio: 1;
     border-radius: 999px;
     background: var(--shell-color-accent);
+  }
+
+  .long-stay-experience__link {
+    justify-self: start;
+    margin-top: 1.35rem;
+    color: var(--shell-color-lagoon);
+    font-weight: 900;
+    text-decoration: underline;
+    text-underline-offset: 0.24rem;
   }
 
   .long-stay-golf,
@@ -874,8 +955,8 @@
       grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
     }
 
-    .long-stay-experience__inner {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    .long-stay-experience__feature {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     }
 
     .long-stay-location__inner {
