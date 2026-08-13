@@ -647,6 +647,19 @@ export const siteText = {
       ],
       courses: [
         {
+          name: 'Amanzimtoti Country Club',
+          rating: '4.1',
+          category: 'Closest Local Course',
+          driveTime: '+-10 min drive',
+          description:
+            'The closest and most affordable option, with a flat 18-hole coastal parkland layout, nature conservancy setting and a demanding 16th-hole river carry.',
+          image: {
+            src: '/golf/Amanzimtoti-Golf-Club-Drone.jpg',
+            alt: 'Amanzimtoti Country Club golf course viewed from above',
+            label: 'Amanzimtoti Country Club',
+          },
+        },
+        {
           name: 'Selborne Golf Club',
           rating: '4.5',
           category: 'Elite Coastal & Resort Course',
