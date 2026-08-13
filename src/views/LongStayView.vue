@@ -5,10 +5,10 @@
     <main id="main-content">
       <LongStayHeroBlock :data="data" />
       <WinterContrastDeck :data="data" />
+      <ExperienceDeck :data="data.experience" />
       <div id="accommodation">
         <MapSection :data="siteText.map" />
       </div>
-      <ExperienceDeck :data="data.experience" />
       <GolfDeck :data="data.golf" />
       <PricingDeck :data="data.pricing" />
       <FaqDeck :data="data.faq" />

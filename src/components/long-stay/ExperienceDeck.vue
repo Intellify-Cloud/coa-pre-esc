@@ -2,7 +2,7 @@
   <section id="experience" class="long-stay-experience shell-section" aria-labelledby="experience-title">
     <div class="long-stay-experience__inner shell-container">
       <div class="long-stay-experience__intro">
-        <p class="shell-eyebrow">Long-Stay Living</p>
+        <p class="shell-eyebrow">South Africa Escapes</p>
         <h2 id="experience-title">{{ data.title }}</h2>
         <p>{{ data.body }}</p>
       </div>

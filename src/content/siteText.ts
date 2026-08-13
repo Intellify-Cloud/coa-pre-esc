@@ -621,7 +621,7 @@ export const siteText = {
       ],
     },
     experience: {
-      title: 'Long-Stay Living in Amanzimtoti',
+      title: 'South Africa Escapes',
       body:
         'Beach mornings, warm winter days, local food, wildlife outings and easy South Coast experiences from one relaxed coastal base.',
       pillars: [
@@ -641,13 +641,13 @@ export const siteText = {
           eyebrow: 'Wildlife',
           title: 'Beach in the morning, wildlife later.',
           body:
-            'Use Amanzimtoti as a coastal base for nature and wildlife outings around Durban and the surrounding KwaZulu-Natal region.',
+            'Use Amanzimtoti as a coastal base for Durban-area wildlife outings and bigger KwaZulu-Natal safari days, from PheZulu and Tala to Hluhluwe-iMfolozi, Phinda and iSimangaliso.',
           image: {
             src: '/long-stay/zimbali.png',
             alt: 'Lush KwaZulu-Natal coastal estate and forest landscape',
             label: 'Nature & Wildlife',
           },
-          items: ['Nature-rich day trips', 'Coastal birdlife', 'Uniquely South African outings'],
+          items: ['PheZulu and Tala day-trip options', 'Hluhluwe-iMfolozi and Phinda safari trips', 'iSimangaliso Wetland Park extensions'],
         },
         {
           eyebrow: 'Golf',
