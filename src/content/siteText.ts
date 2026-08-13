@@ -668,9 +668,9 @@ export const siteText = {
           body:
             'A longer trip gives you time for fishing, boat trips, diving, surfing, nature walks and relaxed exploring without rushing every day.',
           image: {
-            src: '/long-stay/duban-cuisine.webp',
-            alt: 'Durban coastal dining and local cuisine',
-            label: 'Local Experiences',
+            src: '/long-stay/fishing-charters.jpg',
+            alt: 'Fishing charter boat experience on the KwaZulu-Natal coast',
+            label: 'Fishing Charters',
           },
           items: ['Fishing and boat trips', 'Diving and snorkelling', 'Nature walks and day trips'],
         },
