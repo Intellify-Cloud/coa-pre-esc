@@ -215,19 +215,33 @@ export const siteText = {
     cta: { label: 'Contact Us', href: '/contact/' },
   },
   hero: {
-    eyebrow: '',
-    vision: 'Because every family deserves a beach holiday.',
-    title: 'Your beach holiday.',
-    titleAccent: 'Every year.',
-    body: 'Plan flexible family beach holidays at Cabana Mio in Athlone Park, Amanzimtoti. Build holiday value through manageable monthly contributions, request available dates within your season, and keep annual beach time within reach.',
-    image: '/optimized/hero-home.webp',
-    primaryCta: { label: 'Explore Memberships', href: '#membership' },
-    secondaryCta: { label: 'Discover Cabana Mio', href: '/cabana-mio/' },
+    eyebrow: 'Two ways to escape',
+    vision: 'South African beach escapes for international guests and local families.',
+    title: 'Your South African',
+    titleAccent: 'Beach Escape',
+    body: 'Stay by the warm Indian Ocean for a 90-day winter escape, or build annual coastal holidays through a flexible Coastal Escape Membership.',
+    image: '/hero/Amanzimtoti Beach.png',
+    primaryCta: { label: 'Explore 90-Day Escape', href: '/long-stay/' },
+    secondaryCta: { label: 'View Memberships', href: '#membership' },
     facts: [
-      'Interest-free monthly payments',
-      'Flexible booking within your season',
-      'Pause when life gets in the way',
-      'Loyalty rewards for Founding Families',
+      'Warm Indian Ocean base in Amanzimtoti',
+      '90-day overseas winter escape',
+      'Coastal memberships for South African families',
+      'Beach, wildlife, golf, food and culture',
+    ],
+    pathways: [
+      {
+        title: '90-Day South African Escape',
+        body: 'For overseas guests escaping winter: beach living, golf, wildlife, food and culture from a coastal home base.',
+        href: '/long-stay/',
+        cta: 'Explore Long Stay',
+      },
+      {
+        title: 'Coastal Escape Memberships',
+        body: 'For South African families: build holiday value monthly and request available Cabana Mio dates within your season.',
+        href: '#membership',
+        cta: 'View Memberships',
+      },
     ],
   },
   usp: {
@@ -379,7 +393,7 @@ export const siteText = {
     ],
     footer: {
       body: 'Built around family rhythm, not rigid holiday pressure.',
-      cta: { label: 'Contact Us', href: '/contact/' },
+      cta: { label: 'Calculate Your Wallet', href: '/holiday-wallet-calculator/' },
     },
     members: [
       {
@@ -571,7 +585,7 @@ export const siteText = {
     highlight: '3-bedroom beachside duplexes in Amanzimtoti, South Africa',
     image: '/hero/hero_3.png',
     imageAlt: 'Sunny coastal beach scene for the Cabana Mio long-stay winter escape',
-    primaryCta: { label: 'Explore the Winter Escape', href: '#accommodation' },
+    primaryCta: { label: 'Explore the 90-Day Escape', href: '#accommodation' },
     secondaryCta: { label: 'View 90-Day Pricing', href: '#pricing' },
     facts: ['50m from the beach', '3 bedrooms', 'Unlimited Wi-Fi', 'Golf nearby'],
     winterContrast: {
@@ -819,6 +833,19 @@ export const siteText = {
             label: 'Durban Country Club',
           },
         },
+        {
+          name: 'Royal Durban Golf Club',
+          rating: '4.3',
+          category: 'Historic Durban Course',
+          driveTime: 'About 30-35 min north via the N2 and M4',
+          description:
+            'A classic Durban course with a long local golfing heritage, central city access and an easy add-on for guests planning north-coast golf days.',
+          image: {
+            src: '/golf/royal-cc.webp',
+            alt: 'Royal Durban Golf Club course with green fairways',
+            label: 'Royal Durban',
+          },
+        },
       ],
     },
     location: {
@@ -829,7 +856,7 @@ export const siteText = {
     },
     pricing: {
       eyebrow: '- Pricing -',
-      title: 'Winter Sun Packages packages',
+      title: '90-Day Winter Sun Packages packages',
       note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply.',
       rows: [
         { duration: '60 days', price: 'Around €5,300 / £4,550', featured: false },
@@ -870,7 +897,7 @@ export const siteText = {
     },
     enquire: {
       eyebrow: '- Enquire -',
-      title: 'Check availability for your winter escape',
+      title: 'Request your 90-day escape',
       body:
         'Ready to trade winter for the Indian Ocean? Reach out and we will walk you through availability, dates, and how to secure your 60–90 day stay.',
     },
@@ -979,12 +1006,18 @@ export const siteText = {
           { label: 'Membership', href: '/#membership' },
           { label: 'Cabana Mio', href: '/cabana-mio/' },
           { label: 'Long Stay', href: '/long-stay/' },
+          { label: 'Wallet Calculator', href: '/holiday-wallet-calculator/' },
           { label: 'About CPE', href: '/about/' },
           { label: 'FAQ', href: '/faq/' },
         ],
       },
     ],
-    legalLinks: [{ label: 'Privacy', href: '/privacy-policy/' }],
+    legalLinks: [
+      { label: 'Privacy', href: '/privacy-policy/' },
+      { label: 'Terms', href: '/terms-and-conditions/' },
+      { label: 'Refunds', href: '/refund-cancellation-policy/' },
+      { label: 'Security Deposit', href: '/security-deposit/' },
+    ],
   },
   'long-stay-nav': {
     logoText: 'Coastal Preferred Escapes',
@@ -998,9 +1031,9 @@ export const siteText = {
       { label: 'Golf', href: '/long-stay/#golf' },
       { label: 'Pricing', href: '/long-stay/#pricing' },
       { label: 'FAQ', href: '/long-stay/#faq' },
-      { label: 'Enquire', href: '/long-stay/#enquire' },
+      { label: 'Request', href: '/long-stay/#enquire' },
     ],
-    cta: { label: 'Check Availability', href: '/long-stay/#enquire' },
+    cta: { label: 'Request Escape', href: '/long-stay/#enquire' },
   },
 } as const
 

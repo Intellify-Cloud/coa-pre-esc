@@ -21,7 +21,11 @@ const getPrerenderPlugin = async (): Promise<Plugin | null> => {
         "/contact/",
         "/about/",
         "/faq/",
+        "/holiday-wallet-calculator/",
         "/privacy-policy/",
+        "/terms-and-conditions/",
+        "/refund-cancellation-policy/",
+        "/security-deposit/",
       ],
     });
   } catch (error) {

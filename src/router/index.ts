@@ -80,11 +80,47 @@ const router = createRouter({
       },
     },
     {
+      path: '/holiday-wallet-calculator/',
+      component: () => import('@/views/HolidayWalletCalculatorView.vue'),
+      meta: {
+        title: 'Holiday Wallet Calculator',
+        description:
+          'Estimate how Coastal Preferred Escapes monthly contributions could build holiday value over 12 to 60 months.',
+      },
+    },
+    {
       path: '/privacy-policy/',
       component: () => import('@/views/PrivacyView.vue'),
       meta: {
         title: 'Privacy Policy',
         description: `Privacy policy for ${siteText.site.name}. Learn how we handle your personal information.`,
+      },
+    },
+    {
+      path: '/terms-and-conditions/',
+      component: () => import('@/views/PolicyInfoView.vue'),
+      meta: {
+        title: 'Terms & Conditions',
+        policyPage: 'terms',
+        description: `Plain-language overview of ${siteText.site.name} booking and membership terms while final terms are prepared.`,
+      },
+    },
+    {
+      path: '/refund-cancellation-policy/',
+      component: () => import('@/views/PolicyInfoView.vue'),
+      meta: {
+        title: 'Refund & Cancellation',
+        policyPage: 'refunds',
+        description: `Plain-language overview of ${siteText.site.name} refund and cancellation expectations while final policy wording is prepared.`,
+      },
+    },
+    {
+      path: '/security-deposit/',
+      component: () => import('@/views/PolicyInfoView.vue'),
+      meta: {
+        title: 'Security Deposit',
+        policyPage: 'deposit',
+        description: `Plain-language overview of ${siteText.site.name} refundable security deposit expectations while final terms are prepared.`,
       },
     },
     {

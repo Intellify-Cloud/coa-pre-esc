@@ -19,7 +19,7 @@
           <p class="long-stay-pricing__feature-note">
             Spacious 3-bedroom duplex for the full stay, with Wi-Fi and unit facilities included.
           </p>
-          <a class="shell-button shell-button--primary" href="#enquire">Check 90-Day Availability</a>
+          <a class="shell-button shell-button--primary" href="#enquire">Request Your 90-Day Escape</a>
         </article>
 
         <div class="long-stay-pricing__options" role="list" aria-label="Other long-stay options">
@@ -37,7 +37,7 @@
       </div>
 
       <p class="long-stay-pricing__fineprint">
-        Final pricing may vary by arrival date, season and exchange rate.
+        Final pricing may vary by arrival date, season and exchange rate. A refundable security deposit may apply, with final terms confirmed before booking.
       </p>
     </div>
   </section>

@@ -45,7 +45,7 @@
           <em v-if="errors.message" class="long-stay-enquire__error">{{ errors.message }}</em>
         </div>
         <button class="shell-button shell-button--primary" type="submit" :disabled="isSubmitting">
-          {{ isSubmitting ? 'Sending...' : 'Check Availability' }}
+          {{ isSubmitting ? 'Sending...' : 'Request Your 90-Day Escape' }}
         </button>
         <p v-if="status === 'success'" class="long-stay-enquire__success" role="status">
           Thank you. Your enquiry has been received and the team will be in touch.

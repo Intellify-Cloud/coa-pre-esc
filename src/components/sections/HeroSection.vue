@@ -20,13 +20,20 @@
           <span>{{ data.titleAccent }}</span>
         </h1>
         <p class="hero-section__body">{{ data.body }}</p>
+        <div v-if="'pathways' in data && data.pathways?.length" class="hero-section__pathways" aria-label="Choose your escape pathway">
+          <a v-for="pathway in data.pathways" :key="pathway.href" class="hero-section__pathway" :href="pathway.href">
+            <span>{{ pathway.title }}</span>
+            <p>{{ pathway.body }}</p>
+            <strong>{{ pathway.cta }}</strong>
+          </a>
+        </div>
         <ul class="hero-section__facts" aria-label="Coastal Preferred Escapes highlights">
           <li v-for="fact in data.facts" :key="fact">
             <span aria-hidden="true"></span>
             {{ fact }}
           </li>
         </ul>
-        <div class="hero-section__actions" aria-label="Hero actions">
+        <div v-if="!('pathways' in data && data.pathways?.length)" class="hero-section__actions" aria-label="Hero actions">
           <a class="shell-button shell-button--primary" :href="data.primaryCta.href">
             {{ data.primaryCta.label }}
           </a>
@@ -45,7 +52,7 @@
     isolation: isolate;
     min-height: calc(100vh - var(--usp-strip-height, 10.5rem));
     display: grid;
-    align-items: center;
+    align-items: end;
     padding-block: clamp(7rem, 12vw, 10rem) clamp(3rem, 6vw, 5rem);
     overflow: hidden;
     background: var(--shell-color-canvas);
@@ -72,9 +79,9 @@
       linear-gradient(0deg, rgb(10 42 94 / 0.24), rgb(10 42 94 / 0.08) 16%, transparent 38%),
       linear-gradient(
         90deg,
-        rgb(255 255 255 / 0.72),
-        rgb(255 255 255 / 0.36) 48%,
-        rgb(255 255 255 / 0.05)
+        rgb(255 255 255 / 0.84),
+        rgb(255 255 255 / 0.52) 48%,
+        rgb(255 255 255 / 0.16)
       );
   }
 
@@ -86,7 +93,7 @@
   }
 
   .hero-section__title {
-    max-width: 11ch;
+    max-width: 12ch;
     margin: var(--shell-space-4) 0 0;
     font-family: var(--shell-font-serif);
     font-size: clamp(3.2rem, 7.6vw, 6.6rem);
@@ -105,7 +112,7 @@
   }
 
   .hero-section__body {
-    max-width: 36rem;
+    max-width: 43rem;
     margin: var(--shell-space-6) 0 0;
     color: var(--shell-color-muted);
     font-size: clamp(1.125rem, 2vw, 1.5rem);
@@ -128,6 +135,55 @@
     margin-top: var(--shell-space-8);
   }
 
+  .hero-section__pathways {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: var(--shell-space-8);
+  }
+
+  .hero-section__pathway {
+    display: grid;
+    gap: 0.45rem;
+    border: 1px solid rgb(255 255 255 / 0.72);
+    border-radius: var(--shell-radius-md);
+    background: rgb(255 255 255 / 0.88);
+    padding: 1rem;
+    box-shadow: 0 1rem 2.25rem rgb(10 42 94 / 0.14);
+    backdrop-filter: blur(10px);
+    transition:
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .hero-section__pathway:hover {
+    background: white;
+    box-shadow: 0 1.2rem 2.6rem rgb(10 42 94 / 0.18);
+    transform: translateY(-2px);
+  }
+
+  .hero-section__pathway span {
+    color: var(--shell-color-ink);
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 900;
+    line-height: 1.12;
+  }
+
+  .hero-section__pathway p {
+    margin: 0;
+    color: var(--shell-color-muted) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero-section__pathway strong {
+    color: var(--shell-color-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
   .hero-section__actions .shell-button {
     min-height: 3rem;
     border-radius: 999px;
@@ -147,7 +203,7 @@
   .hero-section__facts {
     display: grid;
     gap: var(--shell-space-4);
-    margin: var(--shell-space-8) 0 0;
+    margin: var(--shell-space-6) 0 0;
     padding: 0;
     list-style: none;
     color: var(--shell-color-ink);
@@ -193,11 +249,16 @@
     .hero-section__facts {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .hero-section__pathways {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 52rem;
+    }
   }
 
   @media (min-width: 1200px) {
     .hero-section {
-      min-height: auto;
+      min-height: calc(100vh - 4rem);
     }
 
     .hero-section__copy {
@@ -207,7 +268,7 @@
     .hero-section__shade {
       background:
         linear-gradient(0deg, rgb(10 42 94 / 0.3), rgb(10 42 94 / 0.1) 18%, transparent 42%),
-        linear-gradient(90deg, rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.35));
+        linear-gradient(90deg, rgb(255 255 255 / 0.76), rgb(255 255 255 / 0.44), rgb(255 255 255 / 0.08));
     }
   }
 </style>
