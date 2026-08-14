@@ -158,17 +158,17 @@
   }
 
   useSeoHead({
-    title: 'Holiday Wallet Calculator',
-    description: `Estimate how ${siteText.site.name} monthly contributions could build holiday value over 12 to 60 months.`,
+    title: 'Holiday Wallet Calculator for Beach Holidays',
+    description: `Estimate how ${siteText.site.name} monthly membership contributions could build holiday value over 12 to 60 months for future Cabana Mio stays.`,
     path: '/holiday-wallet-calculator/',
   })
 
   useHead({
-    title: `Holiday Wallet Calculator | ${siteText.site.name}`,
+    title: `Holiday Wallet Calculator for Beach Holidays | ${siteText.site.name}`,
     meta: [
       {
         name: 'description',
-        content: `Estimate how ${siteText.site.name} monthly contributions could build holiday value over 12 to 60 months.`,
+        content: `Estimate how ${siteText.site.name} monthly membership contributions could build holiday value over 12 to 60 months for future Cabana Mio stays.`,
       },
       { name: 'robots', content: 'index, follow' },
     ],

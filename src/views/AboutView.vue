@@ -71,19 +71,19 @@
   const aboutData = siteText.about
 
   useSeoHead({
-    title: 'About CPE',
+    title: 'About Coastal Preferred Escapes',
     description:
-      'Learn about Coastal Preferred Escapes, our promise, principles, and commitment to flexible family beach holidays.',
+      'Learn about Coastal Preferred Escapes, CPE Properties, our member-first promise and our approach to flexible Cabana Mio beach holidays.',
     path: '/about/',
   })
 
   useHead({
-    title: 'About CPE | Coastal Preferred Escapes',
+    title: 'About Coastal Preferred Escapes',
     meta: [
       {
         name: 'description',
         content:
-          'Learn about Coastal Preferred Escapes, our promise, principles, and commitment to flexible family beach holidays.',
+          'Learn about Coastal Preferred Escapes, CPE Properties, our member-first promise and our approach to flexible Cabana Mio beach holidays.',
       },
       { name: 'robots', content: 'index, follow' },
     ],

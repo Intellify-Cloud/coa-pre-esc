@@ -10,9 +10,9 @@ const router = createRouter({
       path: '/',
       component: () => import('@/views/HomeView.vue'),
       meta: {
-        title: 'Home',
+        title: 'Beach Holiday Memberships in Amanzimtoti',
         description:
-          'Join Coastal Preferred Escapes as a Founding Family member. Flexible annual Cabana Mio beach holidays at Athlone Park, Amanzimtoti, with a complimentary 3-night stay.',
+          'Plan flexible Cabana Mio beach holidays in Athlone Park, Amanzimtoti with Coastal Preferred Escapes memberships and long-stay South African escape options.',
       },
     },
     {
@@ -22,6 +22,7 @@ const router = createRouter({
         title: 'Coming Soon',
         description:
           'Coastal Preferred Escapes is launching soon. Join the Founding Family waitlist for priority access.',
+        noindex: true,
       },
     },
     {
@@ -38,43 +39,43 @@ const router = createRouter({
       alias: '/contact',
       component: () => import('@/views/ContactView.vue'),
       meta: {
-        title: 'Contact',
+        title: 'Contact Coastal Preferred Escapes',
         description:
-          'Request the Founding Family Information Pack for Coastal Preferred Escapes. Get details on Cabana Mio beach holiday memberships in Athlone Park, Amanzimtoti.',
+          'Contact Coastal Preferred Escapes about Cabana Mio beach holiday memberships, long-stay winter escapes, availability and payments in Amanzimtoti.',
       },
     },
     {
       path: '/cabana-mio/',
       component: () => import('@/views/CabanaMioView.vue'),
       meta: {
-        title: 'Cabana Mio',
+        title: 'Cabana Mio Accommodation in Amanzimtoti',
         description:
-          'View Cabana Mio accommodation details and seasonal 6-sleeper rates for Coastal Preferred Escapes holidays in Athlone Park, Amanzimtoti.',
+          'View Cabana Mio accommodation details for 3-bedroom self-catering beach holidays in Athlone Park, Amanzimtoti on the KwaZulu-Natal South Coast.',
       },
     },
     {
       path: '/long-stay/',
       component: () => import('@/views/LongStayView.vue'),
       meta: {
-        title: '90-Day Winter Sun Escape in South Africa',
+        title: '60-90 Day Winter Sun Escape in South Africa',
         description:
-          'Escape the European winter with a 60-90 day stay in a spacious 3-bedroom beachside duplex in Amanzimtoti, South Africa. Beach, golf and summer sunshine await.',
+          'Escape the European winter with a 60-90 day beachside stay in Amanzimtoti, South Africa, with warm Indian Ocean days, golf, wildlife and coastal living.',
       },
     },
     {
       path: '/about/',
       component: () => import('@/views/AboutView.vue'),
       meta: {
-        title: 'About CPE',
+        title: 'About Coastal Preferred Escapes',
         description:
-          'Learn about Coastal Preferred Escapes, our promise, principles, and commitment to flexible family beach holidays.',
+          'Learn about Coastal Preferred Escapes, CPE Properties, our member-first promise and our approach to flexible Cabana Mio beach holidays.',
       },
     },
     {
       path: '/faq/',
       component: () => import('@/views/FaqView.vue'),
       meta: {
-        title: 'FAQ',
+        title: 'Beach Holiday Membership FAQ',
         description:
           'Answers to common questions about Coastal Preferred Escapes membership, Cabana Mio, Holiday Wallet contributions, Founding Family benefits, and flexible beach holidays.',
       },
@@ -83,9 +84,9 @@ const router = createRouter({
       path: '/holiday-wallet-calculator/',
       component: () => import('@/views/HolidayWalletCalculatorView.vue'),
       meta: {
-        title: 'Holiday Wallet Calculator',
+        title: 'Holiday Wallet Calculator for Beach Holidays',
         description:
-          'Estimate how Coastal Preferred Escapes monthly contributions could build holiday value over 12 to 60 months.',
+          'Estimate how Coastal Preferred Escapes monthly membership contributions could build holiday value over 12 to 60 months for future Cabana Mio stays.',
       },
     },
     {

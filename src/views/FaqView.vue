@@ -115,14 +115,14 @@
   )
 
   useSeoHead({
-    title: 'FAQ',
+    title: 'Beach Holiday Membership FAQ',
     description:
       'Answers to common questions about Coastal Preferred Escapes membership, Cabana Mio, Holiday Wallet contributions, Founding Family benefits, and flexible beach holidays.',
     path: '/faq/',
   })
 
   useHead({
-    title: 'FAQ | Coastal Preferred Escapes',
+    title: 'Beach Holiday Membership FAQ | Coastal Preferred Escapes',
     meta: [
       {
         name: 'description',

@@ -2,44 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://coastalpreferredescapes.co.za/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/" />
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/" />
   </url>
   <url>
-    <loc>https://coastalpreferredescapes.co.za/privacy-policy/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/privacy-policy/" />
-  </url>
-  <url>
-    <loc>https://coastalpreferredescapes.co.za/contact/</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/contact/" />
+    <loc>https://coastalpreferredescapes.co.za/long-stay/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/long-stay/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/long-stay/" />
   </url>
   <url>
     <loc>https://coastalpreferredescapes.co.za/cabana-mio/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/cabana-mio/" />
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/cabana-mio/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/cabana-mio/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/holiday-wallet-calculator/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/holiday-wallet-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/holiday-wallet-calculator/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/contact/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/contact/" />
   </url>
   <url>
     <loc>https://coastalpreferredescapes.co.za/about/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/about/" />
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/about/" />
   </url>
   <url>
     <loc>https://coastalpreferredescapes.co.za/faq/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en_ZA" href="https://coastalpreferredescapes.co.za/faq/" />
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/faq/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/faq/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/privacy-policy/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/privacy-policy/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/terms-and-conditions/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/terms-and-conditions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/terms-and-conditions/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/refund-cancellation-policy/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/refund-cancellation-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/refund-cancellation-policy/" />
+  </url>
+  <url>
+    <loc>https://coastalpreferredescapes.co.za/security-deposit/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-ZA" href="https://coastalpreferredescapes.co.za/security-deposit/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coastalpreferredescapes.co.za/security-deposit/" />
   </url>
 </urlset>

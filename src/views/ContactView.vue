@@ -351,19 +351,19 @@
   }
 
   useSeoHead({
-    title: 'Contact',
+    title: 'Contact Coastal Preferred Escapes',
     description:
-      'Request the Founding Family Information Pack for Coastal Preferred Escapes. Contact the launch team about flexible family beach holiday memberships.',
+      'Contact Coastal Preferred Escapes about Cabana Mio beach holiday memberships, long-stay winter escapes, availability and payments in Amanzimtoti.',
     path: '/contact/',
   })
 
   useHead({
-    title: 'Contact | Coastal Preferred Escapes',
+    title: 'Contact Coastal Preferred Escapes',
     meta: [
       {
         name: 'description',
         content:
-          'Request the Founding Family Information Pack for Coastal Preferred Escapes. Contact the launch team about flexible family beach holiday memberships.',
+          'Contact Coastal Preferred Escapes about Cabana Mio beach holiday memberships, long-stay winter escapes, availability and payments in Amanzimtoti.',
       },
       { name: 'robots', content: 'index, follow' },
     ],

@@ -11,9 +11,32 @@
     JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': `${siteText.site.url}/#organization`,
       name: siteText.site.name,
+      legalName: props.data.trust.company,
       url: siteText.site.url,
+      logo: `${siteText.site.url}/logo/cpe-logo-colour-tp.png`,
+      email: 'jolene@cpe-za.co.za',
+      telephone: '+27832370021',
       description: siteText.site.description,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '159 Beach Road, Athlone Park',
+        addressLocality: 'Amanzimtoti',
+        addressRegion: 'KwaZulu-Natal',
+        addressCountry: 'ZA',
+      },
+      areaServed: ['South Africa', 'KwaZulu-Natal', 'Amanzimtoti'],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          telephone: '+27832370021',
+          email: 'jolene@cpe-za.co.za',
+          areaServed: 'ZA',
+          availableLanguage: ['en'],
+        },
+      ],
     }),
   )
 
