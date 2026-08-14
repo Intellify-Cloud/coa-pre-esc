@@ -3,6 +3,7 @@
   import { siteText, type SectionName } from '@/content/siteText'
   import LongStayStripSection from '@/components/sections/LongStayStripSection.vue'
   import MapSection from '@/components/sections/MapSection.vue'
+  import ResortVideoSection from '@/components/sections/ResortVideoSection.vue'
   import TeamSection from '@/components/sections/TeamSection.vue'
   import WhatsAppButton from '@/components/WhatsAppButton.vue'
 
@@ -22,6 +23,7 @@
     steps: defineAsyncComponent(() => import('@/components/sections/StepsSection.vue')),
     'long-stay-strip': LongStayStripSection,
     map: MapSection,
+    'resort-video': ResortVideoSection,
     team: TeamSection,
     footer: defineAsyncComponent(() => import('@/components/sections/SiteFooter.vue')),
   }

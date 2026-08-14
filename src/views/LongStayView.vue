@@ -4,6 +4,14 @@
 
     <main id="main-content">
       <LongStayHeroBlock :data="data" />
+      <section class="long-stay-booking-window" aria-label="Long-stay booking windows">
+        <div class="shell-container long-stay-booking-window__inner">
+          <span>60 to 90 day stays</span>
+          <strong>Bookings open from</strong>
+          <span>1 September 2026 to 30 November 2026</span>
+          <span>3 January 2027 to 30 June 2027</span>
+        </div>
+      </section>
       <WinterContrastDeck :data="data" />
       <ExperienceDeck :data="data.experience" />
       <div id="accommodation">
@@ -11,8 +19,8 @@
       </div>
       <GolfDeck :data="data.golf" />
       <PricingDeck :data="data.pricing" />
+      <BankingDeck :data="siteText.contact.banking" />
       <FaqDeck :data="data.faq" />
-      <EnquiryDeck :data="data.enquire" />
     </main>
 
     <SiteFooter :data="siteText.footer" />
@@ -21,13 +29,13 @@
 <script setup lang="ts">
   import { siteText } from '@/content/siteText'
   import type { LongStayData } from '@/content/siteText'
-  import EnquiryDeck from '@/components/long-stay/EnquiryDeck.vue'
   import ExperienceDeck from '@/components/long-stay/ExperienceDeck.vue'
   import FaqDeck from '@/components/long-stay/FaqDeck.vue'
   import GolfDeck from '@/components/long-stay/GolfDeck.vue'
   import LongStayHeroBlock from '@/components/long-stay/LongStayHeroBlock.vue'
   import PricingDeck from '@/components/long-stay/PricingDeck.vue'
   import WinterContrastDeck from '@/components/long-stay/WinterContrastDeck.vue'
+  import BankingDeck from '@/components/sections/BankingDeck.vue'
   import MapSection from '@/components/sections/MapSection.vue'
   import NavBar from '@/components/sections/NavBar.vue'
   import SiteFooter from '@/components/sections/SiteFooter.vue'
@@ -157,6 +165,40 @@
     font-weight: 850;
     backdrop-filter: blur(12px);
   }
+
+  .long-stay-booking-window {
+    background: var(--shell-color-ink);
+    color: white;
+  }
+
+  .long-stay-booking-window__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem 1.15rem;
+    min-height: 4.25rem;
+    padding-block: 0.9rem;
+    text-align: center;
+  }
+
+  .long-stay-booking-window__inner span,
+  .long-stay-booking-window__inner strong {
+    font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+    line-height: 1.25;
+  }
+
+  .long-stay-booking-window__inner span,
+  .long-stay-booking-window__inner strong {
+    color: rgb(255 255 255 / 0.82);
+    font-weight: 750;
+  }
+
+  .long-stay-booking-window__inner strong {
+    color: white;
+    font-weight: 900;
+  }
+
   .long-stay-contrast {
     padding-block: clamp(4rem, 8vw, 6.5rem);
     background: var(--shell-color-canvas);
@@ -494,8 +536,7 @@
   .long-stay-golf,
   .long-stay-location,
   .long-stay-pricing,
-  .long-stay-faq,
-  .long-stay-enquire {
+  .long-stay-faq {
     padding-block: clamp(4rem, 8vw, 6.5rem);
     background: var(--shell-color-surface);
   }
@@ -503,8 +544,7 @@
   .long-stay-golf__inner,
   .long-stay-location__inner,
   .long-stay-pricing__inner,
-  .long-stay-faq__inner,
-  .long-stay-enquire__inner {
+  .long-stay-faq__inner {
     display: grid;
     gap: clamp(2rem, 5vw, 3.5rem);
   }
@@ -516,8 +556,7 @@
   .long-stay-golf h2,
   .long-stay-location h2,
   .long-stay-pricing h2,
-  .long-stay-faq h2,
-  .long-stay-enquire h2 {
+  .long-stay-faq h2 {
     max-width: 18ch;
     margin: 0.85rem 0 0;
     color: var(--shell-color-ink);
@@ -530,8 +569,7 @@
   .long-stay-golf__copy p:not(.shell-eyebrow),
   .long-stay-location__copy p:not(.shell-eyebrow),
   .long-stay-pricing p:not(.shell-eyebrow),
-  .long-stay-faq p:not(.shell-eyebrow),
-  .long-stay-enquire__copy p:not(.shell-eyebrow) {
+  .long-stay-faq p:not(.shell-eyebrow) {
     max-width: 46rem;
     margin: 1.25rem 0 0;
     color: var(--shell-color-muted);
@@ -873,59 +911,6 @@
     line-height: 1.65;
   }
 
-  .long-stay-enquire__form {
-    display: grid;
-    gap: var(--shell-space-5);
-    max-width: 32rem;
-  }
-
-  .long-stay-enquire__row {
-    display: grid;
-    gap: var(--shell-space-2);
-  }
-
-  .long-stay-enquire__label {
-    color: var(--shell-color-ink);
-    font-weight: 800;
-    font-size: 0.95rem;
-  }
-
-  .long-stay-enquire__input--error,
-  .long-stay-enquire__input--error:focus {
-    border-color: #b42318 !important;
-  }
-
-  .long-stay-enquire__form input,
-  .long-stay-enquire__form textarea {
-    width: 100%;
-    border: 1px solid var(--shell-color-hairline);
-    border-radius: var(--shell-radius-md);
-    background: var(--shell-color-surface);
-    color: var(--shell-color-ink);
-    font: inherit;
-    padding: 0.8rem 0.9rem;
-  }
-
-  .long-stay-enquire__form textarea {
-    resize: vertical;
-  }
-
-  .long-stay-enquire__error {
-    color: #b42318;
-    font-size: 0.78rem;
-    font-style: normal;
-  }
-
-  .long-stay-enquire__success {
-    margin: 0;
-    border-radius: var(--shell-radius-sm);
-    padding: var(--shell-space-4);
-    background: color-mix(in srgb, var(--shell-color-lagoon) 13%, white);
-    color: var(--shell-color-lagoon);
-    font-weight: 800;
-    line-height: 1.5;
-  }
-
   @media (min-width: 560px) {
     .long-stay-hero__actions {
       flex-direction: row;
@@ -950,8 +935,7 @@
     .long-stay-contrast__inner,
     .long-stay-accommodation__inner,
     .long-stay-location__inner,
-    .long-stay-faq__inner,
-    .long-stay-enquire__inner {
+    .long-stay-faq__inner {
       grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
     }
 
@@ -981,8 +965,5 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .long-stay-enquire__inner {
-      grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
-    }
   }
 </style>

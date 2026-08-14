@@ -150,11 +150,6 @@ export type LongStayData = {
     title: string
     items: readonly LongStayFaqItem[]
   }
-  enquire: {
-    eyebrow: string
-    title: string
-    body: string
-  }
 }
 
 export type UspItem = {
@@ -192,6 +187,7 @@ export const siteText = {
     'steps',
     'long-stay-strip',
     'map',
+    'resort-video',
     'footer',
   ],
   'contact-bar': {
@@ -577,6 +573,15 @@ export const siteText = {
       },
     ] satisfies ResortImage[],
   },
+  'resort-video': {
+    eyebrow: '- Cabana Mio Video -',
+    title: 'See The Resort Before You Arrive',
+    body: 'Take a quick look at the Cabana Mio setting, accommodation and coastal lifestyle in Amanzimtoti.',
+    video: {
+      title: 'Cabana Mio resort video',
+      embedUrl: 'https://www.youtube-nocookie.com/embed/0WyvigbvIIU',
+    },
+  },
   'long-stay': {
     eyebrow: '',
     title: 'Trade Winter for the Indian Ocean',
@@ -895,12 +900,6 @@ export const siteText = {
         },
       ],
     },
-    enquire: {
-      eyebrow: '- Enquire -',
-      title: 'Request your 90-day escape',
-      body:
-        'Ready to trade winter for the Indian Ocean? Reach out and we will walk you through availability, dates, and how to secure your 60–90 day stay.',
-    },
   },
   testimonials: {
     eyebrow: '- Families And Facts -',
@@ -971,7 +970,13 @@ export const siteText = {
         { label: 'Account number', value: '4106 192 496' },
         { label: 'Account type', value: 'Current' },
         { label: 'Branch code', value: '632005' },
+        { label: 'SWIFT code', value: 'ABSAZAJJ' },
         { label: 'Reference', value: 'Your full name' },
+        {
+          label: 'Head office for SWIFT routing',
+          value:
+            'ABSA Bank Ltd, 7th Floor, ABSA Towers West, 15 Troye Street, Johannesburg, South Africa, 2001',
+        },
       ],
     },
     fields: {
@@ -1030,9 +1035,8 @@ export const siteText = {
       { label: 'Golf', href: '/long-stay/#golf' },
       { label: 'Pricing', href: '/long-stay/#pricing' },
       { label: 'FAQ', href: '/long-stay/#faq' },
-      { label: 'Request', href: '/long-stay/#enquire' },
     ],
-    cta: { label: 'Request Escape', href: '/long-stay/#enquire' },
+    cta: { label: 'Contact Us', href: '/contact/' },
   },
 } as const
 
