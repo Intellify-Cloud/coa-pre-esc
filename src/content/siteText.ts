@@ -645,8 +645,8 @@ export const siteText = {
           body:
             'The beach is the reason to stay longer: swimming, coastal walks, sunrise light, family beach time and nearby restaurants along the South Coast.',
           image: {
-            src: '/long-stay/umhlanga.png',
-            alt: 'Umhlanga beachfront and lighthouse on the KwaZulu-Natal coast',
+            src: '/long-stay/Warnadoone.png',
+            alt: 'Winklespruit and Warner Beach coastline near Amanzimtoti',
             label: 'Coastal Beach Days',
           },
           items: ['Warm-water swimming', 'Sunrise and sunset walks', 'Restaurants nearby'],
@@ -657,8 +657,8 @@ export const siteText = {
           body:
             'Use Amanzimtoti as a coastal base for Durban-area wildlife outings and bigger KwaZulu-Natal safari days, from PheZulu and Tala to Hluhluwe-iMfolozi, Phinda and iSimangaliso.',
           image: {
-            src: '/long-stay/zimbali.png',
-            alt: 'Lush KwaZulu-Natal coastal estate and forest landscape',
+            src: '/long-stay/tala-blou-wildebeest.jpg',
+            alt: 'Blue wildebeest wildlife experience at Tala near Durban',
             label: 'Nature & Wildlife',
           },
           items: ['PheZulu and Tala day-trip options', 'Hluhluwe-iMfolozi and Phinda safari trips', 'iSimangaliso Wetland Park extensions'],
@@ -694,7 +694,7 @@ export const siteText = {
           body:
             'Durban curry, bunny chow, seafood, braai, local markets and South African hospitality turn the stay into more than just accommodation.',
           image: {
-            src: '/long-stay/duban-cuisine-bunny.webp',
+            src: '/long-stay/duban-cuisine-bunny.jpg',
             alt: 'Durban bunny chow and local South African food',
             label: 'Local Flavour',
           },
@@ -828,7 +828,7 @@ export const siteText = {
           description:
             'A historic championship layout shaped by coastal sand dunes and world-class pedigree.',
           image: {
-            src: '/golf/durban-country-club.jpg',
+            src: '/long-stay/durban-country-club.jpg',
             alt: 'Durban Country Club golf course with coastal championship layout',
             label: 'Durban Country Club',
           },
@@ -1025,7 +1025,6 @@ export const siteText = {
     scrolledLogoImage: '/logo/cpe-logo-bw-tp.png',
     links: [
       { label: 'Home', href: '/#hero' },
-      { label: 'Long Stay', href: '/long-stay/' },
       { label: 'The Escape', href: '/long-stay/#escape' },
       { label: 'Accommodation', href: '/long-stay/#accommodation' },
       { label: 'Golf', href: '/long-stay/#golf' },

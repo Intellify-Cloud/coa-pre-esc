@@ -956,7 +956,13 @@
     }
 
     .long-stay-experience__feature {
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: stretch;
+      grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+    }
+
+    .long-stay-experience__image {
+      height: 100%;
+      aspect-ratio: auto;
     }
 
     .long-stay-location__inner {
