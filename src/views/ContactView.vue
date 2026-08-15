@@ -96,6 +96,7 @@
 
           <form
             v-if="status !== 'success'"
+            id="contactForm"
             class="contact-form shell-card"
             novalidate
             @submit.prevent="handleSubmit"
@@ -112,47 +113,73 @@
               />
             </div>
 
-            <label>
-              <span>Full name <strong>*</strong></span>
-              <input
-                v-model="form.name"
-                :class="{ 'contact-form__input--error': errors.name }"
-                name="name"
-                type="text"
-                autocomplete="name"
-              />
-              <em v-if="errors.name">{{ errors.name }}</em>
-            </label>
+            <div class="contact-form__row">
+              <label for="firstName">
+                <span>First name <strong>*</strong></span>
+                <input
+                  id="firstName"
+                  v-model="form.firstName"
+                  :class="{ 'contact-form__input--error': errors.firstName }"
+                  name="firstName"
+                  type="text"
+                  autocomplete="given-name"
+                />
+                <em v-if="errors.firstName" id="error-firstName">{{ errors.firstName }}</em>
+              </label>
+
+              <label for="lastName">
+                <span>Last name <strong>*</strong></span>
+                <input
+                  id="lastName"
+                  v-model="form.lastName"
+                  :class="{ 'contact-form__input--error': errors.lastName }"
+                  name="lastName"
+                  type="text"
+                  autocomplete="family-name"
+                />
+                <em v-if="errors.lastName" id="error-lastName">{{ errors.lastName }}</em>
+              </label>
+            </div>
 
             <div class="contact-form__row">
-              <label>
+              <label for="emailAddress">
                 <span>Email address <strong>*</strong></span>
                 <input
+                  id="emailAddress"
                   v-model="form.emailAddress"
                   :class="{ 'contact-form__input--error': errors.emailAddress }"
                   name="emailAddress"
                   type="email"
                   autocomplete="email"
                 />
-                <em v-if="errors.emailAddress">{{ errors.emailAddress }}</em>
+                <em v-if="errors.emailAddress" id="error-emailAddress">
+                  {{ errors.emailAddress }}
+                </em>
               </label>
 
-              <label>
+              <label for="phoneNumber">
                 <span>Mobile number</span>
-                <input v-model="form.phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" />
+                <input
+                  id="phoneNumber"
+                  v-model="form.phoneNumber"
+                  name="phoneNumber"
+                  type="tel"
+                  autocomplete="tel"
+                />
               </label>
             </div>
 
-            <label>
+            <label for="content">
               <span>Message <strong>*</strong></span>
               <textarea
+                id="content"
                 v-model="form.content"
                 :class="{ 'contact-form__input--error': errors.content }"
                 name="content"
                 rows="6"
                 placeholder="Tell us about your travel season, family holiday needs, or any questions."
               ></textarea>
-              <em v-if="errors.content">{{ errors.content }}</em>
+              <em v-if="errors.content" id="error-content">{{ errors.content }}</em>
             </label>
 
             <label class="contact-form__check">
@@ -160,26 +187,35 @@
               <span>{{ contactData.fields.whatsapp }}</span>
             </label>
 
-            <p v-if="status === 'error'" class="contact-form__status contact-form__status--error">
-              Sorry, something went wrong. Please call or email us directly and we will assist you.
+            <p
+              v-if="status === 'error'"
+              id="status-error"
+              class="contact-form__status contact-form__status--error"
+            >
+              {{ contactData.error }}
             </p>
 
             <button
+              id="submitBtn"
               class="shell-button shell-button--primary"
               type="submit"
               :disabled="isSubmitting"
             >
-              {{ isSubmitting ? 'Sending...' : 'Send message' }}
+              <span>{{ isSubmitting ? contactData.sending : contactData.submit }}</span>
             </button>
 
             <p class="contact-form__privacy">
-              Your details are used only to respond to your enquiry and share relevant membership
-              information.
+              {{ contactData.privacy }}
             </p>
           </form>
 
-          <section v-else class="contact-success shell-card" aria-live="polite">
-            <p>Thank you. Your enquiry has been received and the team will be in touch.</p>
+          <section
+            v-else
+            id="status-sent"
+            class="contact-success shell-card"
+            aria-live="polite"
+          >
+            <p>{{ contactData.success }}</p>
             <RouterLink class="shell-button shell-button--primary" to="/">Back home</RouterLink>
           </section>
         </div>
@@ -246,7 +282,8 @@
   const status = ref<'idle' | 'success' | 'error'>('idle')
 
   const form = reactive({
-    name: '',
+    firstName: '',
+    lastName: '',
     emailAddress: '',
     phoneNumber: '',
     whatsapp: false,
@@ -255,13 +292,15 @@
   })
 
   const errors = reactive({
-    name: '',
+    firstName: '',
+    lastName: '',
     emailAddress: '',
     content: '',
   })
 
   const clearErrors = () => {
-    errors.name = ''
+    errors.firstName = ''
+    errors.lastName = ''
     errors.emailAddress = ''
     errors.content = ''
     status.value = 'idle'
@@ -273,8 +312,13 @@
     clearErrors()
     let isValid = true
 
-    if (!form.name.trim()) {
-      errors.name = 'Full name is required'
+    if (!form.firstName.trim()) {
+      errors.firstName = 'First name is required'
+      isValid = false
+    }
+
+    if (!form.lastName.trim()) {
+      errors.lastName = 'Last name is required'
       isValid = false
     }
 
@@ -295,7 +339,8 @@
   }
 
   const resetForm = () => {
-    form.name = ''
+    form.firstName = ''
+    form.lastName = ''
     form.emailAddress = ''
     form.phoneNumber = ''
     form.whatsapp = false
@@ -321,7 +366,7 @@
         .filter(Boolean)
         .join('\n')
       const payload = {
-        name: form.name.trim(),
+        name: `${form.firstName.trim()} ${form.lastName.trim()}`,
         emailAddress: form.emailAddress.trim(),
         phoneNumber: form.phoneNumber.trim(),
         location: form.location,
@@ -677,6 +722,11 @@
   .contact-form__status--error {
     background: #fff3f0;
     color: #b42318;
+  }
+
+  .contact-form__status--success {
+    background: color-mix(in srgb, var(--shell-color-lagoon) 13%, white);
+    color: var(--shell-color-lagoon);
   }
 
   .contact-form button {
