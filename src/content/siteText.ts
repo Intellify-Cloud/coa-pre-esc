@@ -579,7 +579,7 @@ export const siteText = {
     body: 'Take a quick look at the Cabana Mio setting, accommodation and coastal lifestyle in Amanzimtoti.',
     video: {
       title: 'Cabana Mio resort video',
-      embedUrl: 'https://www.youtube-nocookie.com/embed/0WyvigbvIIU',
+      src: '/videos/Cabana Mio - Self Catering Accommodation - Amanzimtoti.mp4',
     },
   },
   'long-stay': {
