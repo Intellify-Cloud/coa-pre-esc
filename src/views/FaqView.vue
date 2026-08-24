@@ -45,7 +45,7 @@
     {
       question: 'How does the Holiday Wallet work?',
       answer:
-        'Your monthly contributions build usable holiday value in a protected Holiday Wallet. Contribution options are available over 12, 24, 36, 48, or 60 months.',
+        'Your monthly contributions build usable holiday value in a protected Holiday Wallet. Contribution options are available over 12, 24, 36, 48, or 60 months. The 60-month holiday option has no annual escalation and only changes if the Body Corporate raises the levy.',
     },
     {
       question: 'Can I choose when my family goes on holiday?',

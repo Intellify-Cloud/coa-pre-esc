@@ -77,8 +77,10 @@
           <article>
             <h2>Why this is an estimate</h2>
             <p>
-              The calculator uses current headline monthly values only. Final membership agreements,
-              deposits, availability and booking rules remain subject to written confirmation.
+              The calculator uses current headline monthly values only. A 60-month holiday has no
+              annual escalation and changes only if the Body Corporate raises the levy. Final
+              membership agreements, deposits, availability and booking rules remain subject to
+              written confirmation.
             </p>
           </article>
         </div>

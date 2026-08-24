@@ -364,7 +364,7 @@ export const siteText = {
       },
       {
         title: 'Build Your Wallet',
-        body: 'Your contributions sit in a protected Holiday Wallet, with 12, 24, 36, 48, and 60 month contribution options available.',
+        body: 'Your contributions sit in a protected Holiday Wallet, with 12, 24, 36, 48, and 60 month contribution options available. The 60-month holiday option has no annual escalation and only changes if the Body Corporate raises the levy.',
       },
       {
         title: 'Book Flexibly',
@@ -444,8 +444,8 @@ export const siteText = {
     body: 'Self-catering duplex chalets in Athlone Park, Amanzimtoti, designed for easy family holidays on the KwaZulu-Natal South Coast. Expect warm-water beach days, practical chalet comforts, and space for the family to settle in.',
     address: '159 Beach Road, Athlone Park, Amanzimtoti, KwaZulu-Natal',
     embedUrl: '',
-    pageCta: { label: 'View Cabana Mio Rates', href: '/cabana-mio/' },
-    externalCta: { label: 'Visit Cabana Mio Website', href: 'https://www.cabanamio.co.za' },
+    pageCta: { label: 'View Long-Stay Rates', href: '/long-stay/#pricing' },
+    externalCta: { label: 'Check Cabana Mio Availability', href: 'https://www.cabanamio.co.za' },
     rates: {
       eyebrow: '- Cabana Mio Rates -',
       title: 'Seasonal 6-sleeper accommodation rates.',
@@ -590,7 +590,7 @@ export const siteText = {
     highlight: '3-bedroom beachside duplexes in Amanzimtoti, South Africa',
     image: '/hero/hero_3.png',
     imageAlt: 'Sunny coastal beach scene for the Cabana Mio long-stay winter escape',
-    primaryCta: { label: 'Explore the 90-Day Escape', href: '#accommodation' },
+    primaryCta: { label: 'Explore the 90-Day Escape', href: '#experience' },
     secondaryCta: { label: 'View 90-Day Pricing', href: '#pricing' },
     facts: ['50m from the beach', '3 bedrooms', 'Unlimited Wi-Fi', 'Golf nearby'],
     winterContrast: {
@@ -861,8 +861,8 @@ export const siteText = {
     },
     pricing: {
       eyebrow: '- Pricing -',
-      title: '90-Day Winter Sun Packages packages',
-      note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply.',
+      title: '90-Day Winter Sun Packages',
+      note: 'Long-stay rates are per 3-bedroom duplex for the duration selected. Availability and booking terms apply. For 60-month holiday planning, there is no annual escalation; pricing only changes if the Body Corporate raises the levy.',
       rows: [
         { duration: '60 days', price: 'Around €5,300 / £4,550', featured: false },
         { duration: '75 days', price: 'Around €6,650 / £5,700', featured: false },

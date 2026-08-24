@@ -65,9 +65,10 @@
         </section>
 
         <footer class="cabana-page__cta shell-card">
-          <p>Explore the accommodation directly on the Cabana Mio website, or contact CPE about membership access and available dates.</p>
+          <p>Use the Cabana Mio website to check accommodation availability only. For long-stay rates, membership access and booking guidance, contact CPE.</p>
           <div>
             <a class="shell-button shell-button--primary" href="/contact/">Contact Us</a>
+            <a class="shell-button shell-button--secondary" href="/long-stay/#pricing">View Long-Stay Rates</a>
             <a :href="cabanaData.externalCta.href" target="_blank" rel="noreferrer">
               {{ cabanaData.externalCta.label }}
             </a>
